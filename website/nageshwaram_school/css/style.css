@@ -1161,13 +1161,7 @@ button {
   margin-right: 0;
 }
 .left-img-column img {
-  width: 335px;
   max-width: 100%;
-}
-@media (min-width: 1500px) {
-  .left-img-column img{
-    width: 420px;
-  }
 }
 a.fb-color {
   background: #3e5c9a !important;
