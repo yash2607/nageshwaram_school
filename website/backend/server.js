@@ -4,12 +4,12 @@ const path = require('path');
 const app = express();
 const port = 3001;
 
-// Serve static files from the 'dps-patna' directory
-app.use(express.static(path.join(__dirname, '../dps-patna')));
+// Serve static files from the 'nageshwaram_school' directory
+app.use(express.static(path.join(__dirname, '../nageshwaram_school')));
 
 // Serve index.html for the root path
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../dps-patna', 'index.html'));
+  res.sendFile(path.join(__dirname, '../nageshwaram_school', 'index.html'));
 });
 
 app.get('/api/circulars', (req, res) => {
