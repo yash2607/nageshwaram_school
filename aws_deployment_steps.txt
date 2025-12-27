@@ -117,3 +117,21 @@ Here are the steps to deploy your website to an AWS EC2 Ubuntu instance:
     ```
 
 Your website should now be accessible from your EC2 instance's public IP address in your web browser.
+
+**9. Automated Deployment with GitHub Actions:**
+
+The steps above are for the initial manual setup of your server. After the initial setup, every push to the `master` branch of your GitHub repository will automatically trigger a deployment to your EC2 instance.
+
+The deployment process is defined in the `.github/workflows/deploy.yml` file in your repository. It uses GitHub Actions to:
+
+*   Check out your code.
+*   SSH into your EC2 instance.
+*   Pull the latest changes from your repository.
+*   Install any new dependencies.
+*   Restart your application using `pm2`.
+
+To enable this, you need to add the following secrets to your GitHub repository's settings:
+
+*   `EC2_HOST`: Your EC2 instance's public IP address.
+*   `EC2_USERNAME`: The username for your EC2 instance (e.g., `ubuntu`).
+*   `EC2_KEY`: The content of your `.pem` file (your private key).
