@@ -1,0 +1,340 @@
+# AWS EC2 Website Deployment and Setup Guide
+
+This guide covers setting up an AWS EC2 instance, configuring Nginx for static file serving, Node.js backend proxying, HTTP to HTTPS redirection, and SSL with Certbot, along with initial application deployment.
+
+---
+
+### **1. Prerequisites:**
+
+*   An AWS account.
+*   An EC2 instance (e.g., Ubuntu, Amazon Linux 2, or RHEL).
+*   An **Elastic IP address** associated with your EC2 instance.
+*   Your EC2 instance's key pair (`.pem` file).
+*   A purchased domain (e.g., `nageshwaramtrust.org`).
+
+---
+
+### **2. Connect to your EC2 instance:**
+
+*   Open a terminal or command prompt.
+*   Use the `ssh` command to connect to your instance:
+    ```bash
+    ssh -i /path/to/your-key.pem ec2-user@your-ec2-public-ip
+    ```
+    *   Replace `/path/to/your-key.pem` with the actual path to your `.pem` file.
+    *   Replace `your-ec2-public-ip` with your instance's public IP address.
+    *   (Replace `ec2-user` with `ubuntu` for Ubuntu instances, or `centos` for CentOS/RHEL.)
+
+---
+
+### **3. Install Core Dependencies:**
+
+*   Update the package list:
+    ```bash
+    sudo apt-get update # For Ubuntu
+    # OR sudo yum update -y # For Amazon Linux 2 / RHEL / CentOS
+    ```
+*   Install Git:
+    ```bash
+    sudo apt-get install -y git # For Ubuntu
+    # OR sudo yum install -y git # For Amazon Linux 2 / RHEL / CentOS
+    ```
+
+---
+
+### **4. Configure EC2 Security Group:**
+
+*   In the AWS EC2 console, go to "Security Groups" and select the security group associated with your EC2 instance.
+*   **Inbound Rules:**
+    *   Add a rule for **SSH (Port 22)** from `My IP` or `Anywhere` (0.0.0.0/0) if you are comfortable with that.
+    *   Add a rule for **HTTP (Port 80)** from `Anywhere` (0.0.0.0/0).
+    *   Add a rule for **HTTPS (Port 443)** from `Anywhere` (0.0.0.0/0).
+
+---
+
+### **5. Install and Configure Nginx:**
+
+1.  **Install Nginx:**
+    *   **For Amazon Linux 2 / RHEL / CentOS:**
+        ```bash
+        sudo amazon-linux-extras install nginx1 -y # For Amazon Linux 2
+        # OR: sudo yum install nginx -y # For RHEL/CentOS
+        ```
+    *   **For Ubuntu:**
+        ```bash
+        sudo apt install nginx -y
+        ```
+2.  **Start Nginx Service:**
+    ```bash
+    sudo systemctl start nginx
+    sudo systemctl enable nginx # Ensures Nginx starts on boot
+    ```
+    *   You can verify Nginx is running by navigating to your EC2 instance's public IP in a web browser. You should see the Nginx welcome page.
+
+3.  **Create Nginx Configuration File:**
+    *   Create a new configuration file for your domain (e.g., `nageshwaramtrust.org.conf`).
+        ```bash
+        sudo nano /etc/nginx/sites-available/nageshwaramtrust.org.conf
+        ```
+    *   Paste the following configuration into the file. Certbot will later modify this for SSL:
+        ```nginx
+        server {
+            listen 80;
+            server_name nageshwaramtrust.org www.nageshwaramtrust.org;
+
+            location / {
+                # This will be replaced by Certbot for HTTP-01 challenge if not present.
+                # After Certbot, it will redirect HTTP to HTTPS.
+                # For now, it could proxy to your app or serve static files
+                proxy_pass http://localhost:3001; # Assuming your Node.js backend runs on port 3001
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection 'upgrade';
+                proxy_set_header Host $host;
+                proxy_cache_bypass $http_upgrade;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header X-Forwarded-Proto $scheme;
+            }
+        }
+        ```
+        *   **Note:** The `location /` block initially proxies to port 3001. If your Node.js app is not yet running or configured, Nginx will show an error. We will update the Nginx configuration after Certbot setup to handle both static files and backend proxying correctly.
+    *   Save and exit the editor (Ctrl+X, Y, Enter for `nano`).
+
+4.  **Enable the Nginx Configuration:**
+    *   Create a symbolic link from `sites-available` to `sites-enabled`.
+        ```bash
+        sudo ln -s /etc/nginx/sites-available/nageshwaramtrust.org.conf /etc/nginx/sites-enabled/
+        ```
+    *   Remove the default Nginx configuration to avoid conflicts:
+        ```bash
+        sudo rm /etc/nginx/sites-enabled/default
+        ```
+
+5.  **Test Nginx Configuration and Reload:**
+    ```bash
+    sudo nginx -t # Tests the configuration for syntax errors
+    sudo systemctl reload nginx # Reloads Nginx to apply the new configuration
+    ```
+
+---
+
+### **6. Setup SSL with Certbot (Let's Encrypt):**
+
+**Before starting these steps:**
+*   Your **Route 53 DNS records must be pointing your domain (`nageshwaramtrust.org` and `www.nageshwaramtrust.org`) to your EC2 instance's Elastic IP**. This is crucial for Certbot's domain validation.
+
+1.  **Install Certbot and the Nginx Plugin:**
+    *   **For Amazon Linux 2 / RHEL / CentOS:**
+        ```bash
+        sudo yum install -y epel-release
+        sudo yum install -y certbot python3-certbot-nginx
+        ```
+    *   **For Ubuntu:**
+        ```bash
+        sudo apt update -y
+        sudo apt install -y certbot python3-certbot-nginx
+        ```
+2.  **Obtain and Install SSL Certificate:**
+    *   Run Certbot. It will detect your Nginx configuration and attempt to obtain and install the certificate.
+        ```bash
+        sudo certbot --nginx -d nageshwaramtrust.org -d www.nageshwaramtrust.org
+        ```
+    *   **Follow the prompts:**
+        *   Enter an email address for urgent renewal notices.
+        *   Agree to the terms of service.
+        *   Decide if you want to share your email with the Electronic Frontier Foundation (EFF).
+        *   Certbot will ask if you want to redirect HTTP traffic to HTTPS. **Choose 2 (Redirect)**. This will automatically modify your Nginx configuration to enforce HTTPS.
+3.  **Verify Automatic Renewal:**
+    *   Test the renewal process (dry run):
+        ```bash
+        sudo certbot renew --dry-run
+        ```
+    *   If this command runs without errors, your certificates should automatically renew.
+
+---
+
+### **7. Deploy Your Application Code:**
+
+1.  **Clone your repository:**
+    *   Clone your repository from GitHub into a suitable directory. For example:
+        ```bash
+        cd /home/ec2-user # Or /home/ubuntu
+        git clone https://github.com/yash2607/nageshwaram_school.git
+        ```
+    *   Adjust permissions if necessary:
+        ```bash
+        sudo chown -R ec2-user:ec2-user nageshwaram_school # Or ubuntu:ubuntu
+        ```
+
+2.  **Install Node.js and npm (if not already installed):**
+    *   **For Ubuntu (preferred newer versions):**
+        ```bash
+        curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+        sudo apt-get install -y nodejs
+        ```
+    *   **For Amazon Linux 2 / RHEL / CentOS (preferred newer versions):**
+        ```bash
+        sudo yum install -y nodejs npm # This might install an older version, consider NVM for latest
+        # Or using NVM (Node Version Manager) for a more flexible Node.js installation:
+        # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+        # . ~/.nvm/nvm.sh
+        # nvm install --lts # Installs the latest LTS version
+        # nvm use --lts
+        ```
+
+3.  **Install Application Dependencies:**
+    *   Navigate to your backend directory:
+        ```bash
+        cd nageshwaram_school/website/backend
+        npm install
+        ```
+    *   Navigate to your frontend directory (if it has its own `package.json` and build step, otherwise skip):
+        ```bash
+        cd ../frontend # Assuming 'frontend' is next to 'backend'
+        npm install
+        npm run build # If you have a build step
+        ```
+
+---
+
+### **8. Running the Backend Application with PM2:**
+
+*   **Install PM2:**
+    ```bash
+    sudo npm install -g pm2
+    ```
+*   **Start your application with PM2:**
+    *   Navigate back to your backend directory:
+        ```bash
+        cd /home/ec2-user/nageshwaram_school/website/backend # Adjust path
+        pm2 start server.js --name "nageshwaram-backend"
+        ```
+*   **Ensure PM2 starts on reboot:**
+    ```bash
+    pm2 startup # Follow the instructions it provides (copy-paste a command)
+    pm2 save
+    ```
+*   **Check PM2 status:**
+    ```bash
+    pm2 status
+    pm2 logs nageshwaram-backend
+    ```
+
+---
+
+### **9. Update Nginx Configuration to Serve Frontend and Proxy Backend:**
+
+After Certbot has run, it will have created an SSL-enabled server block. You now need to adjust Nginx to serve your static frontend files and proxy to your backend correctly.
+
+1.  **Edit your Nginx site configuration file:**
+    ```bash
+    sudo nano /etc/nginx/sites-available/nageshwaramtrust.org.conf
+    ```
+2.  **Modify the `server` block for port 443 (HTTPS) to look like this:**
+    ```nginx
+    server {
+        listen 443 ssl;
+        server_name nageshwaramtrust.org www.nageshwaramtrust.org;
+
+        # These lines will be added/modified by Certbot
+        ssl_certificate /etc/letsencrypt/live/nageshwaramtrust.org/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/nageshwaramtrust.org/privkey.pem;
+        include /etc/letsencrypt/options-ssl-nginx.conf;
+        ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+        # Root for your static frontend files
+        # Assuming your frontend static files are in /home/ec2-user/nageshwaram_school/website/nageshwaram_school/
+        # (adjust this path to your actual static files location)
+        root /home/ec2-user/nageshwaram_school/website/nageshwaram_school;
+        index index.html index.htm;
+
+        location / {
+            try_files $uri $uri/ =404; # Tries to serve static file, if not found, 404
+        }
+
+        # Proxy for your Node.js API backend
+        location /api/ {
+            proxy_pass http://localhost:3001; # Your backend Node.js app's port
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection 'upgrade';
+            proxy_set_header Host $host;
+            proxy_cache_bypass $http_upgrade;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+    }
+    ```
+    *   **Crucial paths:** Adjust the `root` directive to the *actual* path where your `index.html` and other static frontend assets are located on the EC2 instance. In your repository structure, this is likely `/home/ec2-user/nageshwaram_school/website/nageshwaram_school/`.
+    *   The `location /` block now explicitly tries to serve static files first.
+    *   The `location /api/` block specifically proxies requests to your backend.
+
+3.  **Test Nginx Configuration and Reload:**
+    ```bash
+    sudo nginx -t # Tests the configuration for syntax errors
+    sudo systemctl reload nginx # Reloads Nginx to apply the new configuration
+    ```
+
+---
+
+### **10. Route 53 DNS Configuration:**
+
+**Before you start:**
+*   You must have an **Elastic IP address** associated with your EC2 instance.
+*   You should have a **Hosted Zone** for `nageshwaramtrust.org` in Route 53. If not, follow these steps to create one first:
+    *   In the AWS Console, navigate to **Route 53**.
+    *   In the navigation pane, choose **Hosted zones**.
+    *   Choose **Create hosted zone**.
+    *   For **Domain name**, enter `nageshwaramtrust.org`.
+    *   For **Type**, accept the default value of **Public hosted zone**.
+    *   Choose **Create hosted zone**.
+    *   *Note down the four **Name Servers (NS records)** provided by Route 53.* You will need to update your domain registrar (where you bought `nageshwaramtrust.org`) to use these Name Servers. This step is crucial and can take 24-48 hours to propagate globally.
+
+**Configuring DNS Records:**
+Assuming you have a Hosted Zone for `nageshwaramtrust.org` and its Name Servers are updated at your domain registrar:
+
+1.  **Navigate to your Hosted Zone:**
+    *   In the AWS Console, go to **Route 53**.
+    *   In the navigation pane, choose **Hosted zones**.
+    *   Click on `nageshwaramtrust.org`.
+
+2.  **Create an A record for the root domain (`nageshwaramtrust.org`):**
+    *   Choose **Create record**.
+    *   **Routing policy:** Simple routing (default). Choose **Next**.
+    *   Choose **Define simple record**.
+    *   For **Record name**, leave it blank (or `@`) to represent the root domain.
+    *   For **Value/Route traffic to**, choose **IP address or another AWS resource**.
+    *   Select **IP address** and paste your **EC2 Elastic IP address**.
+    *   For **Record type**, choose **A - Routes traffic to an IPv4 address and some AWS resources**.
+    *   For **TTL (seconds)**, you can leave it at the default 300 or choose a higher value if you prefer.
+    *   Choose **Define simple record** again.
+    *   Choose **Create records**.
+
+3.  **Create an A record for `www.nageshwaramtrust.org`:**
+    *   Choose **Create record**.
+    *   **Routing policy:** Simple routing (default). Choose **Next**.
+    *   Choose **Define simple record**.
+    *   For **Record name**, enter `www`.
+    *   For **Value/Route traffic to**, choose **IP address or another AWS resource**.
+    *   Select **IP address** and paste your **EC2 Elastic IP address**.
+    *   For **Record type**, choose **A - Routes traffic to an IPv4 address and some AWS resources**.
+    *   For **TTL (seconds)**, you can leave it at the default 300 or choose a higher value if you prefer.
+    *   Choose **Define simple record** again.
+    *   Choose **Create records`.
+
+**Wait for DNS Propagation:**
+DNS changes can take some time to propagate across the internet.
+
+---
+
+### **11. Automated Deployment with GitHub Actions (Optional for continuous deployment):**
+
+If you want automated deployments every time you push to GitHub, the `.github/workflows/deploy.yml` file in your repository can be configured.
+
+To enable this, you need to add the following secrets to your GitHub repository's settings:
+
+*   `EC2_HOST`: Your EC2 instance's public IP address.
+*   `EC2_USERNAME`: The username for your EC2 instance (e.g., `ubuntu` or `ec2-user`).
+*   `EC2_KEY`: The content of your `.pem` file (your private key).
