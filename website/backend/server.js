@@ -12,6 +12,12 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../nageshwaram_school', 'index.html'));
 });
 
+// Explicitly serve index.html for the /index.html path
+app.get('/index.html', (req, res) => {
+    res.sendFile(path.join(__dirname, '../nageshwaram_school', 'index.html'));
+    }
+);
+
 app.get('/api/circulars', (req, res) => {
   const circularsData = fs.readFileSync(path.join(__dirname, 'data', 'circulars.json'));
   res.json(JSON.parse(circularsData));

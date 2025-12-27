@@ -294,7 +294,7 @@ $('#to-the-top').click(function () { $('body,html').animate({ scrollTop: 0 }, 10
         var n = document.createElement("li");
         n.classList.add("home-icon");
         var a = document.createElement("a");
-        a.href = "index.php";
+        a.href = "index.html";
         var o = document.createElement("img");
         (o.src =
           "https://resources.edunexttechnologies.com/web-data/takshila/dpscoimbatore/home-icon.svg"),
