@@ -1160,6 +1160,9 @@ button {
 .header-top .social-icon li:last-child {
   margin-right: 0;
 }
+.left-img-column {
+  min-width: 400px;
+}
 .left-img-column img {
   max-width: 100%;
 }
