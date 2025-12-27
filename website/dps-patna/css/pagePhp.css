@@ -1,0 +1,76 @@
+.main-header {
+  border-bottom: 1px solid lightgray;
+}
+
+.fullwidth {
+  width: 100%;
+  float: left;
+}
+
+.inside-leftMenu {
+  text-align: center;
+  position: relative;
+  background: var(--orange);
+  border-top: 5px solid var(--clr-green);
+  padding: 10px 15px;
+}
+
+.inside-leftMenu-Box {
+  width: 100%;
+  position: relative;
+}
+
+.inside-leftMenu-Box ul li {
+  width: 100%;
+  float: left;
+  margin: 3px 0;
+}
+
+.main-page-menu {
+  font-size: 17px;
+  margin-bottom: 8px;
+  margin-top: 10px;
+  font-weight: 600;
+  padding: 5px;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.inside-leftMenu-Box ul li a {
+  display: block;
+  padding: 5px;
+  line-height: 20px;
+  font-size: 16px;
+  color: #fff;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  text-align: left;
+}
+
+.inside-leftMenu-Box ul li a:hover,
+.inside-leftMenu-Box ul li.leftMenuBtn.leftMenuBtnActive > a,
+.inside-leftMenu-Box ul li a.active-leftPage {
+  color: #173e30;
+  font-weight: 500;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.inside-leftMenu-Box ul li.leftMenuBtn a {
+  position: relative;
+}
+
+.inside-leftMenu-Box ul li.leftMenuBtn .sec-levelm:after {
+  font-family: FontAwesome;
+  content: "\f107";
+  display: inline-block;
+  vertical-align: middle;
+  position: absolute;
+  right: 10px;
+  font-size: 16px;
+}
+
+.inside-leftMenu-Box ul li.leftMenuBtn .leftMenu-drop {
+  display: none;
+}
