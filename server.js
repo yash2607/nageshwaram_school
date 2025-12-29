@@ -21,17 +21,17 @@ app.use('/school', schoolRoutes);
 
 // API routes from legacy server
 app.get('/api/circulars', (req, res) => {
-  const circularsData = fs.readFileSync(path.join(__dirname, 'legacy_site/website/backend/data', 'circulars.json'));
+  const circularsData = fs.readFileSync(path.join(__dirname, 'data', 'circulars.json'));
   res.json(JSON.parse(circularsData));
 });
 
 app.get('/api/gallery', (req, res) => {
-  const galleryData = fs.readFileSync(path.join(__dirname, 'legacy_site/website/backend/data', 'gallery.json'));
+  const galleryData = fs.readFileSync(path.join(__dirname, 'data', 'gallery.json'));
   res.json(JSON.parse(galleryData));
 });
 
 app.get('/api/videos', (req, res) => {
-    const videosData = fs.readFileSync(path.join(__dirname, 'legacy_site/website/backend/data', 'videos.json'));
+    const videosData = fs.readFileSync(path.join(__dirname, 'data', 'videos.json'));
     res.json(JSON.parse(videosData));
 });
 
