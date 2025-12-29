@@ -86,7 +86,7 @@ This guide covers setting up an AWS EC2 instance, configuring Nginx for static f
                 # This will be replaced by Certbot for HTTP-01 challenge if not present.
                 # After Certbot, it will redirect HTTP to HTTPS.
                 # For now, it could proxy to your app or serve static files
-                proxy_pass http://localhost:3001; # Assuming your Node.js backend runs on port 3001
+                proxy_pass http://localhost:3000; # Assuming your Node.js backend runs on port 3000
                 proxy_http_version 1.1;
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection 'upgrade';
@@ -184,16 +184,10 @@ This guide covers setting up an AWS EC2 instance, configuring Nginx for static f
         ```
 
 3.  **Install Application Dependencies:**
-    *   Navigate to your backend directory:
+    *   Navigate to your project directory:
         ```bash
-        cd nageshwaram_school/website/backend
+        cd nageshwaram_school
         npm install
-        ```
-    *   Navigate to your frontend directory (if it has its own `package.json` and build step, otherwise skip):
-        ```bash
-        cd ../frontend # Assuming 'frontend' is next to 'backend'
-        npm install
-        npm run build # If you have a build step
         ```
 
 ---
@@ -205,10 +199,10 @@ This guide covers setting up an AWS EC2 instance, configuring Nginx for static f
     sudo npm install -g pm2
     ```
 *   **Start your application with PM2:**
-    *   Navigate back to your backend directory:
+    *   Navigate to your project directory:
         ```bash
-        cd /home/ec2-user/nageshwaram_school/website/backend # Adjust path
-        pm2 start server.js --name "nageshwaram-backend"
+        cd /home/ec2-user/nageshwaram_school # Adjust path
+        pm2 start server.js --name "nageshwaram-site"
         ```
 *   **Ensure PM2 starts on reboot:**
     ```bash
@@ -218,14 +212,14 @@ This guide covers setting up an AWS EC2 instance, configuring Nginx for static f
 *   **Check PM2 status:**
     ```bash
     pm2 status
-    pm2 logs nageshwaram-backend
+    pm2 logs nageshwaram-site
     ```
 
 ---
 
-### **9. Update Nginx Configuration to Serve Frontend and Proxy Backend:**
+### **9. Update Nginx Configuration:**
 
-After Certbot has run, it will have created an SSL-enabled server block. You now need to adjust Nginx to serve your static frontend files and proxy to your backend correctly.
+After Certbot has run, it will have created an SSL-enabled server block. You now need to adjust Nginx to proxy all requests to your Node.js application.
 
 1.  **Edit your Nginx site configuration file:**
     ```bash
@@ -243,19 +237,8 @@ After Certbot has run, it will have created an SSL-enabled server block. You now
         include /etc/letsencrypt/options-ssl-nginx.conf;
         ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
-        # Root for your static frontend files
-        # Assuming your frontend static files are in /home/ec2-user/nageshwaram_school/website/nageshwaram_school/
-        # (adjust this path to your actual static files location)
-        root /home/ec2-user/nageshwaram_school/website/nageshwaram_school;
-        index index.html index.htm;
-
         location / {
-            try_files $uri $uri/ =404; # Tries to serve static file, if not found, 404
-        }
-
-        # Proxy for your Node.js API backend
-        location /api/ {
-            proxy_pass http://localhost:3001; # Your backend Node.js app's port
+            proxy_pass http://localhost:3000; # Your Node.js app's port
             proxy_http_version 1.1;
             proxy_set_header Upgrade $http_upgrade;
             proxy_set_header Connection 'upgrade';
@@ -267,9 +250,7 @@ After Certbot has run, it will have created an SSL-enabled server block. You now
         }
     }
     ```
-    *   **Crucial paths:** Adjust the `root` directive to the *actual* path where your `index.html` and other static frontend assets are located on the EC2 instance. In your repository structure, this is likely `/home/ec2-user/nageshwaram_school/website/nageshwaram_school/`.
-    *   The `location /` block now explicitly tries to serve static files first.
-    *   The `location /api/` block specifically proxies requests to your backend.
+    *   This configuration proxies all requests to your Node.js application running on port 3000. Your Node.js application is now responsible for handling all routing and serving static files from the `public` directory.
 
 3.  **Test Nginx Configuration and Reload:**
     ```bash

@@ -1,0 +1,949 @@
+:root {
+    --primary-blue: #1565c0; /* A strong blue for main elements */
+    --secondary-green: #00796b; /* A dark green for accents */
+    --accent-green: #4CAF50; /* A brighter green for calls to action */
+    --light-blue-bg: #e3f2fd; /* Light blue for subtle backgrounds/hovers */
+    --light-green-bg: #e0f2f1; /* Light green for subtle backgrounds/hovers */
+    --neutral-white: #ffffff;
+    --light-gray-bg: #f4f4f4;
+    --border-color: #ddd;
+    --text-dark: #333;
+    --text-light: #fff;
+    --orange-cta: #FF9800; /* A distinct orange for some CTAs if needed */
+    --secondary-green-rgba: rgba(0, 121, 107, 0.8);
+    --accent-green-hover: #388E3C; /* Slightly darker green for hover */
+    --secondary-green-hover: #00695c;
+    --primary-blue-rgba: rgba(21, 101, 192, 0.8);
+    --text-muted: #777;
+}
+
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif, Arial; /* Accessible font with fallbacks */
+    line-height: 1.6;
+    background-color: var(--light-gray-bg);
+    color: var(--text-dark);
+}
+
+header {
+    color: var(--text-dark);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+
+nav .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-blue); /* Adjusted for theme */
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-dark);
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: var(--light-green-bg);
+    color: var(--secondary-green);
+}
+
+main {
+    width: 90%;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--neutral-white);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    background: var(--primary-blue); /* Adjusted for theme */
+    color: var(--text-light);
+    margin-top: 2rem;
+}
+
+/* Mobile-first */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-top: 1rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+
+/* Hero Section */
+.hero {
+    color: var(--text-light);
+    text-align: center;
+    padding: 6rem 0;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    background: var(--accent-green); /* Green */
+    color: var(--neutral-white);
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: var(--accent-green-hover);
+}
+
+/* Vision & Mission Section */
+.vision-mission {
+    padding: 4rem 0;
+    background: var(--neutral-white);
+}
+
+.vision-mission .container {
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+}
+
+.vision, .mission {
+    flex-basis: 45%;
+    text-align: center;
+}
+
+.vision h2, .mission h2 {
+    color: var(--secondary-green); /* Dark Green */
+    margin-bottom: 1rem;
+}
+
+/* Our Institutions Section */
+.our-institutions {
+    padding: 4rem 0;
+}
+
+.our-institutions .container {
+    text-align: center;
+}
+
+.institution-intro {
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+.institution-card, .institution-card-placeholder {
+    display: flex;
+    gap: 2rem;
+    background: var(--neutral-white);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+    overflow: hidden;
+    text-align: left;
+}
+
+.institution-image img {
+    width: 300px;
+    height: 100%;
+    object-fit: cover;
+}
+
+.institution-details {
+    padding: 2rem;
+}
+
+.institution-details h3 {
+    color: var(--primary-blue); /* Blue */
+    margin-bottom: 0.5rem;
+}
+
+.institution-details .tagline {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.learn-more {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--text-light);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.learn-more:hover {
+    background-color: var(--secondary-green);
+}
+
+.institution-card-placeholder {
+    background-color: var(--light-gray-bg);
+    border: 2px dashed var(--border-color);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Page Header */
+.page-header {
+    background-color: var(--primary-blue); /* Blue */
+    color: var(--text-light);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+/* About Content */
+.about-content {
+    padding: 4rem 0;
+    background: var(--neutral-white);
+}
+
+.about-content h2 {
+    color: var(--secondary-green); /* Dark Green */
+    margin-bottom: 1rem;
+}
+
+.about-content p {
+    margin-bottom: 1.5rem;
+}
+
+.about-content ul {
+    list-style-position: inside;
+    margin-left: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-content ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* Founder & Trustees Page */
+.founder-message {
+    padding: 4rem 0;
+    background: var(--neutral-white);
+}
+
+.founder-profile {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.founder-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.founder-text p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+.founder-name {
+    font-weight: bold;
+    text-align: right;
+    font-style: normal;
+}
+
+.trustee-list {
+    padding: 4rem 0;
+}
+
+.trustee-list h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.trustee-list > .container > p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+}
+
+.trustees {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.trustee-card {
+    background: var(--neutral-white);
+    padding: 2rem;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0,0,0,0.07);
+    border: 1px solid var(--border-color);
+}
+
+.trustee-card h3 {
+    color: var(--primary-blue); /* Blue */
+    margin-bottom: 0.5rem;
+}
+
+/* Vision & Mission Page */
+.vision-mission-page {
+    padding: 4rem 0;
+    background: var(--neutral-white);
+}
+
+.vision-statement, .mission-statement {
+    margin-bottom: 3rem;
+}
+
+.vision-mission-page h2 {
+    color: var(--secondary-green); /* Dark Green */
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--light-green-bg);
+}
+
+.vision-mission-page p, .vision-mission-page ul {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.vision-mission-page ul {
+    list-style-position: inside;
+    margin-top: 1rem;
+}
+
+.vision-mission-page ul li {
+    margin-bottom: 0.75rem;
+}
+
+.vision-mission-page ul li strong {
+    color: var(--text-dark);
+}
+
+/* Institutions Page */
+.institutions-page .page-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    font-size: 1.1rem;
+}
+
+.institutions-page .institution-card {
+    margin-bottom: 3rem;
+}
+
+/* Careers Page */
+.careers-intro {
+    padding: 4rem 0;
+    background: var(--neutral-white);
+    text-align: center;
+}
+
+.careers-intro h2 {
+    margin-bottom: 1rem;
+}
+
+.careers-intro p {
+    max-width: 800px;
+    margin: 0 auto 1rem auto;
+}
+
+.current-openings {
+    padding: 4rem 0;
+}
+
+.current-openings h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.job-listing {
+    background: var(--neutral-white);
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--primary-blue); /* Blue */
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.job-listing h3 {
+    color: var(--primary-blue); /* Blue */
+    margin-bottom: 0.5rem;
+}
+
+.job-listing p {
+    margin-bottom: 0.5rem;
+}
+
+.apply-button {
+    display: inline-block;
+    margin-top: 1rem;
+    background: var(--secondary-green); /* Dark Green */
+    color: var(--text-light);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.apply-button:hover {
+    background-color: var(--secondary-green-hover);
+}
+
+.how-to-apply {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: var(--light-green-bg);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.how-to-apply h3 {
+    margin-bottom: 1rem;
+}
+
+/* Contact Page */
+.contact-page .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    background: var(--neutral-white);
+    padding: 3rem;
+}
+
+.contact-details h2, .contact-form h2 {
+    color: var(--secondary-green); /* Dark Green */
+    margin-bottom: 1.5rem;
+}
+
+.contact-details h3 {
+    color: var(--primary-blue); /* Blue */
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-details ul {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.contact-details ul li {
+    margin-bottom: 0.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+
+.submit-button {
+    background: var(--secondary-green); /* Dark Green */
+    color: var(--text-light);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: var(--secondary-green-hover);
+}
+
+@media (max-width: 992px) {
+    .contact-page .container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* School Website Styles */
+
+.school-header .logo {
+    color: var(--primary-blue); /* Blue */
+}
+
+.school-header ul li a:hover {
+    background-color: var(--light-blue-bg);
+    color: var(--primary-blue);
+}
+
+.school-hero {
+     background: linear-gradient(var(--primary-blue-rgba), var(--primary-blue-rgba)), url(/images/hero-bg.jpg) no-repeat center center/cover;
+}
+
+.school-hero .tagline {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.principal-welcome {
+    padding: 4rem 0;
+    background: var(--neutral-white);
+}
+
+.principal-profile {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.principal-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.principal-text p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+.principal-name {
+    font-weight: bold;
+    text-align: right;
+    font-style: normal;
+}
+
+.quick-links {
+    padding: 4rem 0;
+}
+
+.quick-links h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.link-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0,0,0,0.07);
+    border: 1px solid #eee;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.link-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.link-card h3 {
+    color: var(--primary-blue); /* Blue */
+    margin-bottom: 0.5rem;
+}
+
+/* About School Page */
+.about-school-content {
+    padding: 4rem 0;
+    background: var(--neutral-white);
+}
+
+.about-section {
+    margin-bottom: 3rem;
+}
+
+.about-section h2 {
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--light-green-bg);
+}
+
+.about-section p, .about-section ul {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.about-section ul {
+    list-style-position: inside;
+    margin-top: 1rem;
+}
+
+.about-section ul li {
+    margin-bottom: 0.75rem;
+}
+
+/* Principal's Message Page */
+.principal-message-page .container {
+    background: var(--neutral-white);
+    padding: 3rem;
+}
+
+.principal-profile-full {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.principal-image-large {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 5px solid var(--light-gray-bg);
+}
+
+.principal-details h3 {
+    color: var(--primary-blue);
+    margin-bottom: 0.25rem;
+}
+
+.principal-text-full p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.principal-name-signature {
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+/* Academics Page */
+.academics-page .container {
+    background: var(--neutral-white);
+    padding: 3rem;
+}
+
+.academics-page .academic-section {
+    margin-bottom: 3rem;
+}
+
+.academics-page .academic-section h2 {
+    color: var(--secondary-green); /* Dark Green */
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--light-green-bg);
+}
+
+.academics-page .academic-section p, .academics-page .academic-section ul {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.academics-page .academic-section ul {
+    list-style-position: inside;
+    margin-top: 1rem;
+}
+
+.academics-page .academic-section ul li {
+    margin-bottom: 0.75rem;
+}
+
+/* Admissions Page */
+.admissions-page .container {
+    background: var(--neutral-white);
+    padding: 3rem;
+}
+
+.admissions-section {
+    margin-bottom: 3rem;
+}
+
+.admissions-section h2 {
+    color: var(--secondary-green); /* Dark Green */
+    margin-bottom: 1rem;
+}
+
+.admissions-section p, .admissions-section ul, .admissions-section ol {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.admissions-section ul, .admissions-section ol {
+    list-style-position: inside;
+    margin-top: 1rem;
+    padding-left: 1rem;
+}
+
+.admissions-section ul li, .admissions-section ol li {
+    margin-bottom: 0.75rem;
+}
+
+.admissions-cta {
+    text-align: center;
+    padding: 2rem;
+    background: var(--light-blue-bg);
+    border-radius: 5px;
+}
+
+.admissions-cta h2 {
+    margin-bottom: 1rem;
+}
+
+/* Hostel & Infrastructure Pages */
+.hostel-page .container, .infrastructure-page .container {
+    background: var(--neutral-white);
+    padding: 3rem;
+}
+
+.hostel-section, .infrastructure-page .page-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+}
+
+.hostel-section h2 {
+     color: var(--secondary-green);
+     margin-bottom: 1rem;
+}
+
+.hostel-section ul {
+    list-style-position: inside;
+    margin-top: 1.5rem;
+    text-align: left;
+    display: inline-block;
+}
+
+.hostel-section ul li {
+    margin-bottom: 0.75rem;
+}
+
+.facility-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.facility-card {
+    text-align: center;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+
+.facility-card img {
+    height: 80px;
+    margin-bottom: 1rem;
+}
+
+.facility-card h3 {
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+}
+
+/* Gallery Page */
+.gallery-page .container {
+    background: var(--neutral-white);
+    padding: 3rem;
+}
+
+.gallery-page .page-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.gallery-item h3 {
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+/* Mandatory Disclosure Page */
+.disclosure-page .container {
+    background: var(--neutral-white);
+    padding: 3rem;
+}
+
+.disclosure-page .page-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+}
+
+.disclosure-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.disclosure-category {
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    border-radius: 5px;
+}
+
+.disclosure-category h3 {
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.disclosure-category ul {
+    list-style: none;
+}
+
+.disclosure-category ul li {
+    margin-bottom: 0.75rem;
+}
+
+.disclosure-category ul li a {
+    text-decoration: none;
+    color: var(--text-dark);
+}
+
+.disclosure-category ul li a:hover {
+    color: var(--secondary-green);
+    text-decoration: underline;
+}
+
+.disclosure-note {
+    margin-top: 3rem;
+    text-align: center;
+    font-style: italic;
+    color: var(--text-muted);
+}
+
+
+
+
+/* Fees Page */
+.fees-page .container {
+    background: var(--neutral-white);
+    padding: 3rem;
+}
+
+.fees-section {
+    margin-bottom: 3rem;
+}
+
+.fees-section h2 {
+    color: var(--secondary-green); /* Dark Green */
+    margin-bottom: 1rem;
+}
+
+.fee-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+}
+
+.fee-table th, .fee-table td {
+    border: 1px solid var(--border-color);
+    padding: 12px;
+    text-align: left;
+}
+
+.fee-table th {
+    background-color: var(--light-gray-bg);
+    font-weight: bold;
+}
+
+.fee-note {
+    margin-top: 1rem;
+    font-style: italic;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.fees-section ul {
+    list-style-position: inside;
+    margin-top: 1rem;
+    padding-left: 1rem;
+}
+
+.fees-section ul li {
+    margin-bottom: 0.75rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -11,10 +11,10 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: SSH and deploy
-      uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@v0.1.10
       with:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USERNAME }}
@@ -22,6 +22,5 @@ jobs:
         script: |
           cd nageshwaram_school
           git pull origin master
-          cd website/backend
           npm install
-          pm2 restart server
+          pm2 restart nageshwaram-site || pm2 start server.js --name "nageshwaram-site"

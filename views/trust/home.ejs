@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <h1>Welcome to Nageshwaram Foundation Trust</h1>
+                <p>Empowering minds, building futures – a commitment to educational excellence in rural India.</p>
+                <a href="/about" class="cta-button">Learn More About Us</a>
+            </div>
+        </section>
+
+        <section class="mission-vision-section">
+            <div class="container">
+                <h2>Our Mission & Vision</h2>
+                <div class="card-row">
+                    <div class="card">
+                        <h3>Our Mission</h3>
+                        <p>To provide accessible, high-quality education and holistic development opportunities to children and youth in rural communities, fostering knowledge, skills, and values for a brighter tomorrow.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Our Vision</h3>
+                        <p>To be a beacon of educational transformation, empowering generations to become responsible citizens and leaders who contribute positively to their families, communities, and the nation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="institutions-overview-section">
+            <div class="container">
+                <h2>Our Institutions</h2>
+                <p>Nageshwaram Foundation Trust proudly supports educational institutions dedicated to nurturing young minds.</p>
+                <div class="card-row">
+                    <div class="card">
+                        <h3>N.R.K. Public School</h3>
+                        <p>A leading institution providing quality school education from foundational stages to higher secondary, focusing on academic excellence and character building.</p>
+                        <a href="/school" class="cta-button secondary">Visit School Website</a>
+                    </div>
+                    <div class="card">
+                        <h3>Future College (Coming Soon)</h3>
+                        <p>We are dedicated to expanding our educational outreach with a new college, offering advanced studies and vocational training to empower more students.</p>
+                        <a href="/institutions" class="cta-button secondary">Explore Our Plans</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-admissions-section">
+            <div class="container">
+                <h2>Admissions Now Open!</h2>
+                <p>Give your child the gift of quality education. Enroll them in N.R.K. Public School today.</p>
+                <a href="/school/admissions" class="cta-button primary">Apply for Admission</a>
+            </div>
+        </section>
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+</html>

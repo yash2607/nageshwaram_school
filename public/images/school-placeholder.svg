@@ -1,0 +1,7 @@
+
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" style="fill:lightgray" />
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="40" fill="gray">
+    N.R.K. Public School
+  </text>
+</svg>
