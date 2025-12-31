@@ -52,8 +52,12 @@
             <div class="container">
                 <h2>Send Us a Message</h2>
                 <p>We welcome your questions and feedback. Please fill out the form below, and we will get back to you shortly.</p>
-                <!-- A real contact form would go here. For now, it's a placeholder. -->
-                <form action="#" method="POST" class="contact-form">
+                <% if (typeof message !== 'undefined' && message) { %>
+                    <div class="success-message">
+                        <p><%= message %></p>
+                    </div>
+                <% } %>
+                <form action="/school/contact" method="POST" class="contact-form">
                     <div class="form-group">
                         <label for="name">Your Name:</label>
                         <input type="text" id="name" name="name" required>

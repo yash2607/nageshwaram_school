@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
@@ -11,6 +12,8 @@ app.set('view engine', 'ejs');
 
 // Static files
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({ extended: false }));
+
 
 // Routes
 const trustRoutes = require('./routes/trust.routes');
