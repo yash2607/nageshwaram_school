@@ -1,93 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title>
+        <%= title %>
+    </title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
     <%- include('../partials/school_header') %>
-    <main>
-        <section class="admissions-hero-section">
-            <div class="container">
-                <h1>Admissions Open at N.R.K. Public School</h1>
-                <p>Welcome your child to a world of quality education and holistic development.</p>
+        <main>
+            <div class="step-card">
+                <h3>Step 4: Admission Confirmation</h3>
+                <p>Upon successful completion of the interaction/test and verification of documents, parents will be
+                    notified of the admission status. You can then proceed with fee payment to confirm the admission.
+                </p>
             </div>
-        </section>
+            </div>
+            </div>
+            </section>
 
-        <section class="admission-process-section">
-            <div class="container">
-                <h2>Our Simple Admission Process</h2>
-                <p>At N.R.K. Public School, we aim to make the admission process as smooth and transparent as possible for parents. Please follow these easy steps:</p>
-                <div class="process-steps">
-                    <div class="step-card">
-                        <h3>Step 1: Inquiry & Prospectus</h3>
-                        <p>Visit our school office during working hours to collect the admission form and prospectus. You can also download a preliminary inquiry form from our website.</p>
-                    </div>
-                    <div class="step-card">
-                        <h3>Step 2: Form Submission</h3>
-                        <p>Fill out the admission form completely and accurately. Submit it along with the required documents (listed below) at the school office by the specified deadline.</p>
-                    </div>
-                    <div class="step-card">
-                        <h3>Step 3: Interaction / Test</h3>
-                        <p>Depending on the class, there will be an interaction session with the child and parents, or an admission test to assess the child's readiness.</p>
-                    </div>
-                    <div class="step-card">
-                        <h3>Step 4: Admission Confirmation</h3>
-                        <p>Upon successful completion of the interaction/test and verification of documents, parents will be notified of the admission status. You can then proceed with fee payment to confirm the admission.</p>
+            <section class="eligibility-documents-section">
+                <div class="container">
+                    <div class="card-row">
+                        <div class="card">
+                            <h2>Eligibility Criteria</h2>
+                            <ul>
+                                <li><strong>Pre-Nursery:</strong> Child should be 3+ years as of 31st March of the
+                                    admission year.
+                                </li>
+                                <li><strong>Nursery:</strong> Child should be 4+ years as of 31st March of the admission
+                                    year.</li>
+                                <li><strong>Class I onwards:</strong> Age-appropriate admission as per CBSE guidelines.
+                                </li>
+                                <li>For higher classes, a transfer certificate (TC) from the previous recognized school
+                                    is mandatory.</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h2>Required Documents</h2>
+                            <ul>
+                                <li>Attested photocopy of Birth Certificate (for Pre-Nursery to Class I).</li>
+                                <li>Transfer Certificate (TC) from the previous school (for Class II onwards).</li>
+                                <li>Photocopy of Aadhar Card of the child and parents.</li>
+                                <li>Latest passport-size photographs of the child (4 copies) and parents (2 copies
+                                    each).</li>
+                                <li>Previous academic year's report card (for Class II onwards).</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="eligibility-documents-section">
-            <div class="container">
-                <div class="card-row">
-                    <div class="card">
-                        <h2>Eligibility Criteria</h2>
-                        <ul>
-                            <li>**Pre-Nursery:** Child should be 3+ years as of 31st March of the admission year.</li>
-                            <li>**Nursery:** Child should be 4+ years as of 31st March of the admission year.</li>
-                            <li>**Class I onwards:** Age-appropriate admission as per CBSE guidelines.</li>
-                            <li>For higher classes, a transfer certificate (TC) from the previous recognized school is mandatory.</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h2>Required Documents</h2>
-                        <ul>
-                            <li>Attested photocopy of Birth Certificate (for Pre-Nursery to Class I).</li>
-                            <li>Transfer Certificate (TC) from the previous school (for Class II onwards).</li>
-                            <li>Photocopy of Aadhar Card of the child and parents.</li>
-                            <li>Latest passport-size photographs of the child (4 copies) and parents (2 copies each).</li>
-                            <li>Previous academic year's report card (for Class II onwards).</li>
-                        </ul>
-                    </div>
+            <section class="important-dates-section">
+                <div class="container">
+                    <h2>Important Dates (Tentative)</h2>
+                    <ul>
+                        <li><strong>Admission Form Availability:</strong> January 15, 2026 onwards</li>
+                        <li><strong>Last Date for Form Submission:</strong> February 28, 2026</li>
+                        <li><strong>Interaction / Test Dates:</strong> March 1-15, 2026</li>
+                        <li><strong>Admission Confirmation & Fee Payment:</strong> March 15-31, 2026</li>
+                    </ul>
+                    <p><em>Please note that these dates are tentative and may be subject to change. Kindly contact the
+                            school office for the most current information.</em></p>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="important-dates-section">
-            <div class="container">
-                <h2>Important Dates (Tentative)</h2>
-                <ul>
-                    <li>**Admission Form Availability:** January 15, 2026 onwards</li>
-                    <li>**Last Date for Form Submission:** February 28, 2026</li>
-                    <li>**Interaction / Test Dates:** March 1-15, 2026</li>
-                    <li>**Admission Confirmation & Fee Payment:** March 15-31, 2026</li>
-                </ul>
-                <p><em>Please note that these dates are tentative and may be subject to change. Kindly contact the school office for the most current information.</em></p>
-            </div>
-        </section>
-
-        <section class="call-to-action">
-            <div class="container">
-                <h2>Have Questions?</h2>
-                <p>Our admission counselors are ready to help you with any queries.</p>
-                <a href="/school/contact" class="cta-button primary">Contact Admissions Office</a>
-            </div>
-        </section>
-    </main>
-    <%- include('../partials/footer') %>
+            <section class="call-to-action">
+                <div class="container">
+                    <h2>Have Questions?</h2>
+                    <p>Our admission counselors are ready to help you with any queries.</p>
+                    <a href="/school/contact" class="cta-button primary">Contact Admissions Office</a>
+                </div>
+            </section>
+        </main>
+        <%- include('../partials/footer') %>
 </body>
+
 </html>

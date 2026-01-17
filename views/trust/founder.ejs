@@ -1,69 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title>
+        <%= title %>
+    </title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
     <%- include('../partials/header') %>
-    <main>
-        <section class="founder-hero-section">
-            <div class="container">
-                <h1>Our Visionaries: Founder & Trustees</h1>
-                <p>The guiding lights behind Nageshwaram Foundation Trust, dedicated to shaping a brighter future through education.</p>
-            </div>
-        </section>
-
-        <section class="founder-section">
-            <div class="container">
-                <div class="founder-card">
-                    <img src="/images/founder-placeholder.svg" alt="Founder's Image" class="founder-image">
-                    <div class="founder-details">
-                        <h2>Sumant Raj</h2>
-                        <h3>Founder, Nageshwaram Foundation Trust</h3>
-                        <p>Sumant Raj, a revered educationist and social reformer, envisioned a society where every child has the right to quality education. His unwavering commitment led to the establishment of Nageshwaram Foundation Trust. With years of experience in the educational sector, he understood the unique challenges faced by rural communities and dedicated his life to bridging the educational gap. His philosophy emphasizes not just academic achievement, but also moral values, character building, and community service. Under his inspirational leadership, the Trust has grown, touching thousands of lives and setting new benchmarks in rural education.</p>
-                    </div>
+        <main>
+            <section class="founder-hero-section">
+                <div class="container">
+                    <h1>Our Visionaries: Founder & Trustees</h1>
+                    <p>The guiding lights behind Nageshwaram Foundation Trust, dedicated to shaping a brighter future
+                        through education.</p>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="trustees-section">
-            <div class="container">
-                <h2>Our Esteemed Board of Trustees</h2>
-                <p>A group of dedicated individuals who steer the Trust with their wisdom, experience, and commitment to our noble cause.</p>
-                <div class="trustee-grid">
-                    <div class="trustee-card">
-                        <img src="/images/principal-placeholder.svg" alt="Trustee Image" class="trustee-image">
-                        <h3>Smt. Anjali Devi</h3>
-                        <p>Trustee & Education Advisor</p>
-                        <p>With a rich background in academic administration, Smt. Anjali Devi brings invaluable insights into curriculum development and pedagogical innovation.</p>
+            <section class="founder-section">
+                <div class="container">
+                    <div class="founder-card">
+                        <img src="/images/founder-placeholder.svg" alt="Founder's Image" class="founder-image">
+                        <div class="founder-details">
+                            <h2>Sumant Raj</h2>
+                            <h3>Founder, Nageshwaram Foundation Trust</h3>
+                            <p>Sumant Raj, a revered educationist and social reformer, envisioned a society where every
+                                child has the right to quality education. His unwavering commitment led to the
+                                establishment of Nageshwaram Foundation Trust. With years of experience in the
+                                educational sector, he understood the unique challenges faced by rural communities and
+                                dedicated his life to bridging the educational gap. His philosophy emphasizes not just
+                                academic achievement, but also moral values, character building, and community service.
+                                Under his inspirational leadership, the Trust has grown, touching thousands of lives and
+                                setting new benchmarks in rural education.</p>
+                        </div>
                     </div>
-                    <div class="trustee-card">
-                        <img src="/images/principal-placeholder.svg" alt="Trustee Image" class="trustee-image">
-                        <h3>Dr. Vijay Sharma</h3>
-                        <p>Trustee & Community Outreach Lead</p>
-                        <p>Dr. Sharma is a renowned social worker, passionately advocating for community welfare and ensuring our initiatives reach the most deserving.</p>
-                    </div>
-                    <div class="trustee-card">
-                        <img src="/images/principal-placeholder.svg" alt="Trustee Image" class="trustee-image">
-                        <h3>Shri Alok Prasad</h3>
-                        <p>Trustee & Financial Strategist</p>
-                        <p>Shri Prasad's expertise in financial management ensures the sustainable growth and transparent utilization of the Trust's resources.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+                    <section class="page-header">
+                        <div class="container">
+                            <h1>Leadership & Vision</h1>
+                            <p>Meet the visionaries guiding Nageshwaram Foundation towards a brighter future.</p>
+                        </div>
+                    </section>
 
-        <section class="call-to-action">
-            <div class="container">
-                <h2>Our Leaders, Our Inspiration</h2>
-                <p>The collective vision and tireless efforts of our founder and trustees illuminate the path for Nageshwaram Foundation Trust.</p>
-                <a href="/contact" class="cta-button primary">Connect with Us</a>
-            </div>
-        </section>
-    </main>
-    <%- include('../partials/footer') %>
+                    <section class="content-section">
+                        <div class="container">
+                            <div class="row" style="display: flex; gap: 50px; flex-wrap: wrap; margin-bottom: 60px;">
+                                <div style="flex: 1; text-align: center;">
+                                    <img src="/images/founder-placeholder.jpg" alt="Founder Image"
+                                        style="width: 300px; height: 300px; object-fit: cover; border-radius: 50%; border: 5px solid var(--bg-cream); box-shadow: var(--shadow-lg); margin: 0 auto;">
+                                </div>
+                                <div style="flex: 2; align-self: center;">
+                                    <h2 style="color: var(--accent-gold);">Message from the Founder</h2>
+                                    <h3 style="margin-bottom: 20px;">Shri Nageshwar Singh</h3>
+                                    <p class="founder-quote"
+                                        style="font-style: italic; font-size: 1.2rem; border-left: 4px solid var(--accent-gold); padding-left: 20px; color: #555;">
+                                        "Education is not just about literacy; it is about liberation. It is the key
+                                        that unlocks the golden door of freedom and opportunity. My dream is to see
+                                        every child in our village equipped with the knowledge and values to lead a life
+                                        of dignity and purpose."
+                                    </p>
+                                    <p>With decades of social service and a heart beating for the community, Shri
+                                        Nageshwar Singh laid the foundation of this trust to return to society the
+                                        blessings of knowledge.</p>
+                                </div>
+                            </div>
+
+                            <div class="trustee-list text-center">
+                                <h2>Board of Trustees</h2>
+                                <p style="margin-bottom: 40px;">Our distinguished board members bringing diverse
+                                    expertise to our mission.</p>
+                                <div class="card-row">
+                                    <div class="card trustee-card">
+                                        <div
+                                            style="width: 100px; height: 100px; background: #eee; border-radius: 50%; margin: 0 auto 20px;">
+                                        </div>
+                                        <h3>Trustee Name 1</h3>
+                                        <p style="color: var(--accent-gold); font-weight: 500;">Chairman</p>
+                                        <p>bringing 20+ years of educational administration experience.</p>
+                                    </div>
+                                    <div class="card trustee-card">
+                                        <div
+                                            style="width: 100px; height: 100px; background: #eee; border-radius: 50%; margin: 0 auto 20px;">
+                                        </div>
+                                        <h3>Trustee Name 2</h3>
+                                        <p style="color: var(--accent-gold); font-weight: 500;">Secretary</p>
+                                        <p>Dedicated social worker with a focus on rural development.</p>
+                                    </div>
+                                    <div class="card trustee-card">
+                                        <div
+                                            style="width: 100px; height: 100px; background: #eee; border-radius: 50%; margin: 0 auto 20px;">
+                                        </div>
+                                        <h3>Trustee Name 3</h3>
+                                        <p style="color: var(--accent-gold); font-weight: 500;">Treasurer</p>
+                                        <p>Ensuring transparency and ethical management of resources.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+        </main>
+        <%- include('../partials/footer') %>
 </body>
+
 </html>
