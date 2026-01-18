@@ -33,24 +33,21 @@ body {
 }
 
 header {
-    color: var(--text-dark);
+    background-color: var(--neutral-white);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     padding: 1rem 0;
     border-bottom: 1px solid var(--border-color);
 }
 
-nav {
+nav .logo {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    width: 90%;
-    margin: auto;
+    text-decoration: none;
+    transition: transform 0.3s;
 }
 
-nav .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary-blue); /* Adjusted for theme */
-    text-decoration: none;
+nav .logo:hover {
+    transform: scale(1.05);
 }
 
 nav ul {
@@ -1198,6 +1195,18 @@ p {
 
 .fees-section ul li {
     margin-bottom: 0.75rem;
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .logo-img {
+        height: 40px;
+    }
 }
 
 

@@ -2,6 +2,11 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 
+// Read JSON data once on server startup
+const circularsData = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'circulars.json'), 'utf8'));
+const galleryData = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'gallery.json'), 'utf8'));
+const videosData = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'videos.json'), 'utf8'));
+
 const app = express();
 const port = 3000;
 
@@ -21,18 +26,15 @@ app.use('/school', schoolRoutes);
 
 // API routes from legacy server
 app.get('/api/circulars', (req, res) => {
-  const circularsData = fs.readFileSync(path.join(__dirname, 'data', 'circulars.json'));
-  res.json(JSON.parse(circularsData));
+  res.json(circularsData);
 });
 
 app.get('/api/gallery', (req, res) => {
-  const galleryData = fs.readFileSync(path.join(__dirname, 'data', 'gallery.json'));
-  res.json(JSON.parse(galleryData));
+  res.json(galleryData);
 });
 
 app.get('/api/videos', (req, res) => {
-    const videosData = fs.readFileSync(path.join(__dirname, 'data', 'videos.json'));
-    res.json(JSON.parse(videosData));
+    res.json(videosData);
 });
 
 app.listen(port, () => {
