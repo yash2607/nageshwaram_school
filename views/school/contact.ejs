@@ -1,80 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title>
+        <%= title %>
+    </title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
     <%- include('../partials/school_header') %>
-    <main>
-        <section class="contact-hero-section">
-            <div class="container">
-                <h1>Contact N.R.K. Public School</h1>
-                <p>We are here to assist you. Reach out to us for any inquiries or support.</p>
-            </div>
-        </section>
-
-        <section class="contact-info-section">
-            <div class="container">
-                <h2>Get in Touch with Our School</h2>
-                <div class="contact-details">
-                    <div class="contact-card">
-                        <h3>General Inquiries</h3>
-                        <p>Email: <a href="mailto:school@nrkpublicschool.org">school@nrkpublicschool.org</a></p>
-                        <p>Phone: <a href="tel:+919111111111">+91 91111 11111</a></p>
-                        <p>For general information, admissions, and academic queries.</p>
-                    </div>
-                    <div class="contact-card">
-                        <h3>Accounts Department</h3>
-                        <p>Email: <a href="mailto:accounts@nrkpublicschool.org">accounts@nrkpublicschool.org</a></p>
-                        <p>Phone: <a href="tel:+919000000000">+91 90000 00000</a></p>
-                        <p>For fee-related questions and other financial matters.</p>
-                    </div>
-                    <div class="contact-card">
-                        <h3>Our Location</h3>
-                        <p><strong>N.R.K. Public School</strong></p>
-                        <p>Shastri Nagar, Batiya, Jamui, Bihar – 811308, India</p>
-                        <p>Geo Location: J9W2+67Q, Tola Itwa, Bihar</p>
-                    </div>
+        <main>
+            <section class="contact-hero-section">
+                <div class="container">
+                    <h1>Contact N.R.K. Public School</h1>
+                    <p>We are here to assist you. Reach out to us for any inquiries or support.</p>
                 </div>
-                <div class="contact-map">
-                    <h2>Find Us on the Map</h2>
-                    <!-- Google Map Embed - Using the provided Geo Location if available -->
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600.99960714777!2d86.20815191472856!3d24.89431878404289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDUzJzM5LjUiTiA4NsKwMTInMzAuNiJF!5e0!3m2!1sen!2sin!4v1678912345678!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    <p class="mt-2"><em>You can easily locate our school using the provided geographical coordinates.</em></p>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="contact-form-section">
-            <div class="container">
-                <h2>Send Us a Message</h2>
-                <p>We welcome your questions and feedback. Please fill out the form below, and we will get back to you shortly.</p>
-                <!-- A real contact form would go here. For now, it's a placeholder. -->
-                <form action="#" method="POST" class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Your Name:</label>
-                        <input type="text" id="name" name="name" required>
+            <section class="contact-info-section">
+                <div class="container">
+                    <h2>Get in Touch with Our School</h2>
+                    <div class="contact-details">
+                        <div class="contact-card">
+                            <h3>General Inquiries</h3>
+                            <p>Email: <a href="mailto:school@nrkpublicschool.org">school@nrkpublicschool.org</a></p>
+                            <p>Phone: <a href="tel:+919111111111">+91 91111 11111</a></p>
+                            <p>For general information, admissions, and academic queries.</p>
+                        </div>
+                        <div class="contact-card">
+                            <h3>Accounts Department</h3>
+                            <p>Email: <a href="mailto:accounts@nrkpublicschool.org">accounts@nrkpublicschool.org</a></p>
+                            <p>Phone: <a href="tel:+919000000000">+91 90000 00000</a></p>
+                            <p>For fee-related questions and other financial matters.</p>
+                        </div>
+                        <div class="contact-card">
+                            <h3>Our Location</h3>
+                            <p><strong>N.R.K. Public School</strong></p>
+                            <p>Shastri Nagar, Batiya, Jamui, Bihar – 811308, India</p>
+                            <p>Geo Location: J9W2+67Q, Tola Itwa, Bihar</p>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Your Email:</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject:</label>
-                        <input type="text" id="subject" name="subject">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Your Message:</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="cta-button primary">Send Message</button>
-                </form>
-            </div>
-        </section>
-    </main>
-    <%- include('../partials/footer') %>
+                    <div class="contact-map">
+                        <section class="page-header" style="background-image: url('/images/school-hero.png');">
+                            <div class="container">
+                                <h1>Contact Us</h1>
+                                <p>We are here to answer your queries. Get in touch with us.</p>
+                            </div>
+                        </section>
+
+                        <section class="content-section">
+                            <div class="container">
+                                <div class="row" style="display: flex; gap: 50px; flex-wrap: wrap;">
+                                    <div style="flex: 1; min-width: 300px;">
+                                        <div style="margin-bottom: 30px;">
+                                            <h3 style="color: var(--primary-blue); margin-bottom: 15px;">School Campus
+                                            </h3>
+                                            <p style="margin-bottom: 5px;"><i class="fas fa-map-marker-alt text-gold"
+                                                    style="width: 25px;"></i> N.R.K. Public School, Village XYZ, Jamui,
+                                                Bihar - 811307</p>
+                                            <p style="margin-bottom: 5px;"><i class="fas fa-phone text-gold"
+                                                    style="width: 25px;"></i> +91 99346 64634</p>
+                                            <p style="margin-bottom: 5px;"><i class="fas fa-envelope text-gold"
+                                                    style="width: 25px;"></i> contact@nrkschool.com</p>
+                                        </div>
+
+                                        <div style="margin-bottom: 30px;">
+                                            <h3 style="color: var(--primary-blue); margin-bottom: 15px;">Office Hours
+                                            </h3>
+                                            <p>Monday - Saturday: 8:00 AM - 2:00 PM</p>
+                                            <p>Sunday: Closed</p>
+                                        </div>
+                                    </div>
+
+                                    <div style="flex: 1; min-width: 300px;">
+                                        <div
+                                            style="background: white; padding: 40px; box-shadow: var(--shadow-lg); border-radius: 8px;">
+                                            <h2 style="margin-bottom: 20px;">Send us a Message</h2>
+                                            <form action="/school/contact" method="POST"
+                                                style="display: grid; gap: 20px;">
+                                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                                                    <input type="text" name="name" placeholder="Your Name" required
+                                                        style="padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+                                                    <input type="tel" name="phone" placeholder="Phone Number" required
+                                                        style="padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+                                                </div>
+                                                <input type="email" name="email" placeholder="Email Address"
+                                                    style="padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+                                                <textarea name="message" rows="5" placeholder="How can we help you?"
+                                                    required
+                                                    style="padding: 12px; border: 1px solid #ddd; border-radius: 4px;"></textarea>
+                                                <button type="submit" class="cta-button primary">Send Message</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+        </main>
+        <%- include('../partials/footer') %>
 </body>
+
 </html>

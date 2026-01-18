@@ -1,84 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="robots" content="index, follow">
-    <title><%= title %></title>
-    <meta name="keywords" content="Best School in Jamui, Top School in Jamui, Admission Open in Jamui, N.R.K. Public School, Quality Education Bihar">
-    <meta name="description" content="N.R.K. Public School, a unit of Nageshwaram Foundation Trust, dedicated to providing quality education in Jamui, Bihar.">
-    <link rel="canonical" href="https://nrkpublicschool.xyz/">
-    <link rel="shortcut icon" href="/images/namegeshwaram-logo.svg" type="image/x-icon">
-    <link rel="icon" href="/images/namegeshwaram-logo.svg" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="/css/bootstrap.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <meta name="description"
+        content="N.R.K. Public School - A Unit of Nageshwaram Foundation Trust. Providing quality education in Jamui.">
+
+    <!-- Fonts & Icons -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Custom Styles -->
     <link href="/css/style.css" rel="stylesheet">
-    <link href="/css/responsive.css" rel="stylesheet">
-    <link href="/css/fontawesome-all.css" rel="stylesheet">
-    <link href="/css/animate.css" rel="stylesheet">
-    <link href="/css/custom-animate.css" rel="stylesheet">
-    <link href="/css/owl.css" rel="stylesheet">
-    <link href="/css/swiper.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        .school-hero {
+            background: linear-gradient(rgba(10, 38, 71, 0.5), rgba(10, 38, 71, 0.5)), url('/images/school-hero.png');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+
+        .school-stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 60px 0;
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .stat-item {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-fast);
+            border-left: 5px solid var(--accent-gold);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .testimonial-section {
+            background: var(--bg-cream);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+
+        .quote-icon {
+            color: var(--accent-gold);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
+
 <body>
-    <div class="page-wrapper">
-        <%- include('../partials/school_header') %>
+    <%- include('../partials/school_header') %>
+
         <main>
-            <section class="school-hero-section">
+            <!-- Hero Section -->
+            <section class="school-hero">
                 <div class="container">
-                    <p class="tagline">A Unit of Nageshwaram Foundation Trust</p>
-                    <h1>Welcome to N.R.K. Public School</h1>
-                    <p>Where learning begins with care, curiosity, and creativity. We are dedicated to building a strong foundation for your child's brighter future.</p>
-                    <a href="/school/admissions" class="cta-button primary large">Admissions Open 2026-27 <i class="fa fa-arrow-right"></i></a>
+                    <p
+                        style="font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; color: var(--accent-gold);">
+                        Excellence in Education</p>
+                    <h1
+                        style="font-size: 4rem; color: white; margin-bottom: 30px; text-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                        Welcome to N.R.K. Public School</h1>
+                    <p
+                        style="font-size: 1.3rem; max-width: 800px; margin: 0 auto 40px auto; opacity: 1; text-shadow: 0 2px 5px rgba(0,0,0,0.5);">
+                        Empowering students with knowledge, character, and skills to succeed in a global world.
+                    </p>
+                    <div style="display: flex; gap: 20px; justify-content: center;">
+                        <a href="/school/admissions" class="cta-button gold">Admissions 2026-27</a>
+                        <a href="/school/about" class="cta-button secondary"
+                            style="border-color: white; color: white;">Discover More</a>
+                    </div>
                 </div>
             </section>
 
-            <section class="school-intro-section">
+            <!-- Stats Section -->
+            <section class="school-stats">
+                <div class="container" style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Happy Students</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-label">Expert Faculty</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Result Record</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Acres Campus</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Welcome / Intro -->
+            <section class="section-padding" style="background: white;">
                 <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-6 wow slideInLeft" data-wow-delay="200ms">
-                            <h2>Nurturing Tomorrow's Leaders in Jamui</h2>
-                            <p> At N.R.K. Public School, we are committed to shaping young minds into confident, responsible, and compassionate global citizens. Our school combines a rich tradition of academic brilliance with a progressive approach to education tailored for the rural context of Jamui, Bihar. </p>
-                            <p> Here, students are encouraged to set their sights high, think analytically, and develop a lifelong love for learning. With a holistic curriculum, modern facilities, and a team of dedicated educators, we create an atmosphere where creativity, curiosity, and character thrive. </p>
-                            <a href="/school/about" class="cta-button secondary">Learn More About Us</a>
+                    <div class="row" style="display: flex; align-items: center; gap: 50px; flex-wrap: wrap;">
+                        <div class="col" style="flex: 1; min-width: 300px;">
+                            <h2 style="font-size: 2.5rem;">Nurturing Tomorrow's Leaders</h2>
+                            <p style="margin-bottom: 20px; color: var(--text-gray); font-size: 1.1rem;">
+                                At N.R.K. Public School, we go beyond textbooks. We believe in an education that builds
+                                character, fosters creativity, and instills a sense of responsibility.
+                            </p>
+                            <p style="margin-bottom: 30px; color: var(--text-gray); font-size: 1.1rem;">
+                                Our campus is a vibrant community where tradition meets technology, ensuring your child
+                                gets the best of both worlds.
+                            </p>
+                            <ul style="margin-bottom: 30px; display: grid; gap: 10px;">
+                                <li><i class="fas fa-check-circle text-gold" style="margin-right: 10px;"></i> Modern
+                                    Smart Classrooms</li>
+                                <li><i class="fas fa-check-circle text-gold" style="margin-right: 10px;"></i> Holistic
+                                    Development Programs</li>
+                                <li><i class="fas fa-check-circle text-gold" style="margin-right: 10px;"></i> Safe &
+                                    Secure Environment</li>
+                            </ul>
+                            <a href="/school/principal-message" class="cta-button primary">Principal's Message</a>
                         </div>
-                        <div class="col-lg-6 wow slideInRight" data-wow-delay="200ms">
-                            <div class="img_hover w-100"><img alt="School Image" class="img-fluid w-100 h-100" src="https://resources.edunexttechnologies.com/web-data/takshila/dpspatna/img/about-us-patna.png"></div>
+                        <div class="col" style="flex: 1; min-width: 300px;">
+                            <div
+                                style="background: var(--bg-cream); padding: 10px; border-radius: 8px; transform: rotate(2deg);">
+                                <img src="/images/classroom.png" alt="Smart Classroom"
+                                    style="border-radius: 4px; width: 100%; box-shadow: var(--shadow-lg);">
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section class="inner_02">
+            <!-- Features Grid -->
+            <section class="section-padding" style="background: var(--bg-cream);">
                 <div class="container">
-                    <div class="row wow slideInUp animate" data-wow-delay="200ms">
-                        <div class="col-md-6 bg_03 h2_bg mb-5 mb-md-0">
-                            <span class="d_flex"><img alt="Our Vision" src="https://resources.edunexttechnologies.com/web-data/takshila/dpscoimbatore/bg_07.svg" class="img-fluid h-100"><h2 class="main-title text-white"> Our Vision</h2></span>
-                            <p class="mb-0 mt-3 text-left"> Blending academic excellence with Indian values, creativity, and innovation, we aim to nurture future-ready individuals. Our sustainable, inclusive, and technologically advanced learning environment empowers students to lead with integrity, compassion, and global awareness. </p>
-                            <img alt="Best CBSE school in Patna" src="https://resources.edunexttechnologies.com/web-data/takshila/dpscoimbatore/bg_06.svg" class="bottom_left">
+                    <div class="text-center" style="margin-bottom: 60px;">
+                        <span class="text-blue" style="font-weight: 600; text-transform: uppercase;">Why Choose
+                            Us</span>
+                        <h2>A World of Opportunities</h2>
+                    </div>
+
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <i class="fas fa-laptop-code fa-3x text-blue" style="margin-bottom: 20px;"></i>
+                            <h3>Digital Learning</h3>
+                            <p>Fully equipped computer labs and smart classes to ensure our students are future-ready.
+                            </p>
                         </div>
-                        <div class="col-md-6 bg_02 h2_bg">
-                            <span class="d_flex"><img alt="Our Mission" src="https://resources.edunexttechnologies.com/web-data/takshila/dpscoimbatore/bg_08.svg" class="img-fluid h-100"><h2 class="main-title text-white"> Our Mission</h2></span>
-                            <p class="mb-0 mt-3 text-left"> With an emphasis on creating a positive and inclusive campus, we strive to educate with a global perspective. Infusion of the latest technology enhances each student’s learning curve. We are committed to society at large through respect for the environment, participation in community services, and by fostering love for Indian art and culture. </p>
-                            <img alt="Best CBSE school in Patna" src="https://resources.edunexttechnologies.com/web-data/takshila/dpscoimbatore/bg_05.svg" class="bottom_right">
+                        <div class="feature-card">
+                            <i class="fas fa-futbol fa-3x text-blue" style="margin-bottom: 20px;"></i>
+                            <h3>Sports & Arts</h3>
+                            <p>Expansive playgrounds and dedicated studios for music, dance, and arts promotes physical
+                                and mental agility.</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-flask fa-3x text-blue" style="margin-bottom: 20px;"></i>
+                            <h3>Science Labs</h3>
+                            <p>State-of-the-art physics, chemistry, and biology labs to encourage practical learning and
+                                scientific temper.</p>
                         </div>
                     </div>
                 </div>
             </section>
+
+            <!-- Testimonial -->
+            <section class="testimonial-section">
+                <div class="container">
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p style="font-size: 1.25rem; font-style: italic; margin-bottom: 30px;">
+                            "N.R.K. Public School has transformed my child. The teachers are incredibly supportive, and
+                            the focus on values alongside academics is exactly what we were looking for."
+                        </p>
+                        <div>
+                            <h4 style="margin-bottom: 5px;">Mrs. Anjali Singh</h4>
+                            <span style="color: var(--text-gray); font-size: 0.9rem;">Parent of Grade 5 Student</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Call to Action -->
+            <section style="background: url('/images/cta-bg.png') center/cover; position: relative;">
+                <div style="background: rgba(10, 38, 71, 0.9); padding: 100px 0; text-align: center; color: white;">
+                    <div class="container">
+                        <h2 style="color: white; font-size: 2.5rem; margin-bottom: 20px;">Join the N.R.K. Family</h2>
+                        <p style="margin-bottom: 40px; font-size: 1.2rem; opacity: 0.9;">Limited seats available for the
+                            2026-27 academic session. Give your child the edge.</p>
+                        <a href="/school/admissions" class="cta-button gold">Apply Now</a>
+                    </div>
+                </div>
+            </section>
+
         </main>
+
         <%- include('../partials/footer') %>
-    </div>
-    <script src="/js/jquery.js"></script>
-    <script src="/js/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
-    <script src="/js/owl.js"></script>
-    <script src="/js/wow.js"></script>
-    <script src="/js/scrollbar.js"></script>
-    <script src="/js/TweenMax.min.js"></script>
-    <script src="/js/swiper.min.js"></script>
-    <script src="/js/script.js"></script>
 </body>
+
 </html>

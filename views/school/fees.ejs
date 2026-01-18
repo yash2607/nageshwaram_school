@@ -1,111 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title>
+        <%= title %>
+    </title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
     <%- include('../partials/school_header') %>
-    <main>
-        <section class="fees-hero-section">
-            <div class="container">
-                <h1>Fee Structure</h1>
-                <p>Transparent and affordable education at N.R.K. Public School.</p>
-            </div>
-        </section>
-
-        <section class="fee-structure-overview-section">
-            <div class="container">
-                <h2>N.R.K. Public School Fee Details (Academic Year 2026-27)</h2>
-                <p>We believe in providing quality education that is accessible to all. Our fee structure is designed to be transparent and covers various aspects of your child's learning journey.</p>
-
-                <h3>Annual Fees (Illustrative)</h3>
-                <div class="fee-table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Class</th>
-                                <th>Admission Fee (One-time)</th>
-                                <th>Annual Charges</th>
-                                <th>Tuition Fee (Per Annum)</th>
-                                <th>Total (Approx.)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Pre-Nursery to KG</td>
-                                <td>₹ 5,000</td>
-                                <td>₹ 3,000</td>
-                                <td>₹ 15,000</td>
-                                <td>₹ 23,000</td>
-                            </tr>
-                            <tr>
-                                <td>Class I - V</td>
-                                <td>₹ 7,000</td>
-                                <td>₹ 4,000</td>
-                                <td>₹ 18,000</td>
-                                <td>₹ 29,000</td>
-                            </tr>
-                            <tr>
-                                <td>Class VI - VIII</td>
-                                <td>₹ 8,000</td>
-                                <td>₹ 5,000</td>
-                                <td>₹ 20,000</td>
-                                <td>₹ 33,000</td>
-                            </tr>
-                            <tr>
-                                <td>Class IX - X</td>
-                                <td>₹ 10,000</td>
-                                <td>₹ 6,000</td>
-                                <td>₹ 22,000</td>
-                                <td>₹ 38,000</td>
-                            </tr>
-                            <tr>
-                                <td>Class XI - XII</td>
-                                <td>₹ 12,000</td>
-                                <td>₹ 7,000</td>
-                                <td>₹ 25,000</td>
-                                <td>₹ 44,000</td>
-                            </tr>
-                        </tbody>
-                    </table>
+        <main>
+            <section class="fees-hero-section">
+                <div class="container">
+                    <h1>Fee Structure</h1>
+                    <p>Transparent and affordable education for all.</p>
                 </div>
-                <p class="note"><em>Note: The above figures are illustrative and subject to change. Please collect the official fee booklet from the school office for exact and detailed information. Additional charges may be applicable for optional services like transport, special coaching, and excursions.</em></p>
-            </div>
-        </section>
+            </section>
 
-        <section class="payment-methods-section">
-            <div class="container">
-                <h2>Payment Methods & Policies</h2>
-                <ul>
-                    <li>**Online Payment:** Fees can be conveniently paid online through the school's ERP portal (details will be provided upon admission).</li>
-                    <li>**Bank Transfer:** Direct bank transfer facility is available.</li>
-                    <li>**Cheque/Demand Draft:** Payments can be made via cheque or demand draft in favor of "N.R.K. Public School".</li>
-                    <li>**Installment Options:** For tuition fees, parents may opt for quarterly or half-yearly installment plans.</li>
-                    <li>**Due Dates:** Fees are typically due on the 10th of the first month of each quarter (April, July, October, January).</li>
-                    <li>**Late Fee:** A late fee may be applicable for payments made after the due date.</li>
-                </ul>
-            </div>
-        </section>
+            <section class="content-section">
+                <div class="container">
+                    <div
+                        style="background: white; box-shadow: var(--shadow-sm); border-radius: 8px; overflow: hidden; max-width: 800px; margin: 0 auto;">
+                        <div style="padding: 20px; background: var(--primary-blue); color: white;">
+                            <h3 style="margin: 0; color: white;">Academic Session 2026-27</h3>
+                        </div>
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <thead style="background: var(--bg-cream);">
+                                <tr>
+                                    <th style="padding: 15px; text-align: left; border-bottom: 2px solid #ddd;">Grade /
+                                        Class</th>
+                                    <th style="padding: 15px; text-align: right; border-bottom: 2px solid #ddd;">Tuition
+                                        Fee (Monthly)</th>
+                                    <th style="padding: 15px; text-align: right; border-bottom: 2px solid #ddd;">Annual
+                                        Charges</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 15px; border-bottom: 1px solid #eee;">Nursery - KG</td>
+                                    <td style="padding: 15px; text-align: right; border-bottom: 1px solid #eee;">₹ 800
+                                    </td>
+                                    <td style="padding: 15px; text-align: right; border-bottom: 1px solid #eee;">₹ 2,000
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 15px; border-bottom: 1px solid #eee;">Class 1 - 5</td>
+                                    <td style="padding: 15px; text-align: right; border-bottom: 1px solid #eee;">₹ 1,000
+                                    </td>
+                                    <td style="padding: 15px; text-align: right; border-bottom: 1px solid #eee;">₹ 3,500
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 15px; border-bottom: 1px solid #eee;">Class 6 - 8</td>
+                                    <td style="padding: 15px; text-align: right; border-bottom: 1px solid #eee;">₹ 1,200
+                                    </td>
+                                    <td style="padding: 15px; text-align: right; border-bottom: 1px solid #eee;">₹ 4,000
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 15px; border-bottom: 1px solid #eee;">Class 9 - 10</td>
+                                    <td style="padding: 15px; text-align: right; border-bottom: 1px solid #eee;">₹ 1,500
+                                    </td>
+                                    <td style="padding: 15px; text-align: right; border-bottom: 1px solid #eee;">₹ 5,000
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="note"><em>Note: The above figures are illustrative and subject to change. Please collect
+                            the official fee booklet from the school office for exact and detailed information.
+                            Additional charges may be applicable for optional services like transport, special coaching,
+                            and excursions.</em></p>
+                </div>
+            </section>
 
-        <section class="scholarship-section">
-            <div class="container">
-                <h2>Scholarship Opportunities</h2>
-                <p>N.R.K. Public School is committed to supporting meritorious and deserving students. We offer limited scholarships based on academic performance and/or socio-economic need. Details regarding scholarship applications and eligibility criteria can be obtained from the school administration office.</p>
-                <a href="/school/contact" class="cta-button secondary">Inquire About Scholarships</a>
-            </div>
-        </section>
+            <section class="payment-methods-section">
+                <div class="container">
+                    <h2>Payment Methods & Policies</h2>
+                    <ul>
+                        <li><strong>Online Payment:</strong> Fees can be conveniently paid online through the school's
+                            ERP portal or mobile app.</li>
+                        <li><strong>Bank Transfer:</strong> Direct bank transfer facility is available.</li>
+                        <li><strong>Cheque/Demand Draft:</strong> Payments can be made via cheque or demand draft in
+                            favor of "N.R.K. Public School".</li>
+                        <li><strong>Installment Options:</strong> For tuition fees, parents may opt for quarterly or
+                            half-yearly payment plans.</li>
+                        <li><strong>Due Dates:</strong> Fees are typically due on the 10th of the first month of each
+                            quarter (April, July, October, January).</li>
+                        <li><strong>Late Fee:</strong> A late fee may be applicable for payments made after the due
+                            date.</li>
+                    </ul>
+                </div>
+            </section>
 
-        <section class="call-to-action">
-            <div class="container">
-                <h2>Any Questions on Fees?</h2>
-                <p>Our administrative staff is available to clarify any doubts regarding the fee structure.</p>
-                <a href="/school/contact" class="cta-button primary">Contact School Office</a>
-            </div>
-        </section>
-    </main>
-    <%- include('../partials/footer') %>
+            <section class="scholarship-section">
+                <div class="container">
+                    <h2>Scholarship Opportunities</h2>
+                    <p>N.R.K. Public School is committed to supporting meritorious and deserving students. We offer
+                        limited scholarships based on academic performance and/or socio-economic need. Details regarding
+                        scholarship applications and eligibility criteria can be obtained from the school administration
+                        office.</p>
+                    <a href="/school/contact" class="cta-button secondary">Inquire About Scholarships</a>
+                </div>
+            </section>
+
+            <section class="call-to-action">
+                <div class="container">
+                    <h2>Any Questions on Fees?</h2>
+                    <p>Our administrative staff is available to clarify any doubts regarding the fee structure.</p>
+                    <a href="/school/contact" class="cta-button primary">Contact School Office</a>
+                </div>
+            </section>
+        </main>
+        <%- include('../partials/footer') %>
 </body>
+
 </html>

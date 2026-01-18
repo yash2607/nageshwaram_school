@@ -1,0 +1,88 @@
+END-TO-END GUIDE: AWS + DOMAIN + EC2 + ZOHO + SCHOOL TOOLS (FREE TIERS)
+
+=============================== ASSUMPTIONS
+=============================== - Domain purchased from Namecheap - AWS
+Free Tier only - Zoho Mail Free (up to 5 users) - Zoho Cliq Free -
+School size: ~300 students
+
+=============================== PART 1: CREATE AWS ACCOUNT
+=============================== 1. Go to https://aws.amazon.com 2. Click
+“Create an AWS Account” 3. Enter email, password, account name 4. Choose
+Personal Account 5. Enter contact details 6. Add credit/debit card
+(₹2–₹5 temporary verification) 7. Verify phone number via OTP 8. Choose
+Basic Support (Free) 9. Login to AWS Console
+
+=============================== PART 2: CREATE ROUTE 53 HOSTED ZONE
+=============================== 1. AWS Console → Services → Route 53 2.
+Click Hosted Zones → Create Hosted Zone 3. Domain name: example.com 4.
+Type: Public Hosted Zone 5. Create 6. Copy the 4 AWS Name Servers
+provided
+
+=============================== PART 3: POINT NAMECHEAP DOMAIN TO AWS
+=============================== 1. Login to Namecheap 2. Domain List →
+Manage Domain 3. Nameservers → Custom DNS 4. Paste the 4 AWS Name
+Servers 5. Save (wait up to 24 hours)
+
+=============================== PART 4: CREATE EC2 UBUNTU FREE TIER
+=============================== 1. AWS Console → EC2 → Launch Instance
+2. Name: ubuntu-free-tier 3. AMI: Ubuntu Server 22.04 LTS (Free Tier) 4.
+Instance type: t2.micro or t3.micro 5. Create Key Pair: - Name:
+ubuntu-key - Type: RSA - Format: .pem 6. Network: - Allow SSH (22) – My
+IP - Allow HTTP (80) - Allow HTTPS (443) 7. Storage: 8 GB 8. Launch
+Instance
+
+=============================== PART 5: CONNECT TO EC2
+=============================== Get Public IPv4 from EC2 console
+
+Mac/Linux: chmod 400 ubuntu-key.pem ssh -i ubuntu-key.pem
+ubuntu@PUBLIC_IP
+
+Windows PowerShell: ssh -i ubuntu-key.pem ubuntu@PUBLIC_IP
+
+=============================== PART 6: POINT DOMAIN TO EC2
+=============================== Route 53 → Hosted Zone → example.com
+Create Record: - Type: A - Name: (blank) - Value: EC2 Public IP - TTL:
+300
+
+=============================== PART 7: ZOHO MAIL SETUP (FREE)
+=============================== 1. Go to https://zoho.com/mail 2. Sign
+up → Free Plan 3. Domain: example.com 4. Admin email: admin@example.com
+
+Domain Verification (TXT): Host: @ Value: zoho-verification=zbXXXXXXX
+
+=============================== PART 8: MX RECORDS
+=============================== Delete existing MX records Add: MX @
+mx.zoho.in Priority 10 MX @ mx2.zoho.in Priority 20 MX @ mx3.zoho.in
+Priority 50
+
+=============================== PART 9: EMAIL AUTHENTICATION
+=============================== SPF (TXT): v=spf1 include:zoho.in ~all
+
+DKIM: Host: zoho._domainkey Value: Provided by Zoho
+
+DMARC (TXT): v=DMARC1; p=none; rua=mailto:admin@example.com
+
+=============================== PART 10: ZOHO CLIQ
+=============================== 1. Go to https://cliq.zoho.com 2. Login
+with Zoho admin 3. Choose Free Plan 4. Users auto-sync from Zoho Mail
+
+=============================== PART 11: OPTIONAL NGINX TEST
+=============================== sudo apt update sudo apt install nginx
+-y
+
+Visit: http://example.com
+
+=============================== PART 12: FREE ZOHO TOOLS FOR SCHOOL
+=============================== - Zoho Mail – Official email - Zoho Cliq
+– Communication - Zoho Connect – School notice board - Zoho Forms –
+Admissions & feedback - Zoho Sheet – Attendance & marks - Zoho Writer –
+Letters & circulars - Zoho Show – Presentations - Zoho WorkDrive – File
+sharing - Zoho Projects – Events & tasks - Zoho Desk – Parent support -
+Zoho CRM – Enquiry & parent tracking - Zoho Creator – Custom school apps
+
+=============================== RECOMMENDED FREE STACK
+=============================== Mail + Cliq + Connect + Forms +
+WorkDrive + Sheet/Writer/Show
+
+=============================== END OF FILE
+===============================

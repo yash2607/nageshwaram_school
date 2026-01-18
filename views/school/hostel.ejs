@@ -1,76 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title>
+        <%= title %>
+    </title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
     <%- include('../partials/school_header') %>
-    <main>
-        <section class="hostel-hero-section">
-            <div class="container">
-                <h1>Hostel Facilities</h1>
-                <p>A safe, comfortable, and nurturing home away from home for our students.</p>
-            </div>
-        </section>
+        <main>
+            <section class="page-header" style="background-image: url('/images/school-hero.png');">
+                <div class="container">
+                    <h1>Hostel Facilities</h1>
+                    <p>A safe, comfortable, and nurturing home away from home for our students.</p>
+                </div>
+            </section>
 
-        <section class="hostel-overview-section">
-            <div class="container">
-                <h2>A Nurturing Environment for Growth and Learning</h2>
-                <p>N.R.K. Public School offers well-maintained and secure hostel facilities for both boys and girls, providing a supportive environment conducive to academic success and personal development. Our hostel aims to be a home away from home, where students learn to live independently, cultivate friendships, and grow into responsible individuals under careful supervision.</p>
-            </div>
-        </section>
+            <section class="content-section">
+                <div class="container">
+                    <div class="row" style="display: flex; gap: 40px; flex-wrap: wrap;">
+                        <div style="flex: 2; min-width: 300px;">
+                            <h2>A Nurturing Environment for Growth and Learning</h2>
+                            <p style="margin-bottom: 30px;">N.R.K. Public School offers well-maintained and secure
+                                hostel facilities for both boys and girls, providing a supportive environment conducive
+                                to academic success and personal development. Our hostel aims to be a home away from
+                                home, where students learn to live independently, cultivate friendships, and grow into
+                                responsible individuals under careful supervision.</p>
 
-        <section class="amenities-safety-section">
-            <div class="container">
-                <div class="card-row">
-                    <div class="card">
-                        <h3>Comfortable Amenities</h3>
-                        <ul>
-                            <li>**Spacious Rooms:** Well-ventilated and furnished rooms with comfortable beds and study areas.</li>
-                            <li>**Nutritious Meals:** A balanced and hygienic diet served in the dining hall, catering to student nutritional needs.</li>
-                            <li>**Supervised Study Hours:** Dedicated time for supervised study to ensure academic progress.</li>
-                            <li>**Recreation:** Common rooms with indoor games and outdoor play areas for relaxation.</li>
-                            <li>**Medical Care:** First-aid facilities with a visiting doctor for routine health check-ups.</li>
-                            <li>**Laundry Services:** Regular laundry services for students.</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3>Safety and Supervision</h3>
-                        <ul>
-                            <li>**24/7 Security:** Round-the-clock security personnel and CCTV surveillance to ensure student safety.</li>
-                            <li>**Experienced Wardens:** Dedicated and caring wardens who oversee the well-being and discipline of students.</li>
-                            <li>**Strict Entry/Exit Protocols:** Controlled access to the hostel premises.</li>
-                            <li>**Emergency Preparedness:** Clear emergency procedures and drills in place.</li>
-                        </ul>
+                            <div
+                                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 40px;">
+                                <div class="card"
+                                    style="padding: 25px; border-radius: 8px; box-shadow: var(--shadow-md); background: white;">
+                                    <h3
+                                        style="color: var(--primary-blue); border-bottom: 2px solid var(--accent-gold); padding-bottom: 10px; margin-bottom: 20px;">
+                                        Comfortable Amenities</h3>
+                                    <ul style="list-style: none; padding-left: 0;">
+                                        <li style="margin-bottom: 12px; display: flex; align-items: flex-start;"><i
+                                                class="fas fa-bed text-gold"
+                                                style="margin-right: 15px; margin-top: 5px;"></i>
+                                            <div><strong>Spacious Rooms:</strong> Well-ventilated and furnished rooms
+                                                with comfortable beds and study areas.</div>
+                                        </li>
+                                        <li style="margin-bottom: 12px; display: flex; align-items: flex-start;"><i
+                                                class="fas fa-utensils text-gold"
+                                                style="margin-right: 15px; margin-top: 5px;"></i>
+                                            <div><strong>Nutritious Meals:</strong> A balanced and hygienic diet served
+                                                in the dining hall, catering to student nutritional needs.</div>
+                                        </li>
+                                        <li style="margin-bottom: 12px; display: flex; align-items: flex-start;"><i
+                                                class="fas fa-book-reader text-gold"
+                                                style="margin-right: 15px; margin-top: 5px;"></i>
+                                            <div><strong>Supervised Study Hours:</strong> Dedicated time for supervised
+                                                study to ensure academic progress.</div>
+                                        </li>
+                                        <li style="margin-bottom: 12px; display: flex; align-items: flex-start;"><i
+                                                class="fas fa-table-tennis text-gold"
+                                                style="margin-right: 15px; margin-top: 5px;"></i>
+                                            <div><strong>Recreation:</strong> Common rooms with indoor games and outdoor
+                                                play areas for relaxation.</div>
+                                        </li>
+                                        <li style="margin-bottom: 12px; display: flex; align-items: flex-start;"><i
+                                                class="fas fa-user-md text-gold"
+                                                style="margin-right: 15px; margin-top: 5px;"></i>
+                                            <div><strong>Medical Care:</strong> First-aid facilities with a visiting
+                                                doctor for routine health check-ups.</div>
+                                        </li>
+                                        <li style="margin-bottom: 12px; display: flex; align-items: flex-start;"><i
+                                                class="fas fa-tshirt text-gold"
+                                                style="margin-right: 15px; margin-top: 5px;"></i>
+                                            <div><strong>Laundry Services:</strong> Regular laundry services for
+                                                students.</div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="card"
+                                    style="padding: 25px; border-radius: 8px; box-shadow: var(--shadow-md); background: white;">
+                                    <h3
+                                        style="color: var(--primary-blue); border-bottom: 2px solid var(--accent-gold); padding-bottom: 10px; margin-bottom: 20px;">
+                                        Safety and Supervision</h3>
+                                    <ul style="list-style: none; padding-left: 0;">
+                                        <li style="margin-bottom: 12px; display: flex; align-items: flex-start;"><i
+                                                class="fas fa-shield-alt text-gold"
+                                                style="margin-right: 15px; margin-top: 5px;"></i>
+                                            <div><strong>24/7 Security:</strong> Round-the-clock security personnel and
+                                                CCTV surveillance to ensure student safety.</div>
+                                        </li>
+                                        <li style="margin-bottom: 12px; display: flex; align-items: flex-start;"><i
+                                                class="fas fa-user-tie text-gold"
+                                                style="margin-right: 15px; margin-top: 5px;"></i>
+                                            <div><strong>Experienced Wardens:</strong> Dedicated and caring wardens who
+                                                oversee the well-being and discipline of students.</div>
+                                        </li>
+                                        <li style="margin-bottom: 12px; display: flex; align-items: flex-start;"><i
+                                                class="fas fa-id-card text-gold"
+                                                style="margin-right: 15px; margin-top: 5px;"></i>
+                                            <div><strong>Strict Entry/Exit Protocols:</strong> Controlled access to the
+                                                hostel premises.</div>
+                                        </li>
+                                        <li style="margin-bottom: 12px; display: flex; align-items: flex-start;"><i
+                                                class="fas fa-ambulance text-gold"
+                                                style="margin-right: 15px; margin-top: 5px;"></i>
+                                            <div><strong>Emergency Preparedness:</strong> Clear emergency procedures and
+                                                drills in place.</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <h3>Typical Daily Routine</h3>
+                            <p>A structured daily routine helps students maintain discipline, focus on their studies,
+                                and develop healthy habits.</p>
+                            <div style="background: var(--bg-cream); padding: 20px; border-radius: 8px;">
+                                <ul style="margin: 0;">
+                                    <li><strong>Morning:</strong> Wake-up, freshen up, exercise/yoga, breakfast.</li>
+                                    <li><strong>Daytime:</strong> School classes, lunch.</li>
+                                    <li><strong>Evening:</strong> Supervised study hours, recreation time, dinner.</li>
+                                    <li><strong>Night:</strong> Preparation for the next day, lights out.</li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div style="flex: 1; min-width: 300px;">
+                            <div
+                                style="background: var(--primary-blue); color: white; padding: 30px; border-radius: 8px;">
+                                <h3 style="color: var(--accent-gold);">Hostel Admission</h3>
+                                <p style="margin-bottom: 20px;">Hostel seats are limited and allotted on a first-come,
+                                    first-served basis. Priority is given to outstation students.</p>
+                                <p style="margin-bottom: 30px;">To apply for a hostel seat, please tick the 'Hostel
+                                    Required' option in the admission form.</p>
+                                <a href="/school/contact" class="cta-button secondary"
+                                    style="width: 100%; text-align: center;">Inquire About Availability</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="daily-routine-section">
-            <div class="container">
-                <h2>Typical Daily Routine</h2>
-                <p>A structured daily routine helps students maintain discipline, focus on their studies, and develop healthy habits.</p>
-                <ul>
-                    <li>**Morning:** Wake-up, freshen up, exercise/yoga, breakfast.</li>
-                    <li>**Daytime:** School classes, lunch.</li>
-                    <li>**Evening:** Supervised study hours, recreation time, dinner.</li>
-                    <li>**Night:** Preparation for the next day, lights out.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="call-to-action">
-            <div class="container">
-                <h2>Considering Hostel Life for Your Child?</h2>
-                <p>Experience a disciplined and supportive environment at N.R.K. Public School hostel.</p>
-                <a href="/school/contact" class="cta-button primary">Inquire About Hostel</a>
-            </div>
-        </section>
-    </main>
-    <%- include('../partials/footer') %>
+            </section>
+        </main>
+        <%- include('../partials/footer') %>
 </body>
+
 </html>

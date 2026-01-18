@@ -1,72 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title>
+        <%= title %>
+    </title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
     <%- include('../partials/header') %>
-    <main>
-    <section class="hero-section trust-hero">
-        <div class="container">
-            <h1>Empowering Rural India Through Education</h1>
-            <p>We believe in the power of knowledge to transform lives, build communities, and create a brighter future for generations to come.</p>
-            <div class="hero-cta">
-                <a href="/school/admissions" class="cta-button primary">Apply for Admission <i class="fa fa-arrow-right"></i></a>
-                <a href="/contact" class="cta-button secondary">Enquire Now</a>
-            </div>
-        </div>
-    </section>
 
-    <section class="mission-vision-section">
-        <div class="container">
-            <h2>Our Guiding Principles</h2>
-            <div class="card-row">
-                <div class="card icon-card">
-                    <img src="/images/mission-icon.svg" alt="Mission Icon" class="card-icon">
-                    <h3>Our Mission</h3>
-                    <p>To provide accessible, high-quality education and holistic development opportunities to children, fostering knowledge, skills, and values for a brighter tomorrow.</p>
+        <main>
+            <!-- Hero Section -->
+            <section class="hero-section trust-hero">
+                <div class="hero-content">
+                    <h1>Legacies Built on Knowledge</h1>
+                    <p>Nageshwaram Foundation Trust is dedicated to empowering rural India through world-class education
+                        and holistic community development.</p>
+                    <div class="hero-cta-group" style="margin-top: 30px;">
+                        <a href="/school/admissions" class="cta-button gold">Apply for 2026-27 <i
+                                class="fas fa-arrow-right"></i></a>
+                        <a href="/contact" class="cta-button secondary"
+                            style="border-color: white; color: white; margin-left: 15px;">Contact Us</a>
+                    </div>
                 </div>
-                <div class="card icon-card">
-                    <img src="/images/vision-icon.svg" alt="Vision Icon" class="card-icon">
-                    <h3>Our Vision</h3>
-                    <p>To be a beacon of educational transformation, empowering generations to become responsible citizens and leaders who contribute positively to their families and the nation.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <section class="institutions-overview-section" style="background-color: var(--secondary-blue);">
-        <div class="container">
-            <h2>Our Institutions</h2>
-            <p class="section-subtitle">Nageshwaram Foundation Trust proudly supports educational institutions dedicated to nurturing young minds.</p>
-            <div class="card-row">
-                <div class="card institution-card-home">
-                    <img src="/images/school-placeholder.svg" alt="N.R.K. Public School">
-                    <h3>N.R.K. Public School</h3>
-                    <p>A leading institution providing quality school education, focusing on academic excellence and character building.</p>
-                    <a href="/school" class="cta-button secondary">Visit School Website <i class="fa fa-external-link"></i></a>
+            <!-- Mission & Values -->
+            <section class="section-padding" style="background: white;">
+                <div class="container text-center">
+                    <span class="text-gold"
+                        style="font-weight: 600; letter-spacing: 2px; text-transform: uppercase;">Our Philosophy</span>
+                    <h2 style="font-size: 2.5rem; margin-top: 10px;">Guiding Principles</h2>
+                    <div class="card-row">
+                        <div class="card icon-card">
+                            <i class="fas fa-lightbulb fa-3x text-blue" style="margin-bottom: 20px;"></i>
+                            <h3>Our Mission</h3>
+                            <p>To bridge the urban-rural divide by providing accessible, high-quality education that
+                                fosters critical thinking and moral leadership.</p>
+                        </div>
+                        <div class="card icon-card">
+                            <i class="fas fa-eye fa-3x text-blue" style="margin-bottom: 20px;"></i>
+                            <h3>Our Vision</h3>
+                            <p>A society where every child, regardless of background, has the opportunity to realize
+                                their full potential and contribute to the nation.</p>
+                        </div>
+                        <div class="card icon-card">
+                            <i class="fas fa-heart fa-3x text-blue" style="margin-bottom: 20px;"></i>
+                            <h3>Our Values</h3>
+                            <p>Integrity, Inclusivity, Excellence, and Service are the pillars upon which our
+                                institutions stand.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card institution-card-home placeholder">
-                    <img src="/images/college-icon.svg" alt="Future College">
-                    <h3>Future College (Coming Soon)</h3>
-                    <p>Expanding our educational outreach with a new college for advanced studies and vocational training.</p>
-                    <a href="/institutions" class="cta-button secondary disabled">Explore Our Plans</a>
-                </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <section class="cta-admissions-section text-center">
-        <div class="container">
-            <h2>Your Child's Future Begins Here</h2>
-            <p>Give your child the gift of quality education. Admissions for the new academic year are now open at N.R.K. Public School.</p>
-            <a href="/school/admissions" class="cta-button primary large">Apply for Admission Today <i class="fa fa-user-plus"></i></a>
-        </div>
-    </section>
-</main>
-    <%- include('../partials/footer') %>
+            <!-- Institutions -->
+            <section class="section-padding" style="background-color: var(--bg-cream);">
+                <div class="container">
+                    <div class="text-center" style="margin-bottom: 50px;">
+                        <h2>Our Institutions</h2>
+                        <p style="max-width: 600px; margin: 0 auto; color: var(--text-gray);">Nurturing minds from
+                            foundational years to higher education.</p>
+                    </div>
+
+                    <div class="card-row">
+                        <!-- School Card -->
+                        <div class="card institution-card" style="padding: 0; overflow: hidden; max-width: 500px;">
+                            <div style="height: 250px; background: #eaf6ff; overflow: hidden;">
+                                <img src="/images/school-building.png" alt="N.R.K. School Building"
+                                    style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div style="padding: 30px;">
+                                <h3>N.R.K. Public School</h3>
+                                <p style="margin-bottom: 20px;">A premier CBSE-curriculum school providing holistic
+                                    education with state-of-the-art facilities in Jamui.</p>
+                                <a href="/school" class="cta-button primary" style="width: 100%;">Visit School Site</a>
+                            </div>
+                        </div>
+
+                        <!-- College Card -->
+                        <div class="card institution-card"
+                            style="padding: 0; overflow: hidden; max-width: 500px; opacity: 0.9;">
+                            <div style="height: 250px; background: #f0f0f0; position: relative; overflow: hidden;">
+                                <span
+                                    style="position: absolute; top: 15px; right: 15px; background: var(--accent-gold); color: white; padding: 5px 10px; font-size: 0.8rem; border-radius: 4px; font-weight: bold; z-index: 2;">COMING
+                                    SOON</span>
+                                <img src="/images/college-building.png" alt="Future College Campus"
+                                    style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div style="padding: 30px;">
+                                <h3>Future College</h3>
+                                <p style="margin-bottom: 20px;">Expanding our horizon to higher education, bringing
+                                    vocational and degree courses to the region.</p>
+                                <button class="cta-button secondary" disabled
+                                    style="width: 100%; border-color: #ccc; color: #ccc;">Details Coming Soon</button>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section style="background-color: var(--primary-blue); padding: 80px 0; color: white; text-align: center;">
+                <div class="container">
+                    <h2 style="color: white; margin-bottom: 20px;">Shape the Future with Us</h2>
+                    <p style="max-width: 700px; margin: 0 auto 40px auto; opacity: 0.9; font-size: 1.1rem;">Whether you
+                        are a parent looking for the best education for your child or a partner willing to support our
+                        cause, we welcome you.</p>
+                    <div style="display: flex; gap: 20px; justify-content: center;">
+                        <a href="/school/admissions" class="cta-button gold">Admissions Open</a>
+                        <a href="/contact" class="cta-button secondary"
+                            style="border-color: rgba(255,255,255,0.3); color: white;">Get in Touch</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <%- include('../partials/footer') %>
 </body>
+
 </html>
