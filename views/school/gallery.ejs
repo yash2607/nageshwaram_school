@@ -11,87 +11,169 @@
     <link rel="stylesheet" href="/css/complete-fix.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
+    <style>
+        .gallery-hero {
+            background: linear-gradient(rgba(10, 38, 71, 0.7), rgba(10, 38, 71, 0.7)), url('/images/school-hero.png');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0 60px;
+            color: white;
+            text-align: center;
+        }
+
+        .gallery-hero h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .gallery-section {
+            padding: 80px 0;
+            background: var(--bg-cream);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            height: 250px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay h4 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
     <%- include('../partials/school_header') %>
         <main>
-            <section class="gallery-hero-section">
+            <section class="gallery-hero">
                 <div class="container">
                     <h1>Our School Gallery</h1>
-                    <p>Capturing the vibrant life, achievements, and facilities of N.R.K. Public School.</p>
+                    <p>Capturing the vibrant life and achievements at N.R.K. Public School.</p>
                 </div>
             </section>
 
-            <section class="image-gallery-section">
+            <section class="gallery-section">
                 <div class="container">
-                    <h2>Moments of Joy and Learning</h2>
-                    <p>Explore our collection of images showcasing various school events, academic activities, sports,
-                        and cultural celebrations.</p>
-                    <div class="gallery-grid" id="image-gallery">
-                        <!-- Placeholder images for now. These will eventually be dynamically loaded from backend/data/gallery.json -->
-                        <a href="/images/gallery/placeholder.svg" data-caption="School Event 1">
-                            <img src="/images/gallery/placeholder.svg" alt="School Event 1">
+                    <div class="text-center">
+                        <h2 style="color: var(--primary-blue);">Moments of Joy & Learning</h2>
+                        <p style="color: var(--text-gray); max-width: 600px; margin: 0 auto;">Take a glimpse into our
+                            campus life, modern facilities, and enthusiastic students.</p>
+                    </div>
+
+                    <div class="gallery-grid" id="school-gallery">
+                        <a href="/images/School_Photo1.jpeg" class="gallery-item" data-caption="Our School Building">
+                            <img src="/images/School_Photo1.jpeg" alt="School Building">
+                            <div class="gallery-overlay">
+                                <h4>Our School Building</h4>
+                            </div>
                         </a>
-                        <a href="/images/gallery/placeholder.svg" data-caption="Academic Activity">
-                            <img src="/images/gallery/placeholder.svg" alt="Academic Activity">
+                        <a href="/images/School_Photo2.jpeg" class="gallery-item"
+                            data-caption="Smart Classroom Learning">
+                            <img src="/images/School_Photo2.jpeg" alt="Classroom">
+                            <div class="gallery-overlay">
+                                <h4>Modern Classrooms</h4>
+                            </div>
                         </a>
-                        <a href="/images/gallery/placeholder.svg" data-caption="Sports Day">
-                            <img src="/images/gallery/placeholder.svg" alt="Sports Day">
+                        <a href="/images/School_Photo3.jpeg" class="gallery-item" data-caption="Student Assembly">
+                            <img src="/images/School_Photo3.jpeg" alt="Assembly">
+                            <div class="gallery-overlay">
+                                <h4>Inspiring Assembly</h4>
+                            </div>
                         </a>
-                        <a href="/images/gallery/placeholder.svg" data-caption="Cultural Program">
-                            <img src="/images/gallery/placeholder.svg" alt="Cultural Program">
+                        <a href="/images/School_Photo4.jpeg" class="gallery-item"
+                            data-caption="Library & Resource Center">
+                            <img src="/images/School_Photo4.jpeg" alt="Library">
+                            <div class="gallery-overlay">
+                                <h4>Resourceful Library</h4>
+                            </div>
                         </a>
-                        <a href="/images/gallery/placeholder.svg" data-caption="Classroom Learning">
-                            <img src="/images/gallery/placeholder.svg" alt="Classroom Learning">
+                        <a href="/images/School_Photo5.jpeg" class="gallery-item" data-caption="Sports & Activities">
+                            <img src="/images/School_Photo5.jpeg" alt="Sports">
+                            <div class="gallery-overlay">
+                                <h4>Active Sports Day</h4>
+                            </div>
                         </a>
-                        <a href="/images/gallery/placeholder.svg" data-caption="Laboratory Session">
-                            <img src="/images/gallery/placeholder.svg" alt="Laboratory Session">
+                        <a href="/images/School_Photo6.jpeg" class="gallery-item" data-caption="Laboratory Facilities">
+                            <img src="/images/School_Photo6.jpeg" alt="Lab">
+                            <div class="gallery-overlay">
+                                <h4>Equipped Laboratories</h4>
+                            </div>
                         </a>
                     </div>
-                    <p class="mt-4"><em>More images will be added soon! These are placeholders and will be replaced with
-                            actual event photos.</em></p>
-                    <p>This section will eventually be integrated with the backend (`/api/gallery`) to dynamically load
-                        images.</p>
                 </div>
             </section>
 
-            <section class="video-gallery-section mt-5">
-                <div class="container">
-                    <h2>Videos Highlighting School Life</h2>
-                    <p>Watch videos that give you a glimpse into the dynamic environment and special moments at N.R.K.
-                        Public School.</p>
-                    <div class="video-grid">
-                        <!-- Placeholder videos for now. These will eventually be dynamically loaded from backend/data/videos.json -->
-                        <div class="video-item">
-                            <iframe width="560" height="315"
+            <section class="section-padding" style="background: white;">
+                <div class="container text-center">
+                    <h2 style="color: var(--primary-blue); margin-bottom: 20px;">Watch Us in Action</h2>
+                    <p style="color: var(--text-gray); margin-bottom: 40px;">Explore our video gallery for a deeper look
+                        into the school environment.</p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 30px;">
+                        <div
+                            style="border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-md); background: #000;">
+                            <iframe width="100%" height="315" src="https://www.youtube.com/embed/nH8qqtVOFOw"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div
+                            style="border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-md); background: #000;">
+                            <iframe width="100%" height="315"
                                 src="https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8c_e_D6lK_D8V5T4K_W5F_0"
                                 frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen></iframe>
-                            <p>General School Overview (Placeholder)</p>
-                        </div>
-                        <div class="video-item">
-                            <iframe width="560" height="315"
-                                src="https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8c_e_D6lK_D8V5T4K_W5F_0"
-                                frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
-                            <p>Annual Day Celebration (Placeholder)</p>
                         </div>
                     </div>
-                    <p class="mt-4"><em>More videos will be added soon! These are placeholders and will be replaced with
-                            actual event videos.</em></p>
-                    <p>This section will eventually be integrated with the backend (`/api/videos`) to dynamically load
-                        video links.</p>
                 </div>
             </section>
 
             <section class="call-to-action">
-                <div class="container">
-                    <h2>Want to See More?</h2>
-                    <p>Visit our school to experience the vibrant atmosphere firsthand.</p>
-                    <a href="/school/contact" class="cta-button primary">Plan Your Visit</a>
+                <div class="container text-center">
+                    <h2>Want to See the Campus in Person?</h2>
+                    <p>We invite parents and prospective students to visit us for a guided tour.</p>
+                    <a href="/school/contact" class="cta-button primary">Schedule a Visit</a>
                 </div>
             </section>
         </main>

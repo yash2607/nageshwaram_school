@@ -11,8 +11,8 @@ router.get('/about', (req, res) => {
     res.render('school/about', { title: 'About the School' });
 });
 
-router.get('/principal-message', (req, res) => {
-    res.render('school/principal', { title: 'Principal\'s Message' });
+router.get('/directors-message', (req, res) => {
+    res.render('school/director', { title: 'Director\'s Message' });
 });
 
 router.get('/academics', (req, res) => {

@@ -10,110 +10,243 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/complete-fix.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .fees-hero {
+            background: linear-gradient(rgba(10, 38, 71, 0.7), rgba(10, 38, 71, 0.7)), url('/images/school-hero.png');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0 60px;
+            color: white;
+            text-align: center;
+        }
+
+        .fees-hero h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .fee-table-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .fee-table-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .fee-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .fee-table th {
+            background: var(--primary-blue);
+            color: white;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .fee-table td {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .fee-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .fee-table tr:nth-child(even) {
+            background: var(--bg-cream);
+        }
+
+        .highlight-text {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .policies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .policy-card {
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            border-left: 5px solid var(--accent-gold);
+        }
+
+        .policy-card i {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .policy-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .policy-card ul {
+            padding-left: 20px;
+            color: var(--text-gray);
+        }
+
+        .policy-card li {
+            margin-bottom: 10px;
+        }
+
+        .scholarship-info {
+            background: var(--primary-blue);
+            color: white;
+            padding: 60px;
+            border-radius: 15px;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .scholarship-info h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .scholarship-info p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            opacity: 0.9;
+        }
+    </style>
 </head>
 
 <body>
     <%- include('../partials/school_header') %>
         <main>
-            <section class="fees-hero-section">
+            <section class="fees-hero">
                 <div class="container">
                     <h1>Fee Structure</h1>
-                    <p>Transparent and affordable education for all.</p>
+                    <p>Quality education made accessible and transparent.</p>
                 </div>
             </section>
 
-            <section class="content-section">
+            <section class="fee-table-section">
                 <div class="container">
-                    <div
-                        style="background: white; box-shadow: var(--shadow-sm); border-radius: 8px; overflow: hidden; max-width: 800px; margin: 0 auto;">
-                        <div style="padding: 20px; background: var(--primary-blue); color: white;">
-                            <h3 style="margin: 0; color: white;">Academic Session 2026-27</h3>
-                        </div>
-                        <table style="width: 100%; border-collapse: collapse;">
-                            <thead style="background: var(--bg-cream);">
+                    <div class="text-center" style="margin-bottom: 40px;">
+                        <h2 style="color: var(--primary-blue);">Academic Session 2026-27</h2>
+                        <p style="color: var(--text-gray);">Standard tuition and annual charges across different grades.
+                        </p>
+                    </div>
+
+                    <div class="fee-table-container">
+                        <table class="fee-table">
+                            <thead>
                                 <tr>
-                                    <th style="padding: 15px; text-align: left; border-bottom: 2px solid #ddd;">Grade /
-                                        Class</th>
-                                    <th style="padding: 15px; text-align: right; border-bottom: 2px solid #ddd;">Tuition
-                                        Fee (Monthly)</th>
-                                    <th style="padding: 15px; text-align: right; border-bottom: 2px solid #ddd;">Annual
-                                        Charges</th>
+                                    <th>Grade / Class</th>
+                                    <th>Tuition Fee (Monthly)</th>
+                                    <th>Annual Charges</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td style="padding: 15px; border-bottom: 1px solid #eee;">Nursery - KG</td>
-                                    <td style="padding: 15px; text-align: right; border-bottom: 1px solid #eee;">₹ 800
-                                    </td>
-                                    <td style="padding: 15px; text-align: right; border-bottom: 1px solid #eee;">₹ 2,000
-                                    </td>
+                                    <td class="highlight-text">Nursery - KG</td>
+                                    <td>₹ 800</td>
+                                    <td>₹ 2,000</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 15px; border-bottom: 1px solid #eee;">Class 1 - 5</td>
-                                    <td style="padding: 15px; text-align: right; border-bottom: 1px solid #eee;">₹ 1,000
-                                    </td>
-                                    <td style="padding: 15px; text-align: right; border-bottom: 1px solid #eee;">₹ 3,500
-                                    </td>
+                                    <td class="highlight-text">Class 1 - 5</td>
+                                    <td>₹ 1,000</td>
+                                    <td>₹ 3,500</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 15px; border-bottom: 1px solid #eee;">Class 6 - 8</td>
-                                    <td style="padding: 15px; text-align: right; border-bottom: 1px solid #eee;">₹ 1,200
-                                    </td>
-                                    <td style="padding: 15px; text-align: right; border-bottom: 1px solid #eee;">₹ 4,000
-                                    </td>
+                                    <td class="highlight-text">Class 6 - 8</td>
+                                    <td>₹ 1,200</td>
+                                    <td>₹ 4,000</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 15px; border-bottom: 1px solid #eee;">Class 9 - 10</td>
-                                    <td style="padding: 15px; text-align: right; border-bottom: 1px solid #eee;">₹ 1,500
-                                    </td>
-                                    <td style="padding: 15px; text-align: right; border-bottom: 1px solid #eee;">₹ 5,000
-                                    </td>
+                                    <td class="highlight-text">Class 9 - 10</td>
+                                    <td>₹ 1,500</td>
+                                    <td>₹ 5,000</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <p class="note"><em>Note: The above figures are illustrative and subject to change. Please collect
-                            the official fee booklet from the school office for exact and detailed information.
-                            Additional charges may be applicable for optional services like transport, special coaching,
-                            and excursions.</em></p>
+
+                    <div style="margin-top: 30px; padding: 20px; background: var(--bg-cream); border-radius: 8px;">
+                        <p style="margin: 0; font-size: 0.95rem; color: var(--text-gray); font-style: italic;">
+                            <i class="fas fa-info-circle" style="color: var(--primary-blue); margin-right: 8px;"></i>
+                            Note: The above figures are for reference. Please collect the official fee booklet from the
+                            school office for comprehensive details including transport and optional facilities.
+                        </p>
+                    </div>
                 </div>
             </section>
 
-            <section class="payment-methods-section">
+            <section class="section-padding" style="background: var(--bg-cream);">
                 <div class="container">
-                    <h2>Payment Methods & Policies</h2>
-                    <ul>
-                        <li><strong>Online Payment:</strong> Fees can be conveniently paid online through the school's
-                            ERP portal or mobile app.</li>
-                        <li><strong>Bank Transfer:</strong> Direct bank transfer facility is available.</li>
-                        <li><strong>Cheque/Demand Draft:</strong> Payments can be made via cheque or demand draft in
-                            favor of "N.R.K. Public School".</li>
-                        <li><strong>Installment Options:</strong> For tuition fees, parents may opt for quarterly or
-                            half-yearly payment plans.</li>
-                        <li><strong>Due Dates:</strong> Fees are typically due on the 10th of the first month of each
-                            quarter (April, July, October, January).</li>
-                        <li><strong>Late Fee:</strong> A late fee may be applicable for payments made after the due
-                            date.</li>
-                    </ul>
+                    <h2 class="text-center" style="color: var(--primary-blue);">Payment Methods & Policies</h2>
+
+                    <div class="policies-grid">
+                        <div class="policy-card">
+                            <i class="fas fa-credit-card"></i>
+                            <h3>How to Pay</h3>
+                            <ul>
+                                <li><strong>Online:</strong> ERP portal or Mobile App.</li>
+                                <li><strong>Bank Transfer:</strong> Direct NEFT/IMPS facility.</li>
+                                <li><strong>Cheque/DD:</strong> Payable to "N.R.K. Public School".</li>
+                            </ul>
+                        </div>
+                        <div class="policy-card">
+                            <i class="fas fa-calendar-alt"></i>
+                            <h3>Due Dates</h3>
+                            <ul>
+                                <li>Payable by 10th of the first month of each quarter.</li>
+                                <li>Quarters start in April, July, October, and January.</li>
+                                <li>Late fee applies after the due date.</li>
+                            </ul>
+                        </div>
+                        <div class="policy-card">
+                            <i class="fas fa-hand-holding-usd"></i>
+                            <h3>Installments</h3>
+                            <ul>
+                                <li>Quarterly or half-yearly plans available.</li>
+                                <li>One-time payment discounts may apply.</li>
+                                <li>Flexible options for deserving cases.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="scholarship-info">
+                        <h2>Scholarship Opportunities</h2>
+                        <p>We are dedicated to supporting meritorious students and those from economically weaker
+                            sections. Limited scholarships are available based on merit-cum-means criteria.</p>
+                        <a href="/school/contact" class="cta-button gold" style="border: none;">Inquire About
+                            Scholarships</a>
+                    </div>
                 </div>
             </section>
 
-            <section class="scholarship-section">
-                <div class="container">
-                    <h2>Scholarship Opportunities</h2>
-                    <p>N.R.K. Public School is committed to supporting meritorious and deserving students. We offer
-                        limited scholarships based on academic performance and/or socio-economic need. Details regarding
-                        scholarship applications and eligibility criteria can be obtained from the school administration
-                        office.</p>
-                    <a href="/school/contact" class="cta-button secondary">Inquire About Scholarships</a>
-                </div>
-            </section>
-
-            <section class="call-to-action">
-                <div class="container">
-                    <h2>Any Questions on Fees?</h2>
-                    <p>Our administrative staff is available to clarify any doubts regarding the fee structure.</p>
-                    <a href="/school/contact" class="cta-button primary">Contact School Office</a>
+            <section class="section-padding" style="background: white;">
+                <div class="container text-center">
+                    <h2 style="color: var(--primary-blue); margin-bottom: 20px;">Fee Related Inquiries</h2>
+                    <p style="color: var(--text-gray); font-size: 1.1rem; margin-bottom: 30px;">Our accounts department
+                        is available to clarify any doubts or provide detailed payment history.</p>
+                    <div
+                        style="background: var(--bg-cream); padding: 25px; border-radius: 12px; display: inline-block;">
+                        <p style="margin: 0; font-size: 1.1rem; color: var(--primary-blue);"><i
+                                class="fas fa-envelope"></i> <strong>Email:</strong> accounts@nageshwaramtrust.org</p>
+                    </div>
+                    <div style="margin-top: 40px;">
+                        <a href="/school/contact" class="cta-button primary">Contact School Office</a>
+                    </div>
                 </div>
             </section>
         </main>

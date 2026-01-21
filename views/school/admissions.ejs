@@ -10,72 +10,259 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/complete-fix.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .admissions-hero {
+            background: linear-gradient(rgba(10, 38, 71, 0.6), rgba(10, 38, 71, 0.6)), url('/images/school-hero.png');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0 60px;
+            color: white;
+            text-align: center;
+        }
+
+        .admissions-hero h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .admission-steps {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .step-card {
+            background: var(--bg-cream);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            border-bottom: 5px solid var(--accent-gold);
+            height: 100%;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin: 0 auto 20px;
+        }
+
+        .important-dates-section {
+            padding: 80px 0;
+            background: var(--bg-cream);
+        }
+
+        .dates-table-container {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        .dates-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .dates-table th {
+            background: var(--primary-blue);
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-size: 1.1rem;
+        }
+
+        .dates-table td {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            font-size: 1.1rem;
+        }
+
+        .dates-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .dates-table tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        .date-label {
+            font-weight: 600;
+            color: var(--primary-blue);
+            width: 40%;
+        }
+
+        .eligibility-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .eligibility-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .date-label {
+                width: 50%;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <%- include('../partials/school_header') %>
         <main>
-            <div class="step-card">
-                <h3>Step 4: Admission Confirmation</h3>
-                <p>Upon successful completion of the interaction/test and verification of documents, parents will be
-                    notified of the admission status. You can then proceed with fee payment to confirm the admission.
-                </p>
-            </div>
-            </div>
-            </div>
+            <section class="admissions-hero">
+                <div class="container">
+                    <h1>Admissions 2026-27</h1>
+                    <p>Start your child's journey toward excellence today.</p>
+                </div>
             </section>
 
-            <section class="eligibility-documents-section">
-                <div class="container">
-                    <div class="card-row">
-                        <div class="card">
-                            <h2>Eligibility Criteria</h2>
-                            <ul>
-                                <li><strong>Pre-Nursery:</strong> Child should be 3+ years as of 31st March of the
-                                    admission year.
-                                </li>
-                                <li><strong>Nursery:</strong> Child should be 4+ years as of 31st March of the admission
-                                    year.</li>
-                                <li><strong>Class I onwards:</strong> Age-appropriate admission as per CBSE guidelines.
-                                </li>
-                                <li>For higher classes, a transfer certificate (TC) from the previous recognized school
-                                    is mandatory.</li>
-                            </ul>
+            <section class="admission-steps">
+                <div class="container text-center">
+                    <h2 style="color: var(--primary-blue);">Admission Process</h2>
+                    <p style="color: var(--text-gray); max-width: 600px; margin: 0 auto;">Our admission process is
+                        designed to be simple and transparent for parents and students.</p>
+
+                    <div class="steps-container">
+                        <div class="step-card">
+                            <div class="step-number">1</div>
+                            <h3>Inquiry</h3>
+                            <p>Visit the school campus or contact our admissions office to collect the prospectus and
+                                information booklet.</p>
                         </div>
-                        <div class="card">
-                            <h2>Required Documents</h2>
-                            <ul>
-                                <li>Attested photocopy of Birth Certificate (for Pre-Nursery to Class I).</li>
-                                <li>Transfer Certificate (TC) from the previous school (for Class II onwards).</li>
-                                <li>Photocopy of Aadhar Card of the child and parents.</li>
-                                <li>Latest passport-size photographs of the child (4 copies) and parents (2 copies
-                                    each).</li>
-                                <li>Previous academic year's report card (for Class II onwards).</li>
-                            </ul>
+                        <div class="step-card">
+                            <div class="step-number">2</div>
+                            <h3>Application</h3>
+                            <p>Submit the completed admission form along with the required documents at the school
+                                office.</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">3</div>
+                            <h3>Interaction</h3>
+                            <p>A brief interaction or assessment session will be conducted for the child and parents.
+                            </p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">4</div>
+                            <h3>Confirmation</h3>
+                            <p>Once approved, proceed with the fee payment to confirm your child's seat in the N.R.K.
+                                family.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
             <section class="important-dates-section">
+                <div class="container text-center">
+                    <h2 style="color: var(--primary-blue);">Important Dates (Tentative)</h2>
+
+                    <div class="dates-table-container">
+                        <table class="dates-table">
+                            <thead>
+                                <tr>
+                                    <th>Event</th>
+                                    <th>Date / Timeline</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="date-label">Admission Form Availability</td>
+                                    <td>January 15, 2026 onwards</td>
+                                </tr>
+                                <tr>
+                                    <td class="date-label">Last Date for Form Submission</td>
+                                    <td>February 28, 2026</td>
+                                </tr>
+                                <tr>
+                                    <td class="date-label">Interaction / Test Dates</td>
+                                    <td>March 1-15, 2026</td>
+                                </tr>
+                                <tr>
+                                    <td class="date-label">Admission Confirmation</td>
+                                    <td>March 15-31, 2026</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p style="color: var(--text-gray); font-style: italic; max-width: 800px; margin: 0 auto;">
+                        Note: These dates are tentative and may be subject to change. Please contact the school office
+                        for the most current information.
+                    </p>
+                </div>
+            </section>
+
+            <section class="section-padding" style="background: white;">
                 <div class="container">
-                    <h2>Important Dates (Tentative)</h2>
-                    <ul>
-                        <li><strong>Admission Form Availability:</strong> January 15, 2026 onwards</li>
-                        <li><strong>Last Date for Form Submission:</strong> February 28, 2026</li>
-                        <li><strong>Interaction / Test Dates:</strong> March 1-15, 2026</li>
-                        <li><strong>Admission Confirmation & Fee Payment:</strong> March 15-31, 2026</li>
-                    </ul>
-                    <p><em>Please note that these dates are tentative and may be subject to change. Kindly contact the
-                            school office for the most current information.</em></p>
+                    <div class="eligibility-grid">
+                        <div class="card" style="padding: 40px; background: var(--bg-cream); border: none;">
+                            <h2 style="color: var(--primary-blue); margin-bottom: 20px;">Eligibility Criteria</h2>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="margin-bottom: 15px;"><i class="fas fa-arrow-right text-gold"
+                                        style="margin-right: 10px;"></i> <strong>Pre-Nursery:</strong> 3+ years as of
+                                    31st March 2026.</li>
+                                <li style="margin-bottom: 15px;"><i class="fas fa-arrow-right text-gold"
+                                        style="margin-right: 10px;"></i> <strong>Nursery:</strong> 4+ years as of 31st
+                                    March 2026.</li>
+                                <li style="margin-bottom: 15px;"><i class="fas fa-arrow-right text-gold"
+                                        style="margin-right: 10px;"></i> <strong>Class I onwards:</strong> As per CBSE
+                                    guidelines.</li>
+                                <li style="margin-bottom: 15px;"><i class="fas fa-arrow-right text-gold"
+                                        style="margin-right: 10px;"></i> <strong>TC Requirement:</strong> Mandatory for
+                                    Class II and above.</li>
+                            </ul>
+                        </div>
+                        <div class="card" style="padding: 40px; background: var(--bg-cream); border: none;">
+                            <h2 style="color: var(--primary-blue); margin-bottom: 20px;">Documents Required</h2>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="margin-bottom: 12px;"><i class="fas fa-file-alt text-gold"
+                                        style="margin-right: 10px;"></i> Birth Certificate (Copy)</li>
+                                <li style="margin-bottom: 12px;"><i class="fas fa-file-alt text-gold"
+                                        style="margin-right: 10px;"></i> Transfer Certificate (Original)</li>
+                                <li style="margin-bottom: 12px;"><i class="fas fa-file-alt text-gold"
+                                        style="margin-right: 10px;"></i> Aadhar Card (Child & Parents)</li>
+                                <li style="margin-bottom: 12px;"><i class="fas fa-file-alt text-gold"
+                                        style="margin-right: 10px;"></i> 4 Passport Photos of Child</li>
+                                <li style="margin-bottom: 12px;"><i class="fas fa-file-alt text-gold"
+                                        style="margin-right: 10px;"></i> Previous Report Card (if applicable)</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <section class="call-to-action">
-                <div class="container">
-                    <h2>Have Questions?</h2>
-                    <p>Our admission counselors are ready to help you with any queries.</p>
-                    <a href="/school/contact" class="cta-button primary">Contact Admissions Office</a>
+                <div class="container text-center">
+                    <h2>Need Personalized Assistance?</h2>
+                    <p>Our admission counselors are happy to guide you through the process.</p>
+                    <div
+                        style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px; display: inline-block; margin-top: 20px;">
+                        <p style="margin: 0;"><i class="fas fa-envelope"></i> <strong>Email:</strong>
+                            admissions@naeshwaramtrust.org</p>
+                    </div>
+                    <div style="margin-top: 30px;">
+                        <a href="/school/contact" class="cta-button primary">Contact Admissions Office</a>
+                    </div>
                 </div>
             </section>
         </main>

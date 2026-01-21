@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/complete-fix.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .director-hero-section {
+            background: linear-gradient(rgba(10, 38, 71, 0.8), rgba(10, 38, 71, 0.8)), url('/images/school-hero.png');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0 60px;
+            text-align: center;
+            color: white;
+        }
+
+        .director-hero-section h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .director-message-section {
+            padding: 80px 0;
+            background: var(--bg-cream);
+        }
+
+        .director-card {
+            display: flex;
+            gap: 50px;
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-lg);
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .director-image-container {
+            flex: 0 0 350px;
+            position: relative;
+        }
+
+        .director-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow-md);
+            border: 5px solid white;
+        }
+
+        .director-image-accent {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 100px;
+            height: 100px;
+            border-top: 5px solid var(--accent-gold);
+            border-left: 5px solid var(--accent-gold);
+            z-index: 0;
+        }
+
+        .director-details {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .director-header {
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--bg-cream);
+            padding-bottom: 20px;
+        }
+
+        .director-header h2 {
+            color: var(--primary-blue);
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        .director-header h3 {
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 5px 0;
+        }
+
+        .director-details p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+
+        .director-signature {
+            margin-top: 40px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .director-contact-info {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--bg-cream);
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .director-contact-info p {
+            margin: 0;
+            font-size: 1rem;
+            color: var(--primary-blue);
+        }
+
+        @media (max-width: 992px) {
+            .director-card {
+                padding: 30px;
+                gap: 30px;
+            }
+
+            .director-image-container {
+                flex: 1 1 100%;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('../partials/school_header') %>
+        <main>
+            <section class="director-hero-section">
+                <div class="container">
+                    <h1>Director's Message</h1>
+                    <p>Leadership that inspires excellence and integrity.</p>
+                </div>
+            </section>
+
+            <section class="director-message-section">
+                <div class="container">
+                    <div class="director-card">
+                        <div class="director-image-container">
+                            <div class="director-image-accent"></div>
+                            <img src="/images/Director_Image.jpeg" alt="Director Sumant Raj" class="director-image">
+                        </div>
+                        <div class="director-details">
+                            <div class="director-header">
+                                <h2>SUMANT RAJ</h2>
+                                <h3>Director, N.R.K. Public School</h3>
+                            </div>
+                            <p>Dear Students, Parents, and Well-wishers,</p>
+                            <p>It is my privilege to welcome you to N.R.K. Public School, an institution founded on the
+                                pillars of quality education, moral integrity, and social responsibility. Our mission is
+                                to provide an environment where every child feels inspired to reach their full
+                                potential and emerge as a confident, compassionate leader of tomorrow.</p>
+                            <p>In today's rapidly evolving world, education must go beyond conventional classroom
+                                learning. At N.R.K. Public School, we emphasize a holistic approach that balances
+                                academic excellence with sports, arts, and character building. We are dedicated to
+                                providing the best facilities and a nurturing atmosphere for our students in rural Bihar
+                                to ensure they are at par with global standards.</p>
+                            <p>We believe that strong roots lead to a bright future. Our curriculum is designed to keep
+                                students connected to their values while equipping them with modern skills like digital
+                                literacy and scientific inquiry. Every student at our school is a unique individual, and
+                                our faculty is committed to guiding them with care and expertise.</p>
+                            <p>I am grateful for the trust parents have placed in us. We view education as a partnership
+                                between the school and the home, and we encourage you to be active participants in your
+                                child's journey. Together, we can shape the path toward a progressive and enlightened
+                                society.</p>
+                            <p>With best wishes,</p>
+                            <div class="director-signature">
+                                <strong>SUMANT RAJ</strong><br>
+                                Director, N.R.K. Public School
+                            </div>
+                            <div class="director-contact-info">
+                                <p><i class="fas fa-envelope"></i> <strong>Email:</strong>
+                                    principal@nageshwaramtrust.org</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="call-to-action">
+                <div class="container">
+                    <h2>Embrace a Brighter Future</h2>
+                    <p>Admissions are open for the upcoming academic session. Join the N.R.K. Public School community
+                        today.</p>
+                    <a href="/school/admissions" class="cta-button gold">Admission Details</a>
+                </div>
+            </section>
+        </main>
+        <%- include('../partials/footer') %>
+</body>
+
+</html>
