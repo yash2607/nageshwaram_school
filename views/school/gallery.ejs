@@ -1,87 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title>
+        <%= title %>
+    </title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/complete-fix.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
 </head>
+
 <body>
     <%- include('../partials/school_header') %>
-    <main>
-        <section class="gallery-hero-section">
-            <div class="container">
-                <h1>Our School Gallery</h1>
-                <p>Capturing the vibrant life, achievements, and facilities of N.R.K. Public School.</p>
-            </div>
-        </section>
-
-        <section class="image-gallery-section">
-            <div class="container">
-                <h2>Moments of Joy and Learning</h2>
-                <p>Explore our collection of images showcasing various school events, academic activities, sports, and cultural celebrations.</p>
-                <div class="gallery-grid" id="image-gallery">
-                    <!-- Placeholder images for now. These will eventually be dynamically loaded from backend/data/gallery.json -->
-                    <a href="/images/gallery/placeholder.svg" data-caption="School Event 1">
-                        <img src="/images/gallery/placeholder.svg" alt="School Event 1">
-                    </a>
-                    <a href="/images/gallery/placeholder.svg" data-caption="Academic Activity">
-                        <img src="/images/gallery/placeholder.svg" alt="Academic Activity">
-                    </a>
-                    <a href="/images/gallery/placeholder.svg" data-caption="Sports Day">
-                        <img src="/images/gallery/placeholder.svg" alt="Sports Day">
-                    </a>
-                    <a href="/images/gallery/placeholder.svg" data-caption="Cultural Program">
-                        <img src="/images/gallery/placeholder.svg" alt="Cultural Program">
-                    </a>
-                    <a href="/images/gallery/placeholder.svg" data-caption="Classroom Learning">
-                        <img src="/images/gallery/placeholder.svg" alt="Classroom Learning">
-                    </a>
-                    <a href="/images/gallery/placeholder.svg" data-caption="Laboratory Session">
-                        <img src="/images/gallery/placeholder.svg" alt="Laboratory Session">
-                    </a>
+        <main>
+            <section class="gallery-hero-section">
+                <div class="container">
+                    <h1>Our School Gallery</h1>
+                    <p>Capturing the vibrant life, achievements, and facilities of N.R.K. Public School.</p>
                 </div>
-                <p class="mt-4"><em>More images will be added soon! These are placeholders and will be replaced with actual event photos.</em></p>
-                <p>This section will eventually be integrated with the backend (`/api/gallery`) to dynamically load images.</p>
-            </div>
-        </section>
+            </section>
 
-        <section class="video-gallery-section mt-5">
-            <div class="container">
-                <h2>Videos Highlighting School Life</h2>
-                <p>Watch videos that give you a glimpse into the dynamic environment and special moments at N.R.K. Public School.</p>
-                <div class="video-grid">
-                    <!-- Placeholder videos for now. These will eventually be dynamically loaded from backend/data/videos.json -->
-                    <div class="video-item">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8c_e_D6lK_D8V5T4K_W5F_0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <p>General School Overview (Placeholder)</p>
+            <section class="image-gallery-section">
+                <div class="container">
+                    <h2>Moments of Joy and Learning</h2>
+                    <p>Explore our collection of images showcasing various school events, academic activities, sports,
+                        and cultural celebrations.</p>
+                    <div class="gallery-grid" id="image-gallery">
+                        <!-- Placeholder images for now. These will eventually be dynamically loaded from backend/data/gallery.json -->
+                        <a href="/images/gallery/placeholder.svg" data-caption="School Event 1">
+                            <img src="/images/gallery/placeholder.svg" alt="School Event 1">
+                        </a>
+                        <a href="/images/gallery/placeholder.svg" data-caption="Academic Activity">
+                            <img src="/images/gallery/placeholder.svg" alt="Academic Activity">
+                        </a>
+                        <a href="/images/gallery/placeholder.svg" data-caption="Sports Day">
+                            <img src="/images/gallery/placeholder.svg" alt="Sports Day">
+                        </a>
+                        <a href="/images/gallery/placeholder.svg" data-caption="Cultural Program">
+                            <img src="/images/gallery/placeholder.svg" alt="Cultural Program">
+                        </a>
+                        <a href="/images/gallery/placeholder.svg" data-caption="Classroom Learning">
+                            <img src="/images/gallery/placeholder.svg" alt="Classroom Learning">
+                        </a>
+                        <a href="/images/gallery/placeholder.svg" data-caption="Laboratory Session">
+                            <img src="/images/gallery/placeholder.svg" alt="Laboratory Session">
+                        </a>
                     </div>
-                    <div class="video-item">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8c_e_D6lK_D8V5T4K_W5F_0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <p>Annual Day Celebration (Placeholder)</p>
-                    </div>
+                    <p class="mt-4"><em>More images will be added soon! These are placeholders and will be replaced with
+                            actual event photos.</em></p>
+                    <p>This section will eventually be integrated with the backend (`/api/gallery`) to dynamically load
+                        images.</p>
                 </div>
-                <p class="mt-4"><em>More videos will be added soon! These are placeholders and will be replaced with actual event videos.</em></p>
-                <p>This section will eventually be integrated with the backend (`/api/videos`) to dynamically load video links.</p>
-            </div>
-        </section>
+            </section>
 
-        <section class="call-to-action">
-            <div class="container">
-                <h2>Want to See More?</h2>
-                <p>Visit our school to experience the vibrant atmosphere firsthand.</p>
-                <a href="/school/contact" class="cta-button primary">Plan Your Visit</a>
-            </div>
-        </section>
-    </main>
-    <%- include('../partials/footer') %>
+            <section class="video-gallery-section mt-5">
+                <div class="container">
+                    <h2>Videos Highlighting School Life</h2>
+                    <p>Watch videos that give you a glimpse into the dynamic environment and special moments at N.R.K.
+                        Public School.</p>
+                    <div class="video-grid">
+                        <!-- Placeholder videos for now. These will eventually be dynamically loaded from backend/data/videos.json -->
+                        <div class="video-item">
+                            <iframe width="560" height="315"
+                                src="https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8c_e_D6lK_D8V5T4K_W5F_0"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                            <p>General School Overview (Placeholder)</p>
+                        </div>
+                        <div class="video-item">
+                            <iframe width="560" height="315"
+                                src="https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8c_e_D6lK_D8V5T4K_W5F_0"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                            <p>Annual Day Celebration (Placeholder)</p>
+                        </div>
+                    </div>
+                    <p class="mt-4"><em>More videos will be added soon! These are placeholders and will be replaced with
+                            actual event videos.</em></p>
+                    <p>This section will eventually be integrated with the backend (`/api/videos`) to dynamically load
+                        video links.</p>
+                </div>
+            </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
-    <script>
-        window.addEventListener('load', function() {
-            baguetteBox.run('.gallery-grid');
-        });
-    </script>
+            <section class="call-to-action">
+                <div class="container">
+                    <h2>Want to See More?</h2>
+                    <p>Visit our school to experience the vibrant atmosphere firsthand.</p>
+                    <a href="/school/contact" class="cta-button primary">Plan Your Visit</a>
+                </div>
+            </section>
+        </main>
+        <%- include('../partials/footer') %>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
+            <script>
+                window.addEventListener('load', function () {
+                    baguetteBox.run('.gallery-grid');
+                });
+            </script>
 </body>
+
 </html>

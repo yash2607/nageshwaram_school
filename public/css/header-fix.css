@@ -1,0 +1,93 @@
+/* URGENT FIX: Logo Visibility and Header Alignment */
+
+/* Override previous nav container settings */
+nav.nav-container {
+    display: grid !important;
+    grid-template-columns: minmax(320px, max-content) 1fr auto !important;
+    align-items: center !important;
+    width: 90% !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    gap: 30px !important;
+}
+
+/* Make logo larger and more visible */
+.logo-img {
+    height: 65px !important;
+    width: auto !important;
+    object-fit: contain !important;
+    margin-right: 15px !important;
+    filter: brightness(1.1) !important;
+}
+
+/* Increase logo text size */
+.logo-text {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 1.6rem !important;
+    font-weight: 700 !important;
+    color: var(--primary-blue) !important;
+    white-space: nowrap !important;
+}
+
+/* Ensure navigation doesn't overlap */
+nav ul.nav-list {
+    display: flex !important;
+    align-items: center !important;
+    gap: 28px !important;
+    justify-self: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* CTA Button positioning */
+.nav-cta-button {
+    justify-self: end !important;
+    white-space: nowrap !important;
+}
+
+/* Responsive fixes */
+@media (max-width: 1200px) {
+    nav.nav-container {
+        gap: 20px !important;
+    }
+
+    nav ul.nav-list {
+        gap: 20px !important;
+    }
+}
+
+@media (max-width: 992px) {
+    nav.nav-container {
+        display: flex !important;
+        justify-content: space-between !important;
+        grid-template-columns: unset !important;
+    }
+
+    .logo-img {
+        height: 50px !important;
+    }
+
+    .logo-text {
+        font-size: 1.3rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-img {
+        height: 45px !important;
+    }
+
+    .logo-text {
+        font-size: 1.2rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-img {
+        height: 40px !important;
+    }
+
+    .logo-text {
+        font-size: 1rem !important;
+    }
+}

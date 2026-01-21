@@ -13,83 +13,69 @@
 <body>
     <%- include('../partials/header') %>
         <main>
-            <section class="contact-hero-section">
+            <section class="page-header">
                 <div class="container">
-                    <h1>Contact Nageshwaram Foundation Trust</h1>
+                    <h1>Contact Nageshwaram Foundation</h1>
                     <p>We are here to assist you. Reach out to us for any inquiries or support.</p>
                 </div>
             </section>
 
-            <section class="contact-info-section">
+            <section class="content-section">
                 <div class="container">
-                    <h2>Get in Touch</h2>
-                    <div class="contact-details">
-                        <div class="contact-card">
-                            <h3>General Inquiries</h3>
-                            <p>Email: <a href="mailto:info@nageshwaramtrust.org">info@nageshwaramtrust.org</a></p>
-                            <p>Phone: <a href="tel:+919000000000">+91 90000 00000</a></p>
-                            <p>Feel free to contact us for general information about the Trust, partnerships, or
-                                support.</p>
-                        </div>
-                        <div class="contact-card">
-                            <h3>Our Address</h3>
-                            <p>Nageshwaram Foundation Trust Office</p>
-                            <p>Shastri Nagar, Batiya, Jamui, Bihar – 811308</p>
-                            <p>India</p>
-                            <p>Our administrative office is open during business hours.</p>
-                        </div>
-                        <div class="contact-card">
-                            <h3>Admissions at N.R.K. Public School</h3>
-                            <section class="page-header">
-                                <div class="container">
-                                    <h1>Contact Us</h1>
-                                    <p>Reach out to the Nageshwaram Foundation Trust.</p>
-                                </div>
-                            </section>
+                    <div class="contact-grid">
+                        <!-- Contact Details -->
+                        <div class="contact-info-cards">
+                            <div class="contact-card">
+                                <div class="card-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                <h3>Our Office</h3>
+                                <p>Shastri Nagar, Batiya</p>
+                                <p>Jamui, Bihar – 811308</p>
+                            </div>
 
-                            <section class="content-section">
-                                <div class="container">
-                                    <div class="row" style="display: flex; gap: 50px; flex-wrap: wrap;">
-                                        <div style="flex: 1; min-width: 300px;">
-                                            <div style="margin-bottom: 30px;">
-                                                <h3 style="color: var(--primary-blue); margin-bottom: 15px;">Registered
-                                                    Office</h3>
-                                                <p style="margin-bottom: 5px;"><i
-                                                        class="fas fa-map-marker-alt text-gold"
-                                                        style="width: 25px;"></i> At+PO - XYZ, Dist - Jamui, Bihar</p>
-                                                <p style="margin-bottom: 5px;"><i class="fas fa-phone text-gold"
-                                                        style="width: 25px;"></i> +91 99346 64634</p>
-                                                <p style="margin-bottom: 5px;"><i class="fas fa-envelope text-gold"
-                                                        style="width: 25px;"></i> trust@nageshwaram.org</p>
-                                            </div>
+                            <div class="contact-card">
+                                <div class="card-icon"><i class="fas fa-phone-alt"></i></div>
+                                <h3>Phone & Email</h3>
+                                <p><strong>Phone:</strong> +91 99346 64634</p>
+                                <p><strong>Email:</strong> info@nageshwaramtrust.org</p>
+                            </div>
+
+                            <div class="contact-card">
+                                <div class="card-icon"><i class="fas fa-clock"></i></div>
+                                <h3>Office Hours</h3>
+                                <p>Mon - Sat: 9:00 AM - 6:00 PM</p>
+                                <p>Sun: Closed</p>
+                            </div>
+                        </div>
+
+                        <!-- Contact Form -->
+                        <div class="contact-form-container">
+                            <div class="form-wrapper">
+                                <h2>Send us a Message</h2>
+                                <p>Fill out the form below and we'll get back to you shortly.</p>
+                                <form action="/contact" method="POST" class="contact-form">
+                                    <div class="form-grid">
+                                        <div class="form-group">
+                                            <input type="text" name="name" placeholder="Full Name" required>
                                         </div>
-
-                                        <div style="flex: 1; min-width: 300px;">
-                                            <div
-                                                style="background: white; padding: 40px; box-shadow: var(--shadow-lg); border-radius: 8px;">
-                                                <h2 style="margin-bottom: 20px;">Write to Us</h2>
-                                                <form action="/contact" method="POST" style="display: grid; gap: 20px;">
-                                                    <div
-                                                        style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                                                        <input type="text" name="name" placeholder="Your Name" required
-                                                            style="padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
-                                                        <input type="tel" name="phone" placeholder="Phone Number"
-                                                            required
-                                                            style="padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
-                                                    </div>
-                                                    <input type="email" name="email" placeholder="Email Address"
-                                                        style="padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
-                                                    <textarea name="message" rows="5" placeholder="Your Message"
-                                                        required
-                                                        style="padding: 12px; border: 1px solid #ddd; border-radius: 4px;"></textarea>
-                                                    <button type="submit" class="cta-button primary">Send
-                                                        Message</button>
-                                                </form>
-                                            </div>
+                                        <div class="form-group">
+                                            <input type="tel" name="phone" placeholder="Phone Number" required>
                                         </div>
                                     </div>
-                                </div>
-                            </section>
+                                    <div class="form-group">
+                                        <input type="email" name="email" placeholder="Email Address" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea name="message" rows="5" placeholder="Your Message"
+                                            required></textarea>
+                                    </div>
+                                    <button type="submit" class="cta-button primary">Send Message <i
+                                            class="fas fa-paper-plane"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
         <%- include('../partials/footer') %>
 </body>

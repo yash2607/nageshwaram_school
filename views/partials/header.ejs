@@ -1,20 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title>
+        <%= title %>
+    </title>
     <link rel="stylesheet" href="/css/style.css">
+    <!-- Complete fix for header alignment and hero section visibility -->
+    <link rel="stylesheet" href="/css/complete-fix.css">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+
 <body>
     <header>
-        <nav>
-            <a href="/" class="logo"><img src="/images/namegeshwaram-logo.svg" alt="Nageshwaram Foundation Trust Logo" class="logo-img"></a>
+        <nav class="nav-container">
+            <!-- Logo and Title: Left aligned -->
+            <a href="/" class="logo">
+                <img src="/images/Logo.jpeg.jpeg" alt="Nageshwaram Foundation Trust Logo" class="logo-img">
+                <span class="logo-text">Nageshwaram Foundation</span>
+            </a>
+
+            <!-- Mobile Menu Toggle -->
             <div class="menu-toggle" id="mobile-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
+
+            <!-- Navigation Links: Center aligned -->
             <ul class="nav-list">
                 <li><a href="/">Home</a></li>
                 <li><a href="/about">About Trust</a></li>
@@ -22,7 +38,9 @@
                 <li><a href="/institutions">Institutions</a></li>
                 <li><a href="/careers">Careers</a></li>
                 <li><a href="/contact">Contact</a></li>
-                <li><a href="/school" class="cta-button secondary" style="padding: 8px 20px; font-size: 0.8rem; margin-left: 10px;">Visit School</a></li>
             </ul>
+
+            <!-- CTA Button: Right aligned -->
+            <a href="/school" class="nav-cta-button">VISIT SCHOOL</a>
         </nav>
     </header>

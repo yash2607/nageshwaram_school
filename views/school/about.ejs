@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="robots" content="index, follow">
-    <title><%= title %></title>
-    <meta name="keywords" content="About N.R.K. Public School, School History, N.R.K. Public School Mission, Vision, Values, Jamui School">
-    <meta name="description" content="Learn about N.R.K. Public School, its history, mission, and commitment to quality education in Jamui, Bihar.">
+    <title>
+        <%= title %>
+    </title>
+    <meta name="keywords"
+        content="About N.R.K. Public School, School History, N.R.K. Public School Mission, Vision, Values, Jamui School">
+    <meta name="description"
+        content="Learn about N.R.K. Public School, its history, mission, and commitment to quality education in Jamui, Bihar.">
     <link rel="canonical" href="https://nrkpublicschool.xyz/about">
     <link rel="shortcut icon" href="/images/namegeshwaram-logo.svg" type="image/x-icon">
     <link rel="icon" href="/images/namegeshwaram-logo.svg" type="image/x-icon">
     <link href="/css/bootstrap.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/complete-fix.css">
     <link href="/css/responsive.css" rel="stylesheet">
     <link href="/css/fontawesome-all.css" rel="stylesheet">
     <link href="/css/animate.css" rel="stylesheet">
@@ -20,79 +26,108 @@
     <link href="/css/owl.css" rel="stylesheet">
     <link href="/css/swiper.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.12.0/baguetteBox.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Removed Edunext specific CSS and JS, included in footer for main site or handled by style.css -->
     <link rel="stylesheet" href="/css/pagePhp.css">
-    <style>a.random:hover { color: var(--clr-orange) !important; }</style>
+    <style>
+        a.random:hover {
+            color: var(--clr-orange) !important;
+        }
+    </style>
 </head>
+
 <body>
     <%- include('../partials/school_header') %>
-    <main>
-        <!-- title section -->
-        <section class="banner-wrp_01">
-            <div>
-                <div class="row">
-                    <div class="col-11 mx-auto">
-                        <h2 class="mb-2 slider-con-text text-center text-md-right text-white"> About Our School </h2>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="about-section about-inner-section about-page position-relative py-lg-5 py-4" id="content">
-            <div class="auto-container" id="wrapperid">
-                <div class="row">
-                    <div class="col-md-3 d-md-block d-none">
-                        <div class="fullwidth inside-leftMenu">
-                            <div class="inside-leftMenu-Box">
-                                <div class="randomHead"><h6 class="main-page-menu">About Us</h6></div>
-                                <ul id="leftSideMenu">
-                                    <li><a href="/school/about">The School</a></li>
-                                    <li><a href="/school/academics">Academic Programme</a></li>
-                                    <li><a href="/school/principal-message">Principal's Message</a></li>
-                                    <li><a href="/school/principal-message">Our Team</a></li>
-                                    <li><a href="/school/disclosure">Mandatory Information</a></li>
-                                </ul>
-                            </div>
+        <main>
+            <!-- title section -->
+            <section class="banner-wrp_01">
+                <div>
+                    <div class="row">
+                        <div class="col-11 mx-auto">
+                            <h2 class="mb-2 slider-con-text text-center text-md-right text-white"> About Our School
+                            </h2>
                         </div>
                     </div>
-                    <div class="col-md-9">
-                        <div class="content title-content" style="overflow-y: inherit;">
-                            <div class="row text-md-left">
-                                <div class="col-sm-12">
-                                    <h2 class="main-title mb-2">ABOUT <span class="main-title mb-1 brand-color2">N.R.K. PUBLIC SCHOOL</span></h2>
+                </div>
+            </section>
+
+            <section class="about-section about-inner-section about-page position-relative py-lg-5 py-4" id="content">
+                <div class="auto-container" id="wrapperid">
+                    <div class="row">
+                        <div class="col-md-3 d-md-block d-none">
+                            <div class="fullwidth inside-leftMenu">
+                                <div class="inside-leftMenu-Box">
+                                    <div class="randomHead">
+                                        <h6 class="main-page-menu">About Us</h6>
+                                    </div>
+                                    <ul id="leftSideMenu">
+                                        <li><a href="/school/about">The School</a></li>
+                                        <li><a href="/school/academics">Academic Programme</a></li>
+                                        <li><a href="/school/principal-message">Principal's Message</a></li>
+                                        <li><a href="/school/principal-message">Our Team</a></li>
+                                        <li><a href="/school/disclosure">Mandatory Information</a></li>
+                                    </ul>
                                 </div>
-                                <div class="col-md-12">
-                                    <div class="content-column col-lg-12 col-md-12 col-sm-12">
-                                        <div class="inner-column">
-                                            <p>Welcome to N.R.K. Public School, a beacon of learning established under the Nageshwaram Foundation Trust. Located in Shastri Nagar, Batiya, Jamui, Bihar, our school is dedicated to providing an enriching and comprehensive educational experience for children in our community.</p>
-                                            <p>Since our inception, we have committed ourselves to nurturing young minds, fostering a spirit of inquiry, and instilling strong moral values. We believe that every child possesses unique talents and capabilities, and our role is to provide a supportive environment where these can flourish.</p>
-                                            <p>Our curriculum is designed to be rigorous yet engaging, balancing academic excellence with opportunities for holistic development through sports, arts, and various co-curricular activities. We strive to create future-ready individuals who are not only academically proficient but also confident, compassionate, and responsible citizens.</p>
-                                            <p>At N.R.K. Public School, we are more than just an educational institution; we are a community that values partnership between students, parents, and educators. Together, we work towards shaping bright futures and contributing positively to the progress of our society.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="content title-content" style="overflow-y: inherit;">
+                                <div class="row text-md-left">
+                                    <div class="col-sm-12">
+                                        <h2 class="main-title mb-2">ABOUT <span
+                                                class="main-title mb-1 brand-color2">N.R.K. PUBLIC SCHOOL</span></h2>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="content-column col-lg-12 col-md-12 col-sm-12">
+                                            <div class="inner-column">
+                                                <p>Welcome to N.R.K. Public School, a beacon of learning established
+                                                    under the Nageshwaram Foundation Trust. Located in Shastri Nagar,
+                                                    Batiya, Jamui, Bihar, our school is dedicated to providing an
+                                                    enriching and comprehensive educational experience for children in
+                                                    our community.</p>
+                                                <p>Since our inception, we have committed ourselves to nurturing young
+                                                    minds, fostering a spirit of inquiry, and instilling strong moral
+                                                    values. We believe that every child possesses unique talents and
+                                                    capabilities, and our role is to provide a supportive environment
+                                                    where these can flourish.</p>
+                                                <p>Our curriculum is designed to be rigorous yet engaging, balancing
+                                                    academic excellence with opportunities for holistic development
+                                                    through sports, arts, and various co-curricular activities. We
+                                                    strive to create future-ready individuals who are not only
+                                                    academically proficient but also confident, compassionate, and
+                                                    responsible citizens.</p>
+                                                <p>At N.R.K. Public School, we are more than just an educational
+                                                    institution; we are a community that values partnership between
+                                                    students, parents, and educators. Together, we work towards shaping
+                                                    bright futures and contributing positively to the progress of our
+                                                    society.</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
             </section>
         </main>
-    <%- include('../partials/footer') %>
+        <%- include('../partials/footer') %>
 
-    <!-- JS -->
-    <script src="/js/jquery.js"></script>
-    <script src="/js/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
-    <script src="/js/owl.js"></script>
-    <script src="/js/wow.js"></script>
-    <script src="/js/scrollbar.js"></script>
-    <script src="/js/TweenMax.min.js"></script>
-    <script src="/js/swiper.min.js"></script>
-    <script src="https://resources.edunexttechnologies.com/default-form/js/duDatepicker.js"></script>
-    <script src="/js/script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.12.0/baguetteBox.min.js"></script>
-    <script src="/js/footer.js"></script>
+            <!-- JS -->
+            <script src="/js/jquery.js"></script>
+            <script src="/js/popper.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+                crossorigin="anonymous"></script>
+            <script src="/js/owl.js"></script>
+            <script src="/js/wow.js"></script>
+            <script src="/js/scrollbar.js"></script>
+            <script src="/js/TweenMax.min.js"></script>
+            <script src="/js/swiper.min.js"></script>
+            <script src="https://resources.edunexttechnologies.com/default-form/js/duDatepicker.js"></script>
+            <script src="/js/script.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.12.0/baguetteBox.min.js"></script>
+            <script src="/js/footer.js"></script>
 </body>
+
 </html>
