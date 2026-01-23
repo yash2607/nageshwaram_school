@@ -13,94 +13,69 @@
 <body>
     <%- include('../partials/header') %>
         <main>
-            <section class="founder-hero-section">
+            <section class="page-header">
                 <div class="container">
-                    <h1>Our Visionaries: Founder & Trustees</h1>
-                    <p>The guiding lights behind Nageshwaram Foundation Trust, dedicated to shaping a brighter future
-                        through education.</p>
+                    <h1>Our Visionaries</h1>
+                    <p>Meet the visionaries guiding Nageshwaram Foundation towards a brighter future.</p>
                 </div>
             </section>
 
-            <section class="founder-section">
+            <section class="content-section">
                 <div class="container">
-                    <div class="founder-card">
-                        <img src="/images/founder-placeholder.svg" alt="Founder's Image" class="founder-image">
-                        <div class="founder-details">
-                            <h2>Sumant Raj</h2>
-                            <h3>Founder, Nageshwaram Foundation Trust</h3>
-                            <p>Sumant Raj, a revered educationist and social reformer, envisioned a society where every
-                                child has the right to quality education. His unwavering commitment led to the
-                                establishment of Nageshwaram Foundation Trust. With years of experience in the
-                                educational sector, he understood the unique challenges faced by rural communities and
-                                dedicated his life to bridging the educational gap. His philosophy emphasizes not just
-                                academic achievement, but also moral values, character building, and community service.
-                                Under his inspirational leadership, the Trust has grown, touching thousands of lives and
-                                setting new benchmarks in rural education.</p>
+                    <div class="row" style="display: flex; gap: 50px; flex-wrap: wrap; margin-bottom: 60px;">
+                        <div style="flex: 1; text-align: center;">
+                            <img src="/images/founder-placeholder.jpg" alt="Founder Image"
+                                style="width: 300px; height: 300px; object-fit: cover; border-radius: 50%; border: 5px solid var(--bg-cream); box-shadow: var(--shadow-lg); margin: 0 auto;">
+                        </div>
+                        <div style="flex: 2; align-self: center;">
+                            <h2 style="color: var(--accent-gold);">Message from the Founder</h2>
+                            <h3 style="margin-bottom: 20px;">Shri Nageshwar Singh</h3>
+                            <p class="founder-quote"
+                                style="font-style: italic; font-size: 1.2rem; border-left: 4px solid var(--accent-gold); padding-left: 20px; color: #555;">
+                                "Education is not just about literacy; it is about liberation. It is the key
+                                that unlocks the golden door of freedom and opportunity. My dream is to see
+                                every child in our village equipped with the knowledge and values to lead a life
+                                of dignity and purpose."
+                            </p>
+                            <p>With decades of social service and a heart beating for the community, Shri
+                                Nageshwar Singh laid the foundation of this trust to return to society the
+                                blessings of knowledge.</p>
                         </div>
                     </div>
-                    <section class="page-header">
-                        <div class="container">
-                            <h1>Leadership & Vision</h1>
-                            <p>Meet the visionaries guiding Nageshwaram Foundation towards a brighter future.</p>
-                        </div>
-                    </section>
 
-                    <section class="content-section">
-                        <div class="container">
-                            <div class="row" style="display: flex; gap: 50px; flex-wrap: wrap; margin-bottom: 60px;">
-                                <div style="flex: 1; text-align: center;">
-                                    <img src="/images/founder-placeholder.jpg" alt="Founder Image"
-                                        style="width: 300px; height: 300px; object-fit: cover; border-radius: 50%; border: 5px solid var(--bg-cream); box-shadow: var(--shadow-lg); margin: 0 auto;">
+                    <div class="trustee-list text-center">
+                        <h2>Board of Trustees</h2>
+                        <p style="margin-bottom: 40px;">Our distinguished board members bringing diverse
+                            expertise to our mission.</p>
+                        <div class="card-row">
+                            <div class="card trustee-card">
+                                <div
+                                    style="width: 100px; height: 100px; background: #eee; border-radius: 50%; margin: 0 auto 20px;">
                                 </div>
-                                <div style="flex: 2; align-self: center;">
-                                    <h2 style="color: var(--accent-gold);">Message from the Founder</h2>
-                                    <h3 style="margin-bottom: 20px;">Shri Nageshwar Singh</h3>
-                                    <p class="founder-quote"
-                                        style="font-style: italic; font-size: 1.2rem; border-left: 4px solid var(--accent-gold); padding-left: 20px; color: #555;">
-                                        "Education is not just about literacy; it is about liberation. It is the key
-                                        that unlocks the golden door of freedom and opportunity. My dream is to see
-                                        every child in our village equipped with the knowledge and values to lead a life
-                                        of dignity and purpose."
-                                    </p>
-                                    <p>With decades of social service and a heart beating for the community, Shri
-                                        Nageshwar Singh laid the foundation of this trust to return to society the
-                                        blessings of knowledge.</p>
-                                </div>
+                                <h3>Trustee Name 1</h3>
+                                <p style="color: var(--accent-gold); font-weight: 500;">Chairman</p>
+                                <p>bringing 20+ years of educational administration experience.</p>
                             </div>
-
-                            <div class="trustee-list text-center">
-                                <h2>Board of Trustees</h2>
-                                <p style="margin-bottom: 40px;">Our distinguished board members bringing diverse
-                                    expertise to our mission.</p>
-                                <div class="card-row">
-                                    <div class="card trustee-card">
-                                        <div
-                                            style="width: 100px; height: 100px; background: #eee; border-radius: 50%; margin: 0 auto 20px;">
-                                        </div>
-                                        <h3>Trustee Name 1</h3>
-                                        <p style="color: var(--accent-gold); font-weight: 500;">Chairman</p>
-                                        <p>bringing 20+ years of educational administration experience.</p>
-                                    </div>
-                                    <div class="card trustee-card">
-                                        <div
-                                            style="width: 100px; height: 100px; background: #eee; border-radius: 50%; margin: 0 auto 20px;">
-                                        </div>
-                                        <h3>Trustee Name 2</h3>
-                                        <p style="color: var(--accent-gold); font-weight: 500;">Secretary</p>
-                                        <p>Dedicated social worker with a focus on rural development.</p>
-                                    </div>
-                                    <div class="card trustee-card">
-                                        <div
-                                            style="width: 100px; height: 100px; background: #eee; border-radius: 50%; margin: 0 auto 20px;">
-                                        </div>
-                                        <h3>Trustee Name 3</h3>
-                                        <p style="color: var(--accent-gold); font-weight: 500;">Treasurer</p>
-                                        <p>Ensuring transparency and ethical management of resources.</p>
-                                    </div>
+                            <div class="card trustee-card">
+                                <div
+                                    style="width: 100px; height: 100px; background: #eee; border-radius: 50%; margin: 0 auto 20px;">
                                 </div>
+                                <h3>Trustee Name 2</h3>
+                                <p style="color: var(--accent-gold); font-weight: 500;">Secretary</p>
+                                <p>Dedicated social worker with a focus on rural development.</p>
+                            </div>
+                            <div class="card trustee-card">
+                                <div
+                                    style="width: 100px; height: 100px; background: #eee; border-radius: 50%; margin: 0 auto 20px;">
+                                </div>
+                                <h3>Trustee Name 3</h3>
+                                <p style="color: var(--accent-gold); font-weight: 500;">Treasurer</p>
+                                <p>Ensuring transparency and ethical management of resources.</p>
                             </div>
                         </div>
-                    </section>
+                    </div>
+                </div>
+            </section>
         </main>
         <%- include('../partials/footer') %>
 </body>
