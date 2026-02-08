@@ -1,17 +1,102 @@
-[
-  {
-    "id": 1,
-    "title": "Annual Day 2025",
-    "image": "https://via.placeholder.com/300x200.png?text=Annual+Day+2025"
-  },
-  {
-    "id": 2,
-    "title": "Sports Day 2025",
-    "image": "https://via.placeholder.com/300x200.png?text=Sports+Day+2025"
-  },
-  {
-    "id": 3,
-    "title": "Science Exhibition 2025",
-    "image": "https://via.placeholder.com/300x200.png?text=Science+Exhibition+2025"
-  }
-]
+{
+  "categories": [
+    {
+      "name": "School Building",
+      "folder": "school-building",
+      "description": "Our beautiful campus and facilities",
+      "images": [
+        {
+          "filename": "School_Photo1.jpeg",
+          "caption": "Our School Building"
+        },
+        {
+          "filename": "School_Photo2.jpeg",
+          "caption": "Modern Classrooms"
+        },
+        {
+          "filename": "School_Photo3.jpeg",
+          "caption": "Inspiring Assembly"
+        },
+        {
+          "filename": "School_Photo4.jpeg",
+          "caption": "Resourceful Library"
+        },
+        {
+          "filename": "School_Photo5.jpeg",
+          "caption": "Active Sports Day"
+        },
+        {
+          "filename": "School_Photo6.jpeg",
+          "caption": "Equipped Laboratories"
+        }
+      ]
+    },
+    {
+      "name": "Independence Day",
+      "folder": "independence-day",
+      "description": "Celebrating India's Independence Day with pride and joy",
+      "images": [
+        {
+          "filename": "IndependenceDay1_26.jpeg",
+          "caption": "Independence Day Celebration"
+        },
+        {
+          "filename": "IndependenceDay2_26.jpeg",
+          "caption": "Flag Hoisting Ceremony"
+        },
+        {
+          "filename": "IndependenceDay3_26.jpeg",
+          "caption": "Students Performance"
+        },
+        {
+          "filename": "IndependenceDay4_26.jpeg",
+          "caption": "Cultural Program"
+        },
+        {
+          "filename": "IndependenceDay5_26.jpeg",
+          "caption": "Patriotic Activities"
+        },
+        {
+          "filename": "IndependenceDay6_26.jpeg",
+          "caption": "Group Celebration"
+        },
+        {
+          "filename": "IndependenceDay7_26.jpeg",
+          "caption": "Student Participation"
+        },
+        {
+          "filename": "IndependenceDay8_26.jpeg",
+          "caption": "March Past"
+        },
+        {
+          "filename": "IndependenceDay9_26.jpeg",
+          "caption": "Dance Performance"
+        },
+        {
+          "filename": "IndependenceDay10_26.jpeg",
+          "caption": "Speech Competition"
+        },
+        {
+          "filename": "IndependenceDay11_26.jpeg",
+          "caption": "Prize Distribution"
+        },
+        {
+          "filename": "IndependenceDay12_26.jpeg",
+          "caption": "Flag Ceremony"
+        },
+        {
+          "filename": "IndependenceDay13_26.jpeg",
+          "caption": "Students Gathering"
+        },
+        {
+          "filename": "IndependenceDay14_26.jpeg",
+          "caption": "Cultural Activities"
+        },
+        {
+          "filename": "IndependenceDay15_26.jpeg",
+          "caption": "Independence Day 2026"
+        }
+      ]
+    }
+  ]
+}

@@ -11,14 +11,89 @@
     <link rel="stylesheet" href="/css/complete-fix.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
+    <script src="/js/carousel.js" defer></script>
     <style>
         .gallery-hero {
-            background: linear-gradient(rgba(10, 38, 71, 0.7), rgba(10, 38, 71, 0.7)), url('/images/school-hero.png');
-            background-size: cover;
-            background-position: center;
+            position: relative;
             padding: 100px 0 60px;
             color: white;
             text-align: center;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Carousel Styles (reusing from home.ejs) */
+        .hero-carousel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 38, 71, 0.7);
+            z-index: 1;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 3;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: var(--accent-gold);
+            transform: scale(1.2);
         }
 
         .gallery-hero h1 {
@@ -32,11 +107,49 @@
             background: var(--bg-cream);
         }
 
+        /* Category Tabs */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .category-tab {
+            padding: 12px 30px;
+            background: white;
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .category-tab:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .category-tab.active {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .gallery-category {
+            display: none;
+        }
+
+        .gallery-category.active {
+            display: block;
+        }
+
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 25px;
-            margin-top: 40px;
+            margin-top: 30px;
         }
 
         .gallery-item {
@@ -80,6 +193,54 @@
             font-size: 1.1rem;
             color: white;
         }
+
+        @media (max-width: 768px) {
+            .gallery-hero {
+                min-height: 350px;
+                padding: 80px 0 50px;
+            }
+
+            .carousel-slide img {
+                object-fit: cover;
+                object-position: center center;
+            }
+
+            .gallery-hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 0.95rem;
+                padding: 0 15px;
+            }
+
+            .carousel-dots {
+                bottom: 15px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-hero {
+                min-height: 320px;
+            }
+
+            .gallery-hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero-content p {
+                font-size: 0.9rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
     </style>
 </head>
 
@@ -87,9 +248,34 @@
     <%- include('../partials/school_header') %>
         <main>
             <section class="gallery-hero">
-                <div class="container">
+                <!-- Carousel Background -->
+                <div class="hero-carousel">
+                    <div class="carousel-slide active">
+                        <img src="/images/cursouse_image1_0226.jpeg" alt="School Campus">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="/images/cursouse_image2_0226.jpeg" alt="School Building">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="/images/cursouse_image3_0226.jpeg" alt="School Facilities">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="/images/Curouse_image4_0226.jpeg" alt="School Campus View">
+                    </div>
+                </div>
+
+                <!-- Hero Content -->
+                <div class="container hero-content">
                     <h1>Our School Gallery</h1>
                     <p>Capturing the vibrant life and achievements at N.R.K. Public School.</p>
+                </div>
+
+                <!-- Carousel Dots -->
+                <div class="carousel-dots">
+                    <span class="carousel-dot active" onclick="currentSlide(0)"></span>
+                    <span class="carousel-dot" onclick="currentSlide(1)"></span>
+                    <span class="carousel-dot" onclick="currentSlide(2)"></span>
+                    <span class="carousel-dot" onclick="currentSlide(3)"></span>
                 </div>
             </section>
 
@@ -97,49 +283,181 @@
                 <div class="container">
                     <div class="text-center">
                         <h2 style="color: var(--primary-blue);">Moments of Joy & Learning</h2>
-                        <p style="color: var(--text-gray); max-width: 600px; margin: 0 auto;">Take a glimpse into our
-                            campus life, modern facilities, and enthusiastic students.</p>
+                        <p style="color: var(--text-gray); max-width: 600px; margin: 0 auto;">Browse through our
+                            photo categories and explore campus life</p>
                     </div>
 
-                    <div class="gallery-grid" id="school-gallery">
-                        <a href="/images/School_Photo1.jpeg" class="gallery-item" data-caption="Our School Building">
-                            <img src="/images/School_Photo1.jpeg" alt="School Building">
-                            <div class="gallery-overlay">
-                                <h4>Our School Building</h4>
-                            </div>
-                        </a>
-                        <a href="/images/School_Photo2.jpeg" class="gallery-item"
-                            data-caption="Smart Classroom Learning">
-                            <img src="/images/School_Photo2.jpeg" alt="Classroom">
-                            <div class="gallery-overlay">
-                                <h4>Modern Classrooms</h4>
-                            </div>
-                        </a>
-                        <a href="/images/School_Photo3.jpeg" class="gallery-item" data-caption="Student Assembly">
-                            <img src="/images/School_Photo3.jpeg" alt="Assembly">
-                            <div class="gallery-overlay">
-                                <h4>Inspiring Assembly</h4>
-                            </div>
-                        </a>
-                        <a href="/images/School_Photo4.jpeg" class="gallery-item"
-                            data-caption="Library & Resource Center">
-                            <img src="/images/School_Photo4.jpeg" alt="Library">
-                            <div class="gallery-overlay">
-                                <h4>Resourceful Library</h4>
-                            </div>
-                        </a>
-                        <a href="/images/School_Photo5.jpeg" class="gallery-item" data-caption="Sports & Activities">
-                            <img src="/images/School_Photo5.jpeg" alt="Sports">
-                            <div class="gallery-overlay">
-                                <h4>Active Sports Day</h4>
-                            </div>
-                        </a>
-                        <a href="/images/School_Photo6.jpeg" class="gallery-item" data-caption="Laboratory Facilities">
-                            <img src="/images/School_Photo6.jpeg" alt="Lab">
-                            <div class="gallery-overlay">
-                                <h4>Equipped Laboratories</h4>
-                            </div>
-                        </a>
+                    <!-- Category Tabs -->
+                    <div class="category-tabs">
+                        <button class="category-tab active" onclick="showCategory('school-building')">School
+                            Building</button>
+                        <button class="category-tab" onclick="showCategory('independence-day')">Independence
+                            Day</button>
+                    </div>
+
+                    <!-- School Building Category -->
+                    <div id="school-building" class="gallery-category active">
+                        <h3 style="color: var(--primary-blue); margin-bottom: 20px;">School Building</h3>
+                        <div class="gallery-grid">
+                            <a href="/images/gallery/school-building/School_Photo1.jpeg" class="gallery-item"
+                                data-caption="Our School Building">
+                                <img src="/images/gallery/school-building/School_Photo1.jpeg" alt="School Building">
+                                <div class="gallery-overlay">
+                                    <h4>Our School Building</h4>
+                                </div>
+                            </a>
+                            <a href="/images/gallery/school-building/School_Photo2.jpeg" class="gallery-item"
+                                data-caption="Modern Classrooms">
+                                <img src="/images/gallery/school-building/School_Photo2.jpeg" alt="Classroom">
+                                <div class="gallery-overlay">
+                                    <h4>Modern Classrooms</h4>
+                                </div>
+                            </a>
+                            <a href="/images/gallery/school-building/School_Photo3.jpeg" class="gallery-item"
+                                data-caption="Inspiring Assembly">
+                                <img src="/images/gallery/school-building/School_Photo3.jpeg" alt="Assembly">
+                                <div class="gallery-overlay">
+                                    <h4>Inspiring Assembly</h4>
+                                </div>
+                            </a>
+                            <a href="/images/gallery/school-building/School_Photo4.jpeg" class="gallery-item"
+                                data-caption="Resourceful Library">
+                                <img src="/images/gallery/school-building/School_Photo4.jpeg" alt="Library">
+                                <div class="gallery-overlay">
+                                    <h4>Resourceful Library</h4>
+                                </div>
+                            </a>
+                            <a href="/images/gallery/school-building/School_Photo5.jpeg" class="gallery-item"
+                                data-caption="Active Sports Day">
+                                <img src="/images/gallery/school-building/School_Photo5.jpeg" alt="Sports">
+                                <div class="gallery-overlay">
+                                    <h4>Active Sports Day</h4>
+                                </div>
+                            </a>
+                            <a href="/images/gallery/school-building/School_Photo6.jpeg" class="gallery-item"
+                                data-caption="Equipped Laboratories">
+                                <img src="/images/gallery/school-building/School_Photo6.jpeg" alt="Lab">
+                                <div class="gallery-overlay">
+                                    <h4>Equipped Laboratories</h4>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Independence Day Category -->
+                    <div id="independence-day" class="gallery-category">
+                        <h3 style="color: var(--primary-blue); margin-bottom: 20px;">Independence Day Celebration</h3>
+                        <div class="gallery-grid">
+                            <a href="/images/gallery/independence-day/IndependenceDay1_26.jpeg" class="gallery-item"
+                                data-caption="Independence Day Celebration">
+                                <img src="/images/gallery/independence-day/IndependenceDay1_26.jpeg"
+                                    alt="Independence Day">
+                                <div class="gallery-overlay">
+                                    <h4>Independence Day Celebration</h4>
+                                </div>
+                            </a>
+                            <a href="/images/gallery/independence-day/IndependenceDay2_26.jpeg" class="gallery-item"
+                                data-caption="Flag Hoisting Ceremony">
+                                <img src="/images/gallery/independence-day/IndependenceDay2_26.jpeg"
+                                    alt="Flag Hoisting">
+                                <div class="gallery-overlay">
+                                    <h4>Flag Hoisting Ceremony</h4>
+                                </div>
+                            </a>
+                            <a href="/images/gallery/independence-day/IndependenceDay3_26.jpeg" class="gallery-item"
+                                data-caption="Students Performance">
+                                <img src="/images/gallery/independence-day/IndependenceDay3_26.jpeg" alt="Performance">
+                                <div class="gallery-overlay">
+                                    <h4>Students Performance</h4>
+                                </div>
+                            </a>
+                            <a href="/images/gallery/independence-day/IndependenceDay4_26.jpeg" class="gallery-item"
+                                data-caption="Cultural Program">
+                                <img src="/images/gallery/independence-day/IndependenceDay4_26.jpeg"
+                                    alt="Cultural Program">
+                                <div class="gallery-overlay">
+                                    <h4>Cultural Program</h4>
+                                </div>
+                            </a>
+                            <a href="/images/gallery/independence-day/IndependenceDay5_26.jpeg" class="gallery-item"
+                                data-caption="Patriotic Activities">
+                                <img src="/images/gallery/independence-day/IndependenceDay5_26.jpeg" alt="Activities">
+                                <div class="gallery-overlay">
+                                    <h4>Patriotic Activities</h4>
+                                </div>
+                            </a>
+                            <a href="/images/gallery/independence-day/IndependenceDay6_26.jpeg" class="gallery-item"
+                                data-caption="Group Celebration">
+                                <img src="/images/gallery/independence-day/IndependenceDay6_26.jpeg" alt="Group">
+                                <div class="gallery-overlay">
+                                    <h4>Group Celebration</h4>
+                                </div>
+                            </a>
+                            <a href="/images/gallery/independence-day/IndependenceDay7_26.jpeg" class="gallery-item"
+                                data-caption="Student Participation">
+                                <img src="/images/gallery/independence-day/IndependenceDay7_26.jpeg"
+                                    alt="Participation">
+                                <div class="gallery-overlay">
+                                    <h4>Student Participation</h4>
+                                </div>
+                            </a>
+                            <a href="/images/gallery/independence-day/IndependenceDay8_26.jpeg" class="gallery-item"
+                                data-caption="March Past">
+                                <img src="/images/gallery/independence-day/IndependenceDay8_26.jpeg" alt="March Past">
+                                <div class="gallery-overlay">
+                                    <h4>March Past</h4>
+                                </div>
+                            </a>
+                            <a href="/images/gallery/independence-day/IndependenceDay9_26.jpeg" class="gallery-item"
+                                data-caption="Dance Performance">
+                                <img src="/images/gallery/independence-day/IndependenceDay9_26.jpeg" alt="Dance">
+                                <div class="gallery-overlay">
+                                    <h4>Dance Performance</h4>
+                                </div>
+                            </a>
+                            <a href="/images/gallery/independence-day/IndependenceDay10_26.jpeg" class="gallery-item"
+                                data-caption="Speech Competition">
+                                <img src="/images/gallery/independence-day/IndependenceDay10_26.jpeg" alt="Speech">
+                                <div class="gallery-overlay">
+                                    <h4>Speech Competition</h4>
+                                </div>
+                            </a>
+                            <a href="/images/gallery/independence-day/IndependenceDay11_26.jpeg" class="gallery-item"
+                                data-caption="Prize Distribution">
+                                <img src="/images/gallery/independence-day/IndependenceDay11_26.jpeg" alt="Prizes">
+                                <div class="gallery-overlay">
+                                    <h4>Prize Distribution</h4>
+                                </div>
+                            </a>
+                            <a href="/images/gallery/independence-day/IndependenceDay12_26.jpeg" class="gallery-item"
+                                data-caption="Flag Ceremony">
+                                <img src="/images/gallery/independence-day/IndependenceDay12_26.jpeg" alt="Flag">
+                                <div class="gallery-overlay">
+                                    <h4>Flag Ceremony</h4>
+                                </div>
+                            </a>
+                            <a href="/images/gallery/independence-day/IndependenceDay13_26.jpeg" class="gallery-item"
+                                data-caption="Students Gathering">
+                                <img src="/images/gallery/independence-day/IndependenceDay13_26.jpeg" alt="Gathering">
+                                <div class="gallery-overlay">
+                                    <h4>Students Gathering</h4>
+                                </div>
+                            </a>
+                            <a href="/images/gallery/independence-day/IndependenceDay14_26.jpeg" class="gallery-item"
+                                data-caption="Cultural Activities">
+                                <img src="/images/gallery/independence-day/IndependenceDay14_26.jpeg" alt="Cultural">
+                                <div class="gallery-overlay">
+                                    <h4>Cultural Activities</h4>
+                                </div>
+                            </a>
+                            <a href="/images/gallery/independence-day/IndependenceDay15_26.jpeg" class="gallery-item"
+                                data-caption="Independence Day 2026">
+                                <img src="/images/gallery/independence-day/IndependenceDay15_26.jpeg" alt="2026">
+                                <div class="gallery-overlay">
+                                    <h4>Independence Day 2026</h4>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -181,6 +499,27 @@
 
             <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
             <script>
+                // Category switching
+                function showCategory(categoryId) {
+                    // Hide all categories
+                    const categories = document.querySelectorAll('.gallery-category');
+                    categories.forEach(cat => cat.classList.remove('active'));
+
+                    // Remove active from all tabs
+                    const tabs = document.querySelectorAll('.category-tab');
+                    tabs.forEach(tab => tab.classList.remove('active'));
+
+                    // Show selected category
+                    document.getElementById(categoryId).classList.add('active');
+
+                    // Highlight active tab
+                    event.target.classList.add('active');
+
+                    // Reinitialize lightbox for the new category
+                    baguetteBox.run('.gallery-grid');
+                }
+
+                // Initialize lightbox on page load
                 window.addEventListener('load', function () {
                     baguetteBox.run('.gallery-grid');
                 });
