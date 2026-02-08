@@ -11,89 +11,14 @@
     <link rel="stylesheet" href="/css/complete-fix.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
-    <script src="/js/carousel.js" defer></script>
     <style>
         .gallery-hero {
-            position: relative;
+            background: linear-gradient(rgba(10, 38, 71, 0.7), rgba(10, 38, 71, 0.7)), url('/images/school-hero.png');
+            background-size: cover;
+            background-position: center;
             padding: 100px 0 60px;
             color: white;
             text-align: center;
-            overflow: hidden;
-            min-height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Carousel Styles (reusing from home.ejs) */
-        .hero-carousel {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
-
-        .carousel-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-
-        .carousel-slide.active {
-            opacity: 1;
-        }
-
-        .carousel-slide::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(10, 38, 71, 0.7);
-            z-index: 1;
-        }
-
-        .carousel-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center center;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .carousel-dots {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-            z-index: 3;
-        }
-
-        .carousel-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .carousel-dot.active {
-            background: var(--accent-gold);
-            transform: scale(1.2);
         }
 
         .gallery-hero h1 {
@@ -195,27 +120,8 @@
         }
 
         @media (max-width: 768px) {
-            .gallery-hero {
-                min-height: 350px;
-                padding: 80px 0 50px;
-            }
-
-            .carousel-slide img {
-                object-fit: cover;
-                object-position: center center;
-            }
-
             .gallery-hero h1 {
                 font-size: 2rem;
-            }
-
-            .hero-content p {
-                font-size: 0.95rem;
-                padding: 0 15px;
-            }
-
-            .carousel-dots {
-                bottom: 15px;
             }
 
             .gallery-grid {
@@ -224,18 +130,6 @@
         }
 
         @media (max-width: 480px) {
-            .gallery-hero {
-                min-height: 320px;
-            }
-
-            .gallery-hero h1 {
-                font-size: 1.75rem;
-            }
-
-            .hero-content p {
-                font-size: 0.9rem;
-            }
-
             .gallery-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
@@ -248,34 +142,9 @@
     <%- include('../partials/school_header') %>
         <main>
             <section class="gallery-hero">
-                <!-- Carousel Background -->
-                <div class="hero-carousel">
-                    <div class="carousel-slide active">
-                        <img src="/images/cursouse_image1_0226.jpeg" alt="School Campus">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="/images/cursouse_image2_0226.jpeg" alt="School Building">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="/images/cursouse_image3_0226.jpeg" alt="School Facilities">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="/images/Curouse_image4_0226.jpeg" alt="School Campus View">
-                    </div>
-                </div>
-
-                <!-- Hero Content -->
-                <div class="container hero-content">
+                <div class="container">
                     <h1>Our School Gallery</h1>
                     <p>Capturing the vibrant life and achievements at N.R.K. Public School.</p>
-                </div>
-
-                <!-- Carousel Dots -->
-                <div class="carousel-dots">
-                    <span class="carousel-dot active" onclick="currentSlide(0)"></span>
-                    <span class="carousel-dot" onclick="currentSlide(1)"></span>
-                    <span class="carousel-dot" onclick="currentSlide(2)"></span>
-                    <span class="carousel-dot" onclick="currentSlide(3)"></span>
                 </div>
             </section>
 
