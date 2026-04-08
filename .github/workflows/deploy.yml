@@ -28,4 +28,6 @@ jobs:
           cd nageshwaram_school
           git pull origin master
           npm install
+          echo "ZOHO_USER=${{ secrets.ZOHO_USER }}" > .env
+          echo "ZOHO_PASS=${{ secrets.ZOHO_PASS }}" >> .env
           pm2 restart nageshwaram-site || pm2 start server.js --name "nageshwaram-site"
