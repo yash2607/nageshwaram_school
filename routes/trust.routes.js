@@ -47,25 +47,33 @@ router.post('/contact', (req, res) => {
     // Save to database
     addTrustInquiry(inquiry);
 
-    // Send email
-    const mailOptions = {
+    // Send email to admin
+    const mailOptionsAdmin = {
         from: process.env.ZOHO_USER,
         to: 'info@nageshwaramtrust.org',
         subject: `New Inquiry from ${name} (Trust Contact Form)`,
         text: `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`
     };
 
-    console.log('Attempting to send email with options:');
-    console.log(mailOptions);
+    // Send auto-reply to user
+    const mailOptionsUser = {
+        from: process.env.ZOHO_USER,
+        to: email, // Sending right back to the user
+        subject: `Thank you for contacting Nageshwaram Foundation Trust`,
+        text: `Dear ${name},\n\nThank you for reaching out to us. We have received your query and our team will get back to you shortly.\n\nYour Query:\nSubject: ${subject}\nMessage: ${message}\n\nBest Regards,\nNageshwaram Foundation Trust Team`
+    };
 
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            console.error('Error sending email:', error);
-            res.render('trust/contact', { title: 'Contact Us', message: 'Something went wrong. Please try again.' });
-        } else {
-            console.log('Email sent:', info);
-            res.render('trust/contact', { title: 'Contact Us', message: 'Thank you for your message. We will get back to you soon.' });
-        }
+    console.log('Attempting to send emails for Trust inquiry...');
+
+    Promise.all([
+        transporter.sendMail(mailOptionsAdmin),
+        transporter.sendMail(mailOptionsUser)
+    ]).then(results => {
+        console.log('Emails sent successfully');
+        res.render('trust/contact', { title: 'Contact Us', message: 'Thank you for your message. We have sent a confirmation email to you.' });
+    }).catch(error => {
+        console.error('Error sending emails:', error);
+        res.render('trust/contact', { title: 'Contact Us', message: 'Something went wrong. Please try again.' });
     });
 });
 
