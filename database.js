@@ -6,10 +6,13 @@ const dbPath = path.join(__dirname, 'db.json');
 function readData() {
   try {
     const data = fs.readFileSync(dbPath, 'utf8');
-    return JSON.parse(data);
+    const parsed = JSON.parse(data);
+    // Ensure school_enquiries array exists
+    if (!parsed.school_enquiries) parsed.school_enquiries = [];
+    return parsed;
   } catch (error) {
     if (error.code === 'ENOENT') {
-      return { school_inquiries: [], trust_inquiries: [] };
+      return { school_inquiries: [], trust_inquiries: [], school_enquiries: [] };
     }
     throw error;
   }
@@ -41,9 +44,16 @@ function addTrustInquiry(inquiry) {
   writeData(data);
 }
 
+function addSchoolEnquiry(enquiry) {
+  const data = readData();
+  data.school_enquiries.push(enquiry);
+  writeData(data);
+}
+
 module.exports = {
   getSchoolInquiries,
   addSchoolInquiry,
   getTrustInquiries,
-  addTrustInquiry
+  addTrustInquiry,
+  addSchoolEnquiry
 };

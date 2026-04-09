@@ -213,6 +213,11 @@
 
                         <div class="contact-form-panel">
                             <h2 style="color: var(--primary-blue); margin-bottom: 25px;">Send a Message</h2>
+                            <% if (message) { %>
+                                <div style="background-color: #d4edda; color: #155724; padding: 15px; margin-bottom: 20px; border: 1px solid #c3e6cb; border-radius: 6px; font-weight: 500;">
+                                    <%= message %>
+                                </div>
+                            <% } %>
                             <form action="/school/contact" method="POST">
                                 <div class="form-group">
                                     <label for="name">Full Name</label>

@@ -52,6 +52,11 @@
                             <div class="form-wrapper">
                                 <h2>Send us a Message</h2>
                                 <p>Fill out the form below and we'll get back to you shortly.</p>
+                                <% if (message) { %>
+                                    <div style="background-color: #d4edda; color: #155724; padding: 15px; margin-bottom: 20px; border: 1px solid #c3e6cb; border-radius: 6px; font-weight: 500;">
+                                        <%= message %>
+                                    </div>
+                                <% } %>
                                 <form action="/contact" method="POST" class="contact-form">
                                     <div class="form-grid">
                                         <div class="form-group">

@@ -470,6 +470,553 @@
         </main>
 
         <%- include('../partials/footer') %>
+
+            <!-- Floating Enquire Now Button -->
+            <button id="enquireNowBtn" class="enquire-float-btn" onclick="openEnquiryModal()">
+                <i class="fas fa-pen-to-square"></i>
+                <span>Enquire Now</span>
+            </button>
+
+            <!-- Enquiry Modal Overlay -->
+            <div id="enquiryModal" class="enquiry-modal-overlay" onclick="closeEnquiryModalOutside(event)">
+                <div class="enquiry-modal">
+                    <button class="enquiry-modal-close" onclick="closeEnquiryModal()"
+                        aria-label="Close">&times;</button>
+
+                    <!-- Form View -->
+                    <div id="enquiryFormView">
+                        <div class="enquiry-modal-header">
+                            <div class="enquiry-modal-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h2>Enquire Now</h2>
+                            <p>Fill in the details below and our team will get back to you shortly.</p>
+                        </div>
+                        <form id="enquiryForm" class="enquiry-form" onsubmit="submitEnquiry(event)">
+                            <div class="enquiry-form-group">
+                                <label for="enq_name"><i class="fas fa-user"></i> Full Name <span
+                                        class="required">*</span></label>
+                                <input type="text" id="enq_name" name="name" placeholder="Enter your full name"
+                                    required>
+                            </div>
+                            <div class="enquiry-form-row">
+                                <div class="enquiry-form-group">
+                                    <label for="enq_email"><i class="fas fa-envelope"></i> Email <span
+                                            class="required">*</span></label>
+                                    <input type="email" id="enq_email" name="email" placeholder="email@example.com"
+                                        required>
+                                </div>
+                                <div class="enquiry-form-group">
+                                    <label for="enq_phone"><i class="fas fa-phone"></i> Phone <span
+                                            class="required">*</span></label>
+                                    <input type="tel" id="enq_phone" name="phone" placeholder="10-digit number"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="enquiry-form-group">
+                                <label for="enq_class"><i class="fas fa-chalkboard"></i> Student Class <span
+                                        class="required">*</span></label>
+                                <select id="enq_class" name="studentClass" required>
+                                    <option value="" disabled selected>Select Class</option>
+                                    <option value="Nursery">Nursery</option>
+                                    <option value="LKG">LKG</option>
+                                    <option value="UKG">UKG</option>
+                                    <option value="Class 1">Class 1</option>
+                                    <option value="Class 2">Class 2</option>
+                                    <option value="Class 3">Class 3</option>
+                                    <option value="Class 4">Class 4</option>
+                                    <option value="Class 5">Class 5</option>
+                                    <option value="Class 6">Class 6</option>
+                                    <option value="Class 7">Class 7</option>
+                                    <option value="Class 8">Class 8</option>
+                                    <option value="Class 9">Class 9</option>
+                                    <option value="Class 10">Class 10</option>
+                                    <option value="Class 11 - Science">Class 11 - Science</option>
+                                    <option value="Class 11 - Commerce">Class 11 - Commerce</option>
+                                    <option value="Class 11 - Arts">Class 11 - Arts</option>
+                                    <option value="Class 12 - Science">Class 12 - Science</option>
+                                    <option value="Class 12 - Commerce">Class 12 - Commerce</option>
+                                    <option value="Class 12 - Arts">Class 12 - Arts</option>
+                                </select>
+                            </div>
+                            <div class="enquiry-form-group">
+                                <label for="enq_message"><i class="fas fa-comment-dots"></i> Message <span
+                                        class="required">*</span></label>
+                                <textarea id="enq_message" name="message" rows="3"
+                                    placeholder="Your message or query..." required></textarea>
+                            </div>
+                            <div id="enquiryError" class="enquiry-error" style="display:none;"></div>
+                            <button type="submit" class="enquiry-submit-btn" id="enquirySubmitBtn">
+                                <span class="btn-text">Submit Enquiry</span>
+                                <span class="btn-loader" style="display:none;"><i class="fas fa-spinner fa-spin"></i>
+                                    Submitting...</span>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Thank You View -->
+                    <div id="enquiryThankYou" class="enquiry-thankyou" style="display:none;">
+                        <div class="thankyou-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h2>Thank You!</h2>
+                        <p>Your enquiry has been submitted successfully.</p>
+                        <div class="enquiry-number-box">
+                            <span class="enquiry-number-label">Your Enquiry Number</span>
+                            <span class="enquiry-number-value" id="enquiryNumberDisplay"></span>
+                        </div>
+                        <p class="thankyou-note" id="emailStatusMsg">A confirmation email has been sent to your email
+                            address.</p>
+                        <button class="enquiry-submit-btn" onclick="closeEnquiryModal()"
+                            style="margin-top: 20px;">Close</button>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                /* Floating Button - Right side vertical tab */
+                .enquire-float-btn {
+                    position: fixed;
+                    top: 50%;
+                    right: 0;
+                    transform: translateY(-50%);
+                    z-index: 9999;
+                    background: #d3bf09;
+                    color: white;
+                    border: none;
+                    padding: 18px 12px;
+                    border-radius: 8px 0 0 8px;
+                    font-size: 0.95rem;
+                    font-weight: 700;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    writing-mode: vertical-rl;
+                    text-orientation: mixed;
+                    letter-spacing: 1.5px;
+                    text-transform: uppercase;
+                    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.2);
+                    transition: all 0.3s ease;
+                    gap: 8px;
+                }
+
+                .enquire-float-btn:hover {
+                    padding-right: 18px;
+                    box-shadow: -6px 0 25px rgba(0, 0, 0, 0.3);
+                    background: #218838;
+                }
+
+                .enquire-float-btn i {
+                    font-size: 1rem;
+                    writing-mode: horizontal-tb;
+                }
+
+                /* Modal Overlay */
+                .enquiry-modal-overlay {
+                    display: none;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: rgba(0, 0, 0, 0.6);
+                    backdrop-filter: blur(4px);
+                    z-index: 10000;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 20px;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                }
+
+                .enquiry-modal-overlay.active {
+                    display: flex;
+                    opacity: 1;
+                }
+
+                /* Modal Box */
+                .enquiry-modal {
+                    background: white;
+                    border-radius: 16px;
+                    width: 100%;
+                    max-width: 520px;
+                    max-height: 90vh;
+                    overflow-y: auto;
+                    padding: 35px 30px;
+                    position: relative;
+                    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+                    transform: translateY(30px);
+                    transition: transform 0.3s ease;
+                }
+
+                .enquiry-modal-overlay.active .enquiry-modal {
+                    transform: translateY(0);
+                }
+
+                .enquiry-modal-close {
+                    position: absolute;
+                    top: 15px;
+                    right: 18px;
+                    background: none;
+                    border: none;
+                    font-size: 2rem;
+                    color: #999;
+                    cursor: pointer;
+                    line-height: 1;
+                    transition: color 0.2s;
+                }
+
+                .enquiry-modal-close:hover {
+                    color: #333;
+                }
+
+                /* Modal Header */
+                .enquiry-modal-header {
+                    text-align: center;
+                    margin-bottom: 25px;
+                }
+
+                .enquiry-modal-icon {
+                    width: 60px;
+                    height: 60px;
+                    background: linear-gradient(135deg, #0a2647, #144272);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 auto 15px auto;
+                }
+
+                .enquiry-modal-icon i {
+                    color: #FFD700;
+                    font-size: 1.5rem;
+                }
+
+                .enquiry-modal-header h2 {
+                    color: #0a2647;
+                    font-size: 1.6rem;
+                    margin: 0 0 8px 0;
+                }
+
+                .enquiry-modal-header p {
+                    color: #777;
+                    font-size: 0.95rem;
+                    margin: 0;
+                }
+
+                /* Form Styles */
+                .enquiry-form-group {
+                    margin-bottom: 16px;
+                }
+
+                .enquiry-form-group label {
+                    display: block;
+                    font-size: 0.85rem;
+                    font-weight: 600;
+                    color: #0a2647;
+                    margin-bottom: 6px;
+                }
+
+                .enquiry-form-group label i {
+                    color: #144272;
+                    margin-right: 5px;
+                    font-size: 0.8rem;
+                }
+
+                .enquiry-form-group label .required {
+                    color: #e74c3c;
+                }
+
+                .enquiry-form-group input,
+                .enquiry-form-group select,
+                .enquiry-form-group textarea {
+                    width: 100%;
+                    padding: 11px 14px;
+                    border: 1.5px solid #ddd;
+                    border-radius: 8px;
+                    font-size: 0.95rem;
+                    font-family: inherit;
+                    transition: border-color 0.3s, box-shadow 0.3s;
+                    background: #fafafa;
+                    box-sizing: border-box;
+                }
+
+                .enquiry-form-group input:focus,
+                .enquiry-form-group select:focus,
+                .enquiry-form-group textarea:focus {
+                    outline: none;
+                    border-color: #0a2647;
+                    box-shadow: 0 0 0 3px rgba(10, 38, 71, 0.1);
+                    background: white;
+                }
+
+                .enquiry-form-group select {
+                    appearance: auto;
+                    cursor: pointer;
+                }
+
+                .enquiry-form-row {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 14px;
+                }
+
+                .enquiry-error {
+                    background: #fef2f2;
+                    color: #dc2626;
+                    padding: 10px 14px;
+                    border-radius: 8px;
+                    font-size: 0.9rem;
+                    margin-bottom: 14px;
+                    border: 1px solid #fecaca;
+                }
+
+                .enquiry-submit-btn {
+                    width: 100%;
+                    padding: 14px;
+                    background: linear-gradient(135deg, #0a2647, #144272);
+                    color: #FFD700;
+                    border: none;
+                    border-radius: 10px;
+                    font-size: 1.05rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    letter-spacing: 0.3px;
+                }
+
+                .enquiry-submit-btn:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 6px 20px rgba(10, 38, 71, 0.3);
+                }
+
+                .enquiry-submit-btn:disabled {
+                    opacity: 0.7;
+                    cursor: not-allowed;
+                    transform: none;
+                }
+
+                /* Thank You View */
+                .enquiry-thankyou {
+                    text-align: center;
+                    padding: 20px 0;
+                }
+
+                .thankyou-icon {
+                    font-size: 4rem;
+                    color: #22c55e;
+                    margin-bottom: 15px;
+                    animation: thankScale 0.5s ease;
+                }
+
+                @keyframes thankScale {
+                    0% {
+                        transform: scale(0);
+                    }
+
+                    50% {
+                        transform: scale(1.2);
+                    }
+
+                    100% {
+                        transform: scale(1);
+                    }
+                }
+
+                .enquiry-thankyou h2 {
+                    color: #0a2647;
+                    font-size: 1.8rem;
+                    margin: 0 0 10px 0;
+                }
+
+                .enquiry-thankyou p {
+                    color: #555;
+                    font-size: 1rem;
+                    margin: 0 0 20px 0;
+                }
+
+                .enquiry-number-box {
+                    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+                    border: 2px dashed #0a2647;
+                    border-radius: 12px;
+                    padding: 18px;
+                    margin: 20px 0;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 6px;
+                }
+
+                .enquiry-number-label {
+                    font-size: 0.8rem;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    color: #666;
+                    font-weight: 600;
+                }
+
+                .enquiry-number-value {
+                    font-size: 1.8rem;
+                    font-weight: 700;
+                    color: #0a2647;
+                    letter-spacing: 2px;
+                }
+
+                .thankyou-note {
+                    font-size: 0.9rem !important;
+                    color: #888 !important;
+                }
+
+                /* Mobile */
+                @media (max-width: 768px) {
+                    .enquire-float-btn {
+                        padding: 14px 10px;
+                        font-size: 0.8rem;
+                        letter-spacing: 1px;
+                    }
+
+                    .enquiry-modal {
+                        padding: 25px 18px;
+                        max-height: 95vh;
+                        margin: 10px;
+                        border-radius: 12px;
+                    }
+
+                    .enquiry-modal-header h2 {
+                        font-size: 1.3rem;
+                    }
+
+                    .enquiry-modal-header p {
+                        font-size: 0.85rem;
+                    }
+
+                    .enquiry-form-row {
+                        grid-template-columns: 1fr;
+                        gap: 0;
+                    }
+
+                    .enquiry-number-value {
+                        font-size: 1.3rem;
+                    }
+
+                    .enquiry-modal-icon {
+                        width: 50px;
+                        height: 50px;
+                    }
+
+                    .enquiry-modal-icon i {
+                        font-size: 1.2rem;
+                    }
+                }
+
+                @media (max-width: 400px) {
+                    .enquire-float-btn {
+                        padding: 12px 8px;
+                        font-size: 0.7rem;
+                    }
+                }
+            </style>
+
+            <script>
+                function openEnquiryModal() {
+                    const modal = document.getElementById('enquiryModal');
+                    modal.style.display = 'flex';
+                    // Trigger animation
+                    requestAnimationFrame(() => {
+                        modal.classList.add('active');
+                    });
+                    document.body.style.overflow = 'hidden';
+                }
+
+                function closeEnquiryModal() {
+                    const modal = document.getElementById('enquiryModal');
+                    modal.classList.remove('active');
+                    setTimeout(() => {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = '';
+                        // Reset form
+                        document.getElementById('enquiryForm').reset();
+                        document.getElementById('enquiryFormView').style.display = '';
+                        document.getElementById('enquiryThankYou').style.display = 'none';
+                        document.getElementById('enquiryError').style.display = 'none';
+                    }, 300);
+                }
+
+                function closeEnquiryModalOutside(e) {
+                    if (e.target === e.currentTarget) closeEnquiryModal();
+                }
+
+                async function submitEnquiry(e) {
+                    e.preventDefault();
+                    const errorEl = document.getElementById('enquiryError');
+                    const submitBtn = document.getElementById('enquirySubmitBtn');
+                    const btnText = submitBtn.querySelector('.btn-text');
+                    const btnLoader = submitBtn.querySelector('.btn-loader');
+
+                    errorEl.style.display = 'none';
+
+                    const name = document.getElementById('enq_name').value.trim();
+                    const email = document.getElementById('enq_email').value.trim();
+                    const phone = document.getElementById('enq_phone').value.trim();
+                    const studentClass = document.getElementById('enq_class').value;
+                    const message = document.getElementById('enq_message').value.trim();
+
+                    // Client-side validation
+                    if (!name || !email || !phone || !studentClass || !message) {
+                        errorEl.textContent = 'Please fill in all required fields.';
+                        errorEl.style.display = 'block';
+                        return;
+                    }
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        errorEl.textContent = 'Please enter a valid email address.';
+                        errorEl.style.display = 'block';
+                        return;
+                    }
+                    if (!/^[0-9]{10}$/.test(phone.replace(/[\s\-]/g, ''))) {
+                        errorEl.textContent = 'Please enter a valid 10-digit phone number.';
+                        errorEl.style.display = 'block';
+                        return;
+                    }
+
+                    // Show loading
+                    submitBtn.disabled = true;
+                    btnText.style.display = 'none';
+                    btnLoader.style.display = 'inline';
+
+                    try {
+                        const response = await fetch('/school/enquiry', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ name, email, phone, studentClass, message })
+                        });
+                        const data = await response.json();
+
+                        if (data.success) {
+                            // Show thank you
+                            document.getElementById('enquiryFormView').style.display = 'none';
+                            document.getElementById('enquiryThankYou').style.display = 'block';
+                            document.getElementById('enquiryNumberDisplay').textContent = data.enquiryNumber;
+
+                            if (data.emailSent) {
+                                document.getElementById('emailStatusMsg').textContent = 'A confirmation email has been sent to your email address.';
+                            } else {
+                                document.getElementById('emailStatusMsg').textContent = 'Please save your enquiry number for future reference. Our team will contact you soon.';
+                            }
+                        } else {
+                            errorEl.textContent = data.error || 'Something went wrong. Please try again.';
+                            errorEl.style.display = 'block';
+                        }
+                    } catch (err) {
+                        errorEl.textContent = 'Network error. Please check your connection and try again.';
+                        errorEl.style.display = 'block';
+                    } finally {
+                        submitBtn.disabled = false;
+                        btnText.style.display = 'inline';
+                        btnLoader.style.display = 'none';
+                    }
+                }
+            </script>
 </body>
 
 </html>
