@@ -162,10 +162,10 @@ main {
     }
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1300px) and (min-width: 993px) {
     header.school-header .logo-text {
         display: none !important;
-        /* Hide long title text earlier on school site to prevent overlap */
+        /* Hide long title text on mid-size screens to prevent nav overlap, but show on mobile */
     }
 }
 
@@ -463,10 +463,11 @@ header.school-header {
         height: 55px !important;
     }
 
-    .logo-text {
+    .logo-text,
+    header.school-header .logo-text {
         font-size: 1.2rem !important;
         display: block !important;
-        /* Ensure some text is visible if it fits */
+        /* Ensure school name is visible on mobile */
     }
 
     .menu-toggle {
@@ -493,8 +494,10 @@ header.school-header {
         height: 45px !important;
     }
 
-    .logo-text {
+    .logo-text,
+    header.school-header .logo-text {
         font-size: 1.1rem !important;
+        display: block !important;
     }
 
     .hero-content h1 {
@@ -507,8 +510,10 @@ header.school-header {
         height: 40px !important;
     }
 
-    .logo-text {
-        font-size: 1rem !important;
+    .logo-text,
+    header.school-header .logo-text {
+        font-size: 0.85rem !important;
+        display: block !important;
     }
 
     nav.nav-container {
